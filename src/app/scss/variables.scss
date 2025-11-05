@@ -1,0 +1,47 @@
+// Font Imports
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined");
+
+// Colors
+$primary: #2b6cee;
+$background-light: #eeeeee;
+$background-dark: #111111;
+$text-light: #111318;
+$text-dark: #f0f2f4;
+$background-alternate: #f8f8f8;
+
+$background-nav-light: #ffffff;
+$background-nav-dark: #000000;
+$border-nav-light: 1px solid rgba(255, 255, 255, 0.2);
+$border-nav-dark: 1px solid rgba(255, 255, 255, 0.1);
+
+// Fonts
+$font-display: "Inter", sans-serif;
+
+// Border Radius
+$border-radius: 1rem;
+$border-radius-lg: 2rem;
+$border-radius-xl: 3rem;
+$border-radius-full: 9999px;
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+
+// Mixin for media queries
+@mixin mq($size) {
+  @if $size == sm {
+    @media (min-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $size == md {
+    @media (min-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $size == lg {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,129 @@
+@use "../../app/scss/variables" as *;
+
+:root {
+  --nav-background: #{rgba($background-nav-light, 0.4)};
+  --border-nav: #{$border-nav-light};
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --nav-background: #{rgba($background-nav-dark, 0.4)};
+    --border-nav: #{$border-nav-dark};
+  }
+}
+
+.floating-header {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 2rem);
+  max-width: 56rem; // 4xl
+  z-index: 50;
+
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    border-radius: $border-radius-full;
+    border: var(--border-nav);
+    background-color: var(--nav-background);
+    padding: 0.5rem 1.5rem;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    backdrop-filter: blur(10px);
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--foreground);
+
+    .logo-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      color: $primary;
+    }
+    .logo-text {
+      font-size: 1.125rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+    }
+  }
+
+  .main-nav {
+    display: none;
+    align-items: center;
+    gap: 2.25rem;
+    @include mq(md) {
+      display: flex;
+    }
+
+    a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      line-height: 1.5;
+      color: var(--foreground);
+      transition: color 0.2s ease-in-out;
+      &:hover {
+        color: $primary;
+      }
+
+      body.dark & {
+        color: $text-dark;
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+  }
+
+  .social-links {
+    display: none;
+    gap: 0.5rem;
+    @include mq(md) {
+      display: flex;
+    }
+  }
+
+  .social-icon,
+  .mobile-menu-button button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: $border-radius-full;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: $background-light;
+    color: $text-light;
+    transition: background-color 0.2s ease-in-out;
+    border: none;
+
+    &:hover {
+      background-color: rgba($primary, 0.2);
+    }
+
+    body.dark & {
+      background-color: rgba($background-dark, 0.8);
+      color: $text-dark;
+      &:hover {
+        background-color: rgba($primary, 0.3);
+      }
+    }
+  }
+
+  .mobile-menu-button {
+    display: flex;
+    @include mq(md) {
+      display: none;
+    }
+
+    .material-symbols-outlined {
+      font-size: 1.5rem;
+    }
+  }
+}
