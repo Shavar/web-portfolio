@@ -1,4 +1,4 @@
-export type Route = "work" | "education" | "skills" | "projects" | "contact";
+export type Route = "profile" | "experience" | "websites" | "projects";
 
 export interface ProfileBio {
   name: string;
@@ -14,7 +14,8 @@ export interface NavItem {
 export interface WorkEntry {
   title: string;
   company: string;
-  duration: string;
+  startDate: Date;
+  endDate: Date | string;
   details: string[];
 }
 

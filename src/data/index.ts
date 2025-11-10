@@ -9,9 +9,10 @@ export const profileBio: ProfileBio = {
 
 // Navigation configuration
 export const navItems: NavItem[] = [
-  { label: "Work", route: "work" },
+  { label: "Profile", route: "profile" },
+  { label: "Experience", route: "experience" },
   { label: "Projects", route: "projects" },
-  { label: "Contact", route: "contact" },
+  { label: "Websites", route: "websites" },
 ];
 
 // Work experience data
@@ -19,7 +20,8 @@ export const workExperience: WorkEntry[] = [
   {
     title: "Senior Software Engineer",
     company: "Innovate Solutions Inc.",
-    duration: "JAN 2021 - PRESENT",
+    startDate: new Date("2021-01-01"),
+    endDate: "Present",
     details: [
       "Led the development of a scalable microservices architecture, improving system performance by 40%.",
       "Mentored junior engineers, fostering a culture of collaboration and continuous learning.",
@@ -29,7 +31,8 @@ export const workExperience: WorkEntry[] = [
   {
     title: "Full-Stack Developer",
     company: "Tech Forward LLC",
-    duration: "JUN 2018 - DEC 2020",
+    startDate: new Date("2018-06-01"),
+    endDate: new Date("2020-12-31"),
     details: [
       "Developed and maintained client-facing web applications using React and Node.js.",
       "Collaborated with cross-functional teams to define, design, and ship new features.",

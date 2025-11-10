@@ -1,7 +1,6 @@
-import { Sidebar } from "./components/layout";
-import { WorkSection, ProjectsSection, ContactSection } from "./components/sections";
-import { useScrollAnimation, useIntersectionObserver, useScrollProgress } from "./hooks";
-import { navItems } from "./data";
+import { Sidebar } from "@layout";
+import { ProfileSection, ExperienceSection, WebsitesSection, ProjectsSection } from "./components/sections";
+import { useScrollAnimation, useIntersectionObserver, useScrollProgress } from "@/hooks";
 
 function App() {
   const { scrollToSection } = useScrollAnimation();
@@ -15,7 +14,7 @@ function App() {
   return (
     <div className="app-container">
       <div className="app-container_sidebar">
-        <Sidebar activeSection={activeSection} navItems={navItems} scrollProgress={scrollProgress} onNavClick={handleNavClick}>
+        <Sidebar activeSection={activeSection} scrollProgress={scrollProgress} onNavClick={handleNavClick}>
           <div className="footer-content">
             <p>&copy; All rights reserved.</p>
           </div>
@@ -23,9 +22,10 @@ function App() {
       </div>
 
       <main className="app-container_main">
-        <WorkSection />
+        <ProfileSection />
+        <ExperienceSection />
         <ProjectsSection />
-        <ContactSection />
+        <WebsitesSection />
       </main>
     </div>
   );

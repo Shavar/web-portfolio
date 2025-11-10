@@ -1,17 +1,20 @@
-import { SectionWrapper } from "../ui/SectionWrapper";
-import { WorkEntryComponent } from "../ui/WorkEntry";
-import { EducationEntryComponent } from "../ui/EducationEntry";
-import { workExperience, education, skillsData } from "../../data";
+import { SectionWrapper } from "../../ui/SectionWrapper";
+import { WorkEntryComponent } from "../../ui/WorkEntry/WorkEntry";
+import { EducationEntryComponent } from "../../ui/EducationEntry";
+import { workExperience, education, skillsData } from "@/data";
+import "./ExperienceSection.scss";
 
-export const WorkSection = () => {
+export const ExperienceSection = () => {
   return (
-    <SectionWrapper id="work">
+    <SectionWrapper id="experience">
       <div className="section-content">
         <h2>Work Experience</h2>
         <div className="timeline">
-          {workExperience.map((entry, index) => (
-            <WorkEntryComponent key={index} entry={entry} />
-          ))}
+          {workExperience
+            .sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime())
+            .map((entry, index) => (
+              <WorkEntryComponent key={index} entry={entry} />
+            ))}
         </div>
 
         <h2>Education</h2>

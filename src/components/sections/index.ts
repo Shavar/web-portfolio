@@ -1,3 +1,4 @@
-export * from "./WorkSection";
+export * from "./ExperienceSection/ExperienceSection";
 export * from "./ProjectsSection";
-export * from "./ContactSection";
+export * from "./ProfileSection";
+export * from "./WebsitesSection";

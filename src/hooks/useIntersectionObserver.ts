@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { createIntersectionObserver } from "../utils/scroll";
 
 export const useIntersectionObserver = (threshold: number = 0.5) => {
-  const [activeSection, setActiveSection] = useState<string>("work");
+  const [activeSection, setActiveSection] = useState<string>("profile");
 
   useEffect(() => {
     const observer = createIntersectionObserver(
