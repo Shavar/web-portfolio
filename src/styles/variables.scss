@@ -3,6 +3,8 @@ $primary-blue: #3b82f6;
 $primary-blue-600: #2563eb;
 $primary-blue-700: #1d4ed8;
 $primary-blue-100: #dbeafe;
+$primary-pumpkin: #f97316;
+$primary-pumpkin-dark: #d35400;
 
 $logo-height: 6em;
 $logo-padding: 1.5em;
@@ -69,14 +71,19 @@ $transition-timing: ease-in-out;
   transition: $property $duration $ease;
 }
 
-$background-light: #eeeeee;
+$border-light: #eeeeee;
+$background-light: #ffffff;
 $background-dark: #151515;
 $text-light: #111318;
 $text-dark: #f0f2f4;
+$background-card: #202022;
 
 :root {
   --background: #{$background-light};
   --foreground: #{$text-light};
+  --color-border: #{$border-light};
+  --color-primary: #{$primary-pumpkin-dark};
+  --background-card: #{$background-card};
 }
 
 @media (prefers-color-scheme: dark) {

@@ -4,7 +4,8 @@ import type { NavItem, ProfileBio, WorkEntry, EducationEntry, Project, ContactIn
 export const profileBio: ProfileBio = {
   name: "Shavar Cox",
   title: "Senior Frontend Developer",
-  summary: "Quickly adapt to new technologies and thrive in collaborative environments to deliver high-quality software solutions.",
+  summary:
+    "Senior Front-End Engineer with over 7 years of experience specializing in the development of intuitive, accessible, and high-performance web and mobile applications. I deliver scalable solutions that transform complex problems into seamless user experiences. A proven collaborator and mentor, committed to driving innovation, fostering clean code practices, and enhancing user empowerment.",
 };
 
 // Navigation configuration
@@ -18,25 +19,63 @@ export const navItems: NavItem[] = [
 // Work experience data
 export const workExperience: WorkEntry[] = [
   {
-    title: "Senior Software Engineer",
-    company: "Innovate Solutions Inc.",
-    startDate: new Date("2021-01-01"),
-    endDate: "Present",
+    title: "Senior Frontend Developer",
+    company: "Intuit Canada",
+    startDate: new Date("2024-04-03"),
+    endDate: new Date("2025-07-02"),
     details: [
-      "Led the development of a scalable microservices architecture, improving system performance by 40%.",
-      "Mentored junior engineers, fostering a culture of collaboration and continuous learning.",
-      "Architected and implemented a CI/CD pipeline, reducing deployment times by 75%.",
+      "Developed and deployed new AI-powered experiences for Intuit Assist, to significantly increase customer satisfaction and improve platform personalization across QuickBooks, TurboTax, and Intuit Expert Platforms.",
+      "Delivered numerous features for Intuit Assist, maintaining 80%+ code coverage and production-clean code that significantly enhanced system stability and measurably reduced critical bugs.",
+      "Led initiatives to streamline onboarding via standardized paved roads, significantly reducing time to deploy new offerings and accelerating team adoption.",
+      "Spearheaded overhaul of support documentation, improving discoverability and standardizing guides, resulting in a 30% decrease in engineering team support requests.",
+      "Led critical dependency migration across multiple teams, providing guidance and support to ensure seamless integration and minimal disruption, safeguarding project continuity.",
+      "Delivered timely on-call support via Slack, troubleshooting critical issues and answering complex technical questions to ensure continuous development progress and maximize team efficiency.",
     ],
   },
   {
-    title: "Full-Stack Developer",
-    company: "Tech Forward LLC",
-    startDate: new Date("2018-06-01"),
-    endDate: new Date("2020-12-31"),
+    title: "Senior Software Engineer",
+    company: "Intuit Canada",
+    startDate: new Date("2021-08-03"),
+    endDate: new Date("2024-04-02"),
     details: [
-      "Developed and maintained client-facing web applications using React and Node.js.",
-      "Collaborated with cross-functional teams to define, design, and ship new features.",
-      "Wrote clean, maintainable, and well-documented code.",
+      "Led automation of build, test, and deployment pipelines, replacing manual processes with CI/CD tools to significantly improve release reliability, reduce engineering effort, and enable faster, consistent deployments.",
+      "Led accessibility compliance for TurboTax Canada by auditing and remediating issues, reducing critical and serious accessibility violations by over 70%, and elevating the product to industry-leading accessibility standards.",
+      "Led the migration of core platforms to support modern architecture and experimentation frameworks, which enabled continuous delivery, rapid testing, and significantly increased team agility and time-to-insight.",
+      "Mentored junior developers and interns via guidance, technical support, and pair programming, while contributing to code reviews to ensure quality, promote best practices, and accelerate team development.",
+    ],
+  },
+  {
+    title: "Software Engineer",
+    company: "Intuit Canada",
+    startDate: new Date("2018-09-18"),
+    endDate: new Date("2021-08-02"),
+    details: [
+      "Designed and implemented a scalable front-end architecture with reusable components for TurboTax, standardizing practices, addressing inconsistencies, and accelerating delivery across cross-functional teams.",
+      "Partnered with Product, Content, and Engineering stakeholders to define, scope, and deliver high-impact features, aligning development with business goals and significantly improving delivery confidence.",
+      "Executed comprehensive A/B, Split URL, and Multivariate testing strategies to validate design hypotheses, improve user engagement metrics, and measurably increase conversion rates through data-driven experimentation.",
+      "Spearheaded frontend performance optimization using code splitting, lazy loading, asset optimization, and strategic caching, resulting in a 40% reduction in load time and a significantly smoother user experience.",
+    ],
+  },
+  {
+    title: "Senior Software Engineer",
+    company: "Skylar Media Group",
+    startDate: new Date("2017-10-03"),
+    endDate: new Date("2028-09-17"),
+    details: [
+      "Proactively translated diverse creative concepts into high-fidelity mock-ups and robust, production-ready code, effectively bridging the gap between design and engineering teams.",
+      "Independently built and extensively customized WordPress themes and plugins, delivering tailored, functional solutions for a variety of client websites.",
+      "Collaborated closely with designers and strategists from concept to delivery, ensuring the successful production of compelling, highly user-friendly digital experiences.",
+    ],
+  },
+  {
+    title: "Senior Web Developer",
+    company: "Montana Steele",
+    startDate: new Date("2017-04-02"),
+    endDate: new Date("2017-10-02"),
+    details: [
+      "Efficiently developed and delivered a high volume of marketing microsites and landing pages, consistently meeting tight timelines and high-pressure conditions for real estate campaigns.",
+      "Methodically conducted comprehensive full-stack testing and rigorous QA, ensuring pixel-perfect deployment and optimal functionality for all web projects.",
+      "Collaborated directly with creative designers and marketing strategists to interpret design mock-ups and brand guidelines, ensuring faithful and optimized digital representation of client brands and a cohesive user experience.",
     ],
   },
 ];

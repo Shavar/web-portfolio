@@ -1,3 +1,5 @@
+import "./ScrollProgressBar.scss";
+
 interface ScrollProgressBarProps {
   progress: number;
 }

@@ -1,4 +1,4 @@
 export * from "./SectionWrapper";
-export * from "./WorkEntry/WorkEntry";
+export * from "../sections/ExperienceSection/components/WorkEntry";
 export * from "./EducationEntry";
-export * from "./ProjectCard";
+export * from "./ProjectCard/ProjectCard";

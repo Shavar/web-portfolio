@@ -1,10 +1,10 @@
-import { SectionWrapper } from "../ui/SectionWrapper";
+import { SectionWrapper } from "../../ui/SectionWrapper";
 import { ProjectCard } from "@ui";
-import { projects } from "../../data";
+import { projects } from "@/data";
 
-export const WebsitesSection = () => {
+export const ProjectsSection = () => {
   return (
-    <SectionWrapper id="websites" title="Websites">
+    <SectionWrapper id="projects" title="Projects">
       <div className="projects-grid">
         {projects.map((project, index) => (
           <ProjectCard key={index} project={project} />

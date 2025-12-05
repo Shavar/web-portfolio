@@ -1,9 +1,65 @@
 @import url("@/styles/variables.scss");
 
 .timeline {
-  margin-left: 0.5rem;
   position: relative;
-  padding: 0 2rem;
+
+  &-entry {
+    position: relative;
+    padding-left: 1.5rem;
+    padding-bottom: 1rem;
+    border-left: 1px solid var(--color-border);
+    margin-bottom: 0.75rem;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+
+  &-dot {
+    position: absolute;
+    left: -0.5rem; /* Adjusted for centered dot */
+    top: 0;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 9999px;
+    background-color: var(--color-primary);
+    border: 2px solid var(--background);
+    box-shadow: 0 0 0 2px var(--color-primary);
+  }
+
+  &-duration {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+  }
+
+  &-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    line-height: 0.75em;
+    color: var(--color-text-dark);
+  }
+
+  &-company {
+    color: var(--color-primary);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+
+  &-details-list {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    color: var(--color-text-medium);
+
+    & li {
+      font-size: 0.95rem;
+      padding: 0.25rem 0;
+    }
+  }
 }
 
 .skill-list {
