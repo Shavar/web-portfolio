@@ -1,6 +1,6 @@
 import { SectionWrapper } from "../ui/SectionWrapper";
 import { MailIcon, LinkedinIcon, GithubIcon } from "../icons";
-import { ProfileBio, ContactInfo } from "@/types";
+import type { ProfileBio, ContactInfo } from "@/types";
 
 interface ProfileSectionProps {
   profileBio: ProfileBio;
@@ -9,7 +9,7 @@ interface ProfileSectionProps {
 
 export const ProfileSection = ({ profileBio, contactInfo }: ProfileSectionProps) => {
   return (
-    <SectionWrapper id="profile">
+    <SectionWrapper id="profile" title="About Me">
       <div className="section-content">
         <h1>{profileBio.name}</h1>
         <h2>{profileBio.title}</h2>

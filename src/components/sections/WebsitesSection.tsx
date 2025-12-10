@@ -1,5 +1,4 @@
 import { SectionWrapper } from "../ui/SectionWrapper";
-import { ProjectCard } from "../ui/ProjectCard/ProjectCard";
 
 export const WebsitesSection = () => {
   return (

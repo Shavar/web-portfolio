@@ -1,7 +1,7 @@
 import { SectionWrapper } from "../../ui/SectionWrapper";
 import { WorkEntryComponent } from "./components/WorkEntry";
 import { EducationEntryComponent } from "../../ui/EducationEntry";
-import { WorkEntry, EducationEntry } from "@/types";
+import type { WorkEntry, EducationEntry } from "@/types";
 import "./ExperienceSection.scss";
 
 interface ExperienceSectionProps {

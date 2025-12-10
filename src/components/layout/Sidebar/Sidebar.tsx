@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { Navigation } from "../Navigation/Navigation";
 import { ScrollProgressBar } from "../ScrollProgressBar";
-import { NavItem } from "@/types";
+import type { NavItem } from "@/types";
 import "./Sidebar.scss";
 
 interface SidebarProps {

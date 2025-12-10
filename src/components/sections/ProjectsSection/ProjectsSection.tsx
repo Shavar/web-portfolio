@@ -1,6 +1,6 @@
 import { SectionWrapper } from "../../ui/SectionWrapper";
 import { ProjectCard } from "../../ui/ProjectCard/ProjectCard";
-import { Project } from "@/types";
+import type { Project } from "@/types";
 import "./ProjectsSection.scss";
 
 interface ProjectsSectionProps {

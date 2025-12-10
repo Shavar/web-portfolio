@@ -6,13 +6,9 @@ import PortfolioApp from '../components/PortfolioApp.tsx';
 import profileData from '../../data/profile.json';
 import experienceData from '../../data/experience.json';
 import projectsData from '../../data/projects.json';
-
-const { profileBio, navItems, contactInfo } = profileData;
-const { workExperience, education } = experienceData;
-const { projects, skillsData } = projectsData;
 ---
 
-<Layout title={`${profileBio.name} - ${profileBio.title}`} description={profileBio.summary}>
+<Layout title={`${profileData.profileBio.name} - ${profileData.profileBio.title}`} description={profileData.profileBio.summary}>
   <PortfolioApp 
     profileData={profileData}
     experienceData={experienceData}
