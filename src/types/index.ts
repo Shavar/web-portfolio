@@ -14,8 +14,8 @@ export interface NavItem {
 export interface WorkEntry {
   title: string;
   company: string;
-  startDate: Date;
-  endDate: Date | string;
+  startDate: string;
+  endDate: string;
   details: string[];
 }
 

@@ -1,4 +1,4 @@
-@import "../../../styles/_mixins.scss";
+@use "../../../styles/_mixins.scss" as *;
 
 .sidebar {
   z-index: 20;

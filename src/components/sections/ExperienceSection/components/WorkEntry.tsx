@@ -6,13 +6,14 @@ interface WorkEntryComponentProps {
 
 export const WorkEntryComponent = ({ entry }: WorkEntryComponentProps) => {
   // Format the duration from startDate and endDate
-  const formatDate = (date: Date) => {
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
     return date.toLocaleDateString("en-US", { year: "numeric", month: "short" });
   };
 
   const formatDuration = () => {
-    const startFormatted = formatDate(new Date(entry.startDate));
-    const endFormatted = typeof entry.endDate === "string" ? entry.endDate : formatDate(new Date(entry.endDate));
+    const startFormatted = formatDate(entry.startDate);
+    const endFormatted = typeof entry.endDate === "string" ? entry.endDate : formatDate(entry.endDate);
     return `${startFormatted} - ${endFormatted}`;
   };
 

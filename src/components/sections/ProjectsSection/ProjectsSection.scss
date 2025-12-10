@@ -1,7 +1,37 @@
-@import "@/styles/variables.scss";
+@use "../../../styles/variables.scss" as *;
 
 .projects-grid {
   gap: 1.5rem;
   display: flex;
   flex-direction: column;
+}
+
+.skills-section {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.skill-category {
+  h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: var(--color-primary);
+  }
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  background: var(--color-accent);
+  color: var(--color-text-light);
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
 }

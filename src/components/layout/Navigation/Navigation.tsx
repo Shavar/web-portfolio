@@ -1,12 +1,13 @@
-import { navItems } from "@/data";
+import type { NavItem } from "@/types";
 import "./Navigation.scss";
 
 interface NavigationProps {
   activeSection: string;
   onNavClick: (route: string) => void;
+  navItems: NavItem[];
 }
 
-export const Navigation = ({ activeSection, onNavClick }: NavigationProps) => {
+export const Navigation = ({ activeSection, onNavClick, navItems }: NavigationProps) => {
   return (
     <nav className="navigation">
       {navItems.map((item) => (

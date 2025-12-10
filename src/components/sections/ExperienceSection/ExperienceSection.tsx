@@ -1,10 +1,15 @@
 import { SectionWrapper } from "../../ui/SectionWrapper";
 import { WorkEntryComponent } from "./components/WorkEntry";
 import { EducationEntryComponent } from "../../ui/EducationEntry";
-import { workExperience, education, skillsData } from "@/data";
+import { WorkEntry, EducationEntry } from "@/types";
 import "./ExperienceSection.scss";
 
-export const ExperienceSection = () => {
+interface ExperienceSectionProps {
+  workExperience: WorkEntry[];
+  education: EducationEntry[];
+}
+
+export const ExperienceSection = ({ workExperience, education }: ExperienceSectionProps) => {
   return (
     <SectionWrapper id="experience" title="Career Journey">
       <div className="timeline">
@@ -20,42 +25,6 @@ export const ExperienceSection = () => {
         {education.map((entry, index) => (
           <EducationEntryComponent key={index} entry={entry} />
         ))}
-      </div>
-
-      <h2>Skills</h2>
-      <div className="skills-section">
-        <div className="skill-category">
-          <h3>Languages</h3>
-          <div className="skill-list">
-            {skillsData.languages.map((skill) => (
-              <span key={skill} className="skill-tag">
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <div className="skill-category">
-          <h3>Frameworks</h3>
-          <div className="skill-list">
-            {skillsData.frameworks.map((skill) => (
-              <span key={skill} className="skill-tag">
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <div className="skill-category">
-          <h3>Tools</h3>
-          <div className="skill-list">
-            {skillsData.tools.map((skill) => (
-              <span key={skill} className="skill-tag">
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
       </div>
     </SectionWrapper>
   );

@@ -1,0 +1,19 @@
+{
+  "projects": [
+    {
+      "title": "Task Flow Manager",
+      "description": "A robust Kanban board application built with React and Zustand for state management. Features real-time drag-and-drop functionality and local persistence.",
+      "tags": ["React", "Zustand", "TypeScript"]
+    },
+    {
+      "title": "E-Commerce Headless Storefront",
+      "description": "A highly performant storefront using Next.js for SSR and integrating with a mock GraphQL API. Focus on speed and accessibility.",
+      "tags": ["Next.js", "GraphQL", "SSR"]
+    }
+  ],
+  "skillsData": {
+    "languages": ["JavaScript", "TypeScript", "Python", "HTML/CSS"],
+    "frameworks": ["React", "Node.js", "Express.js", "Tailwind CSS", "Django"],
+    "tools": ["Git & GitHub", "Docker", "AWS", "PostgreSQL", "Figma"]
+  }
+}

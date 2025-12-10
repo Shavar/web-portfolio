@@ -1,14 +1,11 @@
 import { SectionWrapper } from "../ui/SectionWrapper";
-import { ProjectCard } from "@ui";
-import { projects } from "../../data";
+import { ProjectCard } from "../ui/ProjectCard/ProjectCard";
 
 export const WebsitesSection = () => {
   return (
     <SectionWrapper id="websites" title="Websites">
       <div className="projects-grid">
-        {projects.map((project, index) => (
-          <ProjectCard key={index} project={project} />
-        ))}
+        <p>Featured websites and web applications coming soon...</p>
       </div>
     </SectionWrapper>
   );

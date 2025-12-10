@@ -1,4 +1,4 @@
-@import url("@/styles/variables.scss");
+@use "../../../styles/variables.scss" as *;
 
 .timeline {
   position: relative;
