@@ -1,15 +1,18 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import PortfolioApp from '../components/PortfolioApp.tsx';
+import Layout from "../layouts/Layout.astro";
+import PortfolioApp from "../components/PortfolioApp.tsx";
 
 // Import JSON data
-import profileData from '../../data/profile.json';
-import experienceData from '../../data/experience.json';
-import projectsData from '../../data/projects.json';
+import profileData from "../../data/profile.json";
+import experienceData from "../../data/experience.json";
+import projectsData from "../../data/projects.json";
 ---
 
-<Layout title={`${profileData.profileBio.name} - ${profileData.profileBio.title}`} description={profileData.profileBio.summary}>
-  <PortfolioApp 
+<Layout
+  title={`${profileData.profileBio.name} - ${profileData.profileBio.title}`}
+  description={profileData.profileBio.summary}
+>
+  <PortfolioApp
     profileData={profileData}
     experienceData={experienceData}
     projectsData={projectsData}

@@ -1,0 +1,125 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  theme: {
+    extend: {
+      // colors: {
+      //   primary: {
+      //     50: "#dbeafe",
+      //     100: "#bfdbfe",
+      //     200: "#93c5fd",
+      //     300: "#60a5fa",
+      //     400: "#3b82f6",
+      //     500: "#2563eb",
+      //     600: "#1d4ed8",
+      //     700: "#1e40af",
+      //     800: "#1e3a8a",
+      //     900: "#1e3a8a",
+      //     primary: "#353535",
+      //     "background-light": "#ffffff",
+      //     "background-dark": "#121212",
+      //     "card-light": "#f9f9f9",
+      //     "card-dark": "#1e1e1e",
+      //     "border-light": "#e5e5e5",
+      //     "border-dark": "#404040",
+      //     "secondary-text": "#666666",
+      //     "secondary-text-dark": "#a3a3a3",
+      //     accent: "#000000",
+      //   },
+      //   accent: {
+      //     50: "#f0f9ff",
+      //     100: "#e0f2fe",
+      //     200: "#bae6fd",
+      //     300: "#7dd3fc",
+      //     400: "#38bdf8",
+      //     500: "#0ea5e9",
+      //     600: "#0284c7",
+      //     700: "#0369a1",
+      //     800: "#075985",
+      //     900: "#0c4a6e",
+      //   },
+      //   dark: {
+      //     50: "#f9fafb",
+      //     100: "#f3f4f6",
+      //     200: "#e5e7eb",
+      //     300: "#d1d5db",
+      //     400: "#9ca3af",
+      //     500: "#6b7280",
+      //     600: "#4b5563",
+      //     700: "#374151",
+      //     800: "#1f2937",
+      //     900: "#111827",
+      //   },
+      // },
+      colors: {
+        primary: "#1a1a1a",
+        "background-light": "#ffffff",
+        "background-dark": "#121212",
+        "card-light": "#f4f4f5",
+        "card-dark": "#1e1e1e",
+        "border-light": "#e4e4e7",
+        "border-dark": "#27272a",
+        "secondary-text": "#71717a",
+        "secondary-text-dark": "#a1a1aa",
+        accent: "#000000",
+      },
+      fontFamily: {
+        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["JetBrains Mono", "ui-monospace", "Menlo", "Monaco", "monospace"],
+        display: ["Poppins", "sans-serif"],
+        body: ["Poppins", "sans-serif"],
+        icons: ["Material Symbols Outlined", "sans-serif"],
+        fa: ["Font Awesome 6 Free", "Font Awesome 6 Brands", "sans-serif"],
+      },
+      borderRadius: {
+        DEFAULT: "2rem",
+        xl: "2.5rem",
+        "2xl": "3rem",
+      },
+      animation: {
+        "fade-in": "fadeIn 0.5s ease-in-out",
+        "slide-up": "slideUp 0.6s ease-out",
+        "bounce-slow": "bounce 2s infinite",
+      },
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        slideUp: {
+          "0%": { transform: "translateY(20px)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+      },
+      spacing: {
+        18: "4.5rem",
+        88: "22rem",
+      },
+      screens: {
+        xs: "475px",
+      },
+    },
+  },
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".material-symbols-outlined": {
+          fontFamily: "Material Symbols Outlined",
+          fontWeight: "normal",
+          fontStyle: "normal",
+          fontSize: "24px",
+          lineHeight: "1",
+          letterSpacing: "normal",
+          textTransform: "none",
+          display: "inline-block",
+          whiteSpace: "nowrap",
+          wordWrap: "normal",
+          direction: "ltr",
+          fontFeatureSettings: "liga",
+          WebkitFontSmoothing: "antialiased",
+        },
+      };
+      addUtilities(newUtilities);
+    },
+  ],
+};

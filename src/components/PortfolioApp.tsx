@@ -1,10 +1,8 @@
 import React from "react";
-import { Sidebar } from "@/components/layout";
 import { ProfileSection } from "./sections/ProfileSection";
 import { ExperienceSection } from "./sections/ExperienceSection/ExperienceSection";
 import { WebsitesSection } from "./sections/WebsitesSection";
 import { ProjectsSection } from "./sections/ProjectsSection/ProjectsSection";
-import { useScrollAnimation, useIntersectionObserver, useScrollProgress } from "@/hooks";
 
 interface PortfolioAppProps {
   profileData: any;
@@ -12,28 +10,19 @@ interface PortfolioAppProps {
   projectsData: any;
 }
 
-export default function PortfolioApp({ profileData, experienceData, projectsData }: PortfolioAppProps) {
-  const { scrollToSection } = useScrollAnimation();
-  const activeSection = useIntersectionObserver();
-  const scrollProgress = useScrollProgress();
-
-  const handleNavClick = (route: string) => {
-    scrollToSection(route);
-  };
-
+export default function PortfolioApp({
+  profileData,
+  experienceData,
+  projectsData,
+}: PortfolioAppProps) {
   return (
-    <div className="app-container">
-      <div className="app-container_sidebar">
-        <Sidebar activeSection={activeSection} scrollProgress={scrollProgress} onNavClick={handleNavClick} navItems={profileData.navItems}>
-          <div className="footer-content">
-            <p>&copy; All rights reserved.</p>
-          </div>
-        </Sidebar>
-      </div>
-
-      <main className="app-container_main">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <ProfileSection profileBio={profileData.profileBio} contactInfo={profileData.contactInfo} />
-        <ExperienceSection workExperience={experienceData.workExperience} education={experienceData.education} />
+        <ExperienceSection
+          workExperience={experienceData.workExperience}
+          education={experienceData.education}
+        />
         <ProjectsSection projects={projectsData.projects} skillsData={projectsData.skillsData} />
         <WebsitesSection />
       </main>

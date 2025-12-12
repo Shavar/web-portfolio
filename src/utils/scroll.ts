@@ -33,7 +33,10 @@ export const smoothScrollTo = (element: HTMLElement, duration: number = 1000): P
 };
 
 // Intersection Observer utilities
-export const createIntersectionObserver = (callback: IntersectionObserverCallback, options: IntersectionObserverInit = {}): IntersectionObserver => {
+export const createIntersectionObserver = (
+  callback: IntersectionObserverCallback,
+  options: IntersectionObserverInit = {}
+): IntersectionObserver => {
   const defaultOptions: IntersectionObserverInit = {
     root: null,
     rootMargin: "0px",
