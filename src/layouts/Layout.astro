@@ -50,312 +50,211 @@ const { title, description, showHeader = true, showFooter = true } = Astro.props
   <body
     class="bg-background-light dark:bg-background-dark text-primary dark:text-white font-body transition-colors duration-300"
   >
-    <div
-      class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden"
-    >
-      <div class="layout-container flex h-full grow flex-col">
-        <div class="px-4 md:px-10 lg:px-20 xl:px-40 flex flex-1 justify-center py-5">
-          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-            {showHeader && <Header />}
+    {showHeader && <Header />}
 
-            <main class:list={["min-h-screen", { "pt-20": showHeader }]}>
-              <section
-                class="min-h-screen flex items-center pt-20 relative overflow-hidden"
-                id="hero"
-              >
-                <div
-                  class="max-w-7xl mx-auto px-6 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+    <main class:list={["min-h-screen", { "pt-20": showHeader }]}>
+      <slot />
+      <section class="py-24 px-6 lg:px-12 bg-white dark:bg-background-dark" id="about">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
+            <div class="lg:col-span-5 space-y-8">
+              <h2 class="text-4xl md:text-5xl font-bold tracking-tight">
+                Obsessed with <br /><span class="text-gray-400">every detail.</span>
+              </h2>
+              <p class="text-lg text-secondary-text dark:text-gray-400 leading-relaxed">
+                I believe that the difference between good and great lies in the nuances. From the
+                fluidity of an animation to the semantic structure of the DOM, I pour attention into
+                every aspect of the frontend experience.
+              </p>
+              <div class="pt-4">
+                <a
+                  class="inline-flex items-center gap-2 font-semibold text-primary dark:text-white border-b border-gray-300 dark:border-gray-700 pb-0.5 hover:border-black dark:hover:border-white transition-all"
+                  href="#about-detail"
                 >
-                  <div class="space-y-8 order-2 lg:order-1">
-                    <div class="space-y-2">
-                      <span
-                        class="inline-block text-sm font-semibold uppercase tracking-wider text-secondary-text dark:text-gray-400"
-                        >Senior Frontend Developer</span
-                      >
-                      <h1
-                        class="text-5xl md:text-7xl font-bold leading-tight tracking-tight text-primary dark:text-white"
-                      >
-                        Building <span class="text-gray-400 dark:text-gray-600"
-                          >digital products</span
-                        > that matter.
-                      </h1>
-                    </div>
-                    <p
-                      class="text-lg md:text-xl text-secondary-text dark:text-gray-400 max-w-xl leading-relaxed"
-                    >
-                      I help forward-thinking companies build performant, accessible, and beautiful
-                      web applications using the modern React ecosystem.
-                    </p>
-                    <div class="flex flex-wrap gap-4 pt-4">
-                      <a
-                        class="px-8 py-3.5 rounded-full bg-primary text-white dark:bg-white dark:text-black font-medium hover:bg-black dark:hover:bg-gray-200 transition-all shadow-lg shadow-gray-200/50 dark:shadow-none"
-                        href="#work"
-                      >
-                        View Recent Work
-                      </a>
-                      <a
-                        class="px-8 py-3.5 rounded-full bg-gray-100 text-primary dark:bg-gray-800 dark:text-white font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-all"
-                        href="#contact"
-                      >
-                        Get in Touch
-                      </a>
-                    </div>
-                  </div>
-                  <div class="order-1 lg:order-2 flex justify-center lg:justify-end relative">
-                    <div
-                      class="relative w-80 h-[28rem] md:w-[28rem] md:h-[36rem] rounded-[2.5rem] overflow-hidden shadow-2xl bg-gray-100 dark:bg-gray-800 rotate-2 hover:rotate-0 transition-transform duration-500"
-                    >
-                      <img
-                        alt="Portrait of John Doe"
-                        class="w-full h-full object-cover"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDz-0bgROqIK2sHcuakzCWMCvsMqRGGPow-Z6gFWtjtHPwzWF8xkN7ssXZZYSPiyty5NadAjfcf1elT75vow7z8ouOWEL6Zcxaq3LCOhkgSiVxVqc72OfFG12KbyzaetXTtEeRJRHL9eWHM7vY9EZyh692f9bAn5MzfuE4rY0mqyHpv7B6FtCBmsUO1XZoQqiDOHyYmCyUJq14RiYAed-0TgdzBCUGdGwDYElz_CoXjlBBfAhzYQh6Sbb-So_pO9nb7Q_IOmrTQ3CM"
-                      />
-                      <div
-                        class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/50 to-transparent"
-                      >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-              <section class="py-24 px-6 lg:px-12 bg-white dark:bg-background-dark" id="about">
-                <div class="max-w-7xl mx-auto">
-                  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
-                    <div class="lg:col-span-5 space-y-8">
-                      <h2 class="text-4xl md:text-5xl font-bold tracking-tight">
-                        Obsessed with <br /><span class="text-gray-400">every detail.</span>
-                      </h2>
-                      <p class="text-lg text-secondary-text dark:text-gray-400 leading-relaxed">
-                        I believe that the difference between good and great lies in the nuances.
-                        From the fluidity of an animation to the semantic structure of the DOM, I
-                        pour attention into every aspect of the frontend experience.
-                      </p>
-                      <div class="pt-4">
-                        <a
-                          class="inline-flex items-center gap-2 font-semibold text-primary dark:text-white border-b border-gray-300 dark:border-gray-700 pb-0.5 hover:border-black dark:hover:border-white transition-all"
-                          href="#about-detail"
-                        >
-                          More about my process
-                          <span class="material-symbols-outlined text-lg">arrow_forward</span>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div
-                        class="p-8 rounded-3xl bg-card-light dark:bg-card-dark border border-transparent hover:border-border-light dark:hover:border-border-dark transition-colors"
-                      >
-                        <span
-                          class="material-symbols-outlined text-3xl mb-4 text-primary dark:text-white"
-                          >bolt</span
-                        >
-                        <h3 class="text-lg font-bold mb-2">Performance First</h3>
-                        <p class="text-sm text-secondary-text dark:text-gray-400 leading-relaxed">
-                          Optimizing Core Web Vitals, code-splitting, and asset delivery to ensure
-                          instantaneous load times.
-                        </p>
-                      </div>
-                      <div
-                        class="p-8 rounded-3xl bg-card-light dark:bg-card-dark border border-transparent hover:border-border-light dark:hover:border-border-dark transition-colors md:mt-12"
-                      >
-                        <span
-                          class="material-symbols-outlined text-3xl mb-4 text-primary dark:text-white"
-                          >accessibility_new</span
-                        >
-                        <h3 class="text-lg font-bold mb-2">Inclusive Design</h3>
-                        <p class="text-sm text-secondary-text dark:text-gray-400 leading-relaxed">
-                          Strict adherence to WCAG 2.1 guidelines ensuring the web is accessible to
-                          everyone, everywhere.
-                        </p>
-                      </div>
-                      <div
-                        class="p-8 rounded-3xl bg-card-light dark:bg-card-dark border border-transparent hover:border-border-light dark:hover:border-border-dark transition-colors"
-                      >
-                        <span
-                          class="material-symbols-outlined text-3xl mb-4 text-primary dark:text-white"
-                          >grid_view</span
-                        >
-                        <h3 class="text-lg font-bold mb-2">Pixel Perfect</h3>
-                        <p class="text-sm text-secondary-text dark:text-gray-400 leading-relaxed">
-                          Translating Figma designs into responsive code with exact precision and
-                          fluid responsiveness.
-                        </p>
-                      </div>
-                      <div
-                        class="p-8 rounded-3xl bg-card-light dark:bg-card-dark border border-transparent hover:border-border-light dark:hover:border-border-dark transition-colors md:mt-12"
-                      >
-                        <span
-                          class="material-symbols-outlined text-3xl mb-4 text-primary dark:text-white"
-                          >integration_instructions</span
-                        >
-                        <h3 class="text-lg font-bold mb-2">Type Safety</h3>
-                        <p class="text-sm text-secondary-text dark:text-gray-400 leading-relaxed">
-                          Leveraging TypeScript to build robust, scalable applications with fewer
-                          runtime errors.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-
-              <section class="py-24 px-6 bg-gray-50 dark:bg-[#181818]">
-                <div class="max-w-7xl mx-auto">
-                  <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-                    <div class="text-left w-full md:w-2/3">
-                      <span
-                        class="text-secondary-text dark:text-gray-400 uppercase tracking-widest text-sm font-semibold"
-                        >Playground</span
-                      >
-                      <h2 class="text-4xl md:text-5xl font-bold mt-2">Developer Projects</h2>
-                      <p class="text-secondary-text dark:text-gray-400 mt-4 max-w-2xl">
-                        Open source contributions, experiments, and tools built for the community.
-                      </p>
-                    </div>
-                    <div class="md:w-1/3 flex justify-start md:justify-end">
-                      <a
-                        class="group inline-flex items-center gap-2 text-primary dark:text-white font-semibold border-b-2 border-primary dark:border-white pb-1 hover:text-secondary-text dark:hover:text-gray-300 hover:border-secondary-text dark:hover:border-gray-300 transition-all"
-                        href="#projects-all"
-                      >
-                        View All Projects
-                        <span
-                          class="material-symbols-outlined group-hover:translate-x-1 transition-transform text-xl"
-                          >arrow_right_alt</span
-                        >
-                      </a>
-                    </div>
-                  </div>
-                  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-                    <div
-                      class="md:mt-8 bg-white dark:bg-card-dark p-8 rounded-[2rem] border border-transparent hover:border-gray-200 dark:hover:border-gray-700 transition-all shadow-sm hover:shadow-lg group"
-                    >
-                      <div class="flex justify-between items-start mb-6">
-                        <div
-                          class="h-12 w-12 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 rounded-xl flex items-center justify-center"
-                        >
-                          <span class="material-symbols-outlined text-2xl">api</span>
-                        </div>
-                        <div
-                          class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                        >
-                          <a
-                            class="h-8 w-8 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center hover:bg-blue-500 hover:text-white transition-colors"
-                            href="#"
-                          >
-                            <i class="fab fa-github text-xs"></i>
-                          </a>
-                        </div>
-                      </div>
-                      <h3
-                        class="text-xl font-bold mb-3 group-hover:text-blue-600 transition-colors"
-                      >
-                        Weather API Wrapper
-                      </h3>
-                      <p
-                        class="text-secondary-text dark:text-gray-400 text-sm mb-6 leading-relaxed"
-                      >
-                        A lightweight TypeScript wrapper for accessing global weather data with type
-                        safety.
-                      </p>
-                      <div class="h-px w-full bg-gray-200 dark:bg-gray-700 mb-4"></div>
-                      <div class="flex gap-2">
-                        <span class="text-xs font-mono text-gray-400 dark:text-gray-500"
-                          >TypeScript</span
-                        >
-                        <span class="text-xs font-mono text-gray-400 dark:text-gray-500">•</span>
-                        <span class="text-xs font-mono text-gray-400 dark:text-gray-500"
-                          >Node.js</span
-                        >
-                      </div>
-                    </div>
-                    <div
-                      class="bg-white dark:bg-card-dark p-8 rounded-[2rem] border border-transparent hover:border-gray-200 dark:hover:border-gray-700 transition-all shadow-sm hover:shadow-lg group"
-                    >
-                      <div class="flex justify-between items-start mb-6">
-                        <div
-                          class="h-12 w-12 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-300 rounded-xl flex items-center justify-center"
-                        >
-                          <span class="material-symbols-outlined text-2xl">terminal</span>
-                        </div>
-                        <div
-                          class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                        >
-                          <a
-                            class="h-8 w-8 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center hover:bg-purple-500 hover:text-white transition-colors"
-                            href="#"
-                          >
-                            <i class="fab fa-github text-xs"></i>
-                          </a>
-                        </div>
-                      </div>
-                      <h3
-                        class="text-xl font-bold mb-3 group-hover:text-purple-600 transition-colors"
-                      >
-                        React CLI Tool
-                      </h3>
-                      <p
-                        class="text-secondary-text dark:text-gray-400 text-sm mb-6 leading-relaxed"
-                      >
-                        Command line interface for scaffolding custom React components with
-                        Storybook files.
-                      </p>
-                      <div class="h-px w-full bg-gray-200 dark:bg-gray-700 mb-4"></div>
-                      <div class="flex gap-2">
-                        <span class="text-xs font-mono text-gray-400 dark:text-gray-500">Rust</span>
-                        <span class="text-xs font-mono text-gray-400 dark:text-gray-500">•</span>
-                        <span class="text-xs font-mono text-gray-400 dark:text-gray-500">CLI</span>
-                      </div>
-                    </div>
-                    <div
-                      class="md:mt-16 bg-white dark:bg-card-dark p-8 rounded-[2rem] border border-transparent hover:border-gray-200 dark:hover:border-gray-700 transition-all shadow-sm hover:shadow-lg group"
-                    >
-                      <div class="flex justify-between items-start mb-6">
-                        <div
-                          class="h-12 w-12 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-300 rounded-xl flex items-center justify-center"
-                        >
-                          <span class="material-symbols-outlined text-2xl">shopping_cart</span>
-                        </div>
-                        <div
-                          class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                        >
-                          <a
-                            class="h-8 w-8 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center hover:bg-green-500 hover:text-white transition-colors"
-                            href="#"
-                          >
-                            <i class="fab fa-github text-xs"></i>
-                          </a>
-                        </div>
-                      </div>
-                      <h3
-                        class="text-xl font-bold mb-3 group-hover:text-green-600 transition-colors"
-                      >
-                        E-com Starter Kit
-                      </h3>
-                      <p
-                        class="text-secondary-text dark:text-gray-400 text-sm mb-6 leading-relaxed"
-                      >
-                        A fully functional headless e-commerce starter kit using Next.js and Stripe.
-                      </p>
-                      <div class="h-px w-full bg-gray-200 dark:bg-gray-700 mb-4"></div>
-                      <div class="flex gap-2">
-                        <span class="text-xs font-mono text-gray-400 dark:text-gray-500"
-                          >Next.js</span
-                        >
-                        <span class="text-xs font-mono text-gray-400 dark:text-gray-500">•</span>
-                        <span class="text-xs font-mono text-gray-400 dark:text-gray-500"
-                          >Stripe</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-              <slot />
-            </main>
-
-            {showFooter && <Footer />}
+                  More about my process
+                  <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+            <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div
+                class="p-8 rounded-3xl bg-card-light dark:bg-card-dark border border-transparent hover:border-border-light dark:hover:border-border-dark transition-colors"
+              >
+                <span class="material-symbols-outlined text-3xl mb-4 text-primary dark:text-white"
+                  >bolt</span
+                >
+                <h3 class="text-lg font-bold mb-2">Performance First</h3>
+                <p class="text-sm text-secondary-text dark:text-gray-400 leading-relaxed">
+                  Optimizing Core Web Vitals, code-splitting, and asset delivery to ensure
+                  instantaneous load times.
+                </p>
+              </div>
+              <div
+                class="p-8 rounded-3xl bg-card-light dark:bg-card-dark border border-transparent hover:border-border-light dark:hover:border-border-dark transition-colors md:mt-12"
+              >
+                <span class="material-symbols-outlined text-3xl mb-4 text-primary dark:text-white"
+                  >accessibility_new</span
+                >
+                <h3 class="text-lg font-bold mb-2">Inclusive Design</h3>
+                <p class="text-sm text-secondary-text dark:text-gray-400 leading-relaxed">
+                  Strict adherence to WCAG 2.1 guidelines ensuring the web is accessible to
+                  everyone, everywhere.
+                </p>
+              </div>
+              <div
+                class="p-8 rounded-3xl bg-card-light dark:bg-card-dark border border-transparent hover:border-border-light dark:hover:border-border-dark transition-colors"
+              >
+                <span class="material-symbols-outlined text-3xl mb-4 text-primary dark:text-white"
+                  >grid_view</span
+                >
+                <h3 class="text-lg font-bold mb-2">Pixel Perfect</h3>
+                <p class="text-sm text-secondary-text dark:text-gray-400 leading-relaxed">
+                  Translating Figma designs into responsive code with exact precision and fluid
+                  responsiveness.
+                </p>
+              </div>
+              <div
+                class="p-8 rounded-3xl bg-card-light dark:bg-card-dark border border-transparent hover:border-border-light dark:hover:border-border-dark transition-colors md:mt-12"
+              >
+                <span class="material-symbols-outlined text-3xl mb-4 text-primary dark:text-white"
+                  >integration_instructions</span
+                >
+                <h3 class="text-lg font-bold mb-2">Type Safety</h3>
+                <p class="text-sm text-secondary-text dark:text-gray-400 leading-relaxed">
+                  Leveraging TypeScript to build robust, scalable applications with fewer runtime
+                  errors.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+
+      <section class="py-24 px-6 bg-gray-50 dark:bg-[#181818]">
+        <div class="max-w-7xl mx-auto">
+          <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div class="text-left w-full md:w-2/3">
+              <span
+                class="text-secondary-text dark:text-gray-400 uppercase tracking-widest text-sm font-semibold"
+                >Playground</span
+              >
+              <h2 class="text-4xl md:text-5xl font-bold mt-2">Developer Projects</h2>
+              <p class="text-secondary-text dark:text-gray-400 mt-4 max-w-2xl">
+                Open source contributions, experiments, and tools built for the community.
+              </p>
+            </div>
+            <div class="md:w-1/3 flex justify-start md:justify-end">
+              <a
+                class="group inline-flex items-center gap-2 text-primary dark:text-white font-semibold border-b-2 border-primary dark:border-white pb-1 hover:text-secondary-text dark:hover:text-gray-300 hover:border-secondary-text dark:hover:border-gray-300 transition-all"
+                href="#projects-all"
+              >
+                View All Projects
+                <span
+                  class="material-symbols-outlined group-hover:translate-x-1 transition-transform text-xl"
+                  >arrow_right_alt</span
+                >
+              </a>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+            <div
+              class="md:mt-8 bg-white dark:bg-card-dark p-8 rounded-[2rem] border border-transparent hover:border-gray-200 dark:hover:border-gray-700 transition-all shadow-sm hover:shadow-lg group"
+            >
+              <div class="flex justify-between items-start mb-6">
+                <div
+                  class="h-12 w-12 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 rounded-xl flex items-center justify-center"
+                >
+                  <span class="material-symbols-outlined text-2xl">api</span>
+                </div>
+                <div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <a
+                    class="h-8 w-8 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center hover:bg-blue-500 hover:text-white transition-colors"
+                    href="#"
+                  >
+                    <i class="fab fa-github text-xs"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold mb-3 group-hover:text-blue-600 transition-colors">
+                Weather API Wrapper
+              </h3>
+              <p class="text-secondary-text dark:text-gray-400 text-sm mb-6 leading-relaxed">
+                A lightweight TypeScript wrapper for accessing global weather data with type safety.
+              </p>
+              <div class="h-px w-full bg-gray-200 dark:bg-gray-700 mb-4"></div>
+              <div class="flex gap-2">
+                <span class="text-xs font-mono text-gray-400 dark:text-gray-500">TypeScript</span>
+                <span class="text-xs font-mono text-gray-400 dark:text-gray-500">•</span>
+                <span class="text-xs font-mono text-gray-400 dark:text-gray-500">Node.js</span>
+              </div>
+            </div>
+            <div
+              class="bg-white dark:bg-card-dark p-8 rounded-[2rem] border border-transparent hover:border-gray-200 dark:hover:border-gray-700 transition-all shadow-sm hover:shadow-lg group"
+            >
+              <div class="flex justify-between items-start mb-6">
+                <div
+                  class="h-12 w-12 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-300 rounded-xl flex items-center justify-center"
+                >
+                  <span class="material-symbols-outlined text-2xl">terminal</span>
+                </div>
+                <div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <a
+                    class="h-8 w-8 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center hover:bg-purple-500 hover:text-white transition-colors"
+                    href="#"
+                  >
+                    <i class="fab fa-github text-xs"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold mb-3 group-hover:text-purple-600 transition-colors">
+                React CLI Tool
+              </h3>
+              <p class="text-secondary-text dark:text-gray-400 text-sm mb-6 leading-relaxed">
+                Command line interface for scaffolding custom React components with Storybook files.
+              </p>
+              <div class="h-px w-full bg-gray-200 dark:bg-gray-700 mb-4"></div>
+              <div class="flex gap-2">
+                <span class="text-xs font-mono text-gray-400 dark:text-gray-500">Rust</span>
+                <span class="text-xs font-mono text-gray-400 dark:text-gray-500">•</span>
+                <span class="text-xs font-mono text-gray-400 dark:text-gray-500">CLI</span>
+              </div>
+            </div>
+            <div
+              class="md:mt-16 bg-white dark:bg-card-dark p-8 rounded-[2rem] border border-transparent hover:border-gray-200 dark:hover:border-gray-700 transition-all shadow-sm hover:shadow-lg group"
+            >
+              <div class="flex justify-between items-start mb-6">
+                <div
+                  class="h-12 w-12 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-300 rounded-xl flex items-center justify-center"
+                >
+                  <span class="material-symbols-outlined text-2xl">shopping_cart</span>
+                </div>
+                <div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <a
+                    class="h-8 w-8 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center hover:bg-green-500 hover:text-white transition-colors"
+                    href="#"
+                  >
+                    <i class="fab fa-github text-xs"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold mb-3 group-hover:text-green-600 transition-colors">
+                E-com Starter Kit
+              </h3>
+              <p class="text-secondary-text dark:text-gray-400 text-sm mb-6 leading-relaxed">
+                A fully functional headless e-commerce starter kit using Next.js and Stripe.
+              </p>
+              <div class="h-px w-full bg-gray-200 dark:bg-gray-700 mb-4"></div>
+              <div class="flex gap-2">
+                <span class="text-xs font-mono text-gray-400 dark:text-gray-500">Next.js</span>
+                <span class="text-xs font-mono text-gray-400 dark:text-gray-500">•</span>
+                <span class="text-xs font-mono text-gray-400 dark:text-gray-500">Stripe</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    {showFooter && <Footer />}
   </body>
 </html>
