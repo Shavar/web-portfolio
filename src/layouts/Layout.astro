@@ -2,14 +2,21 @@
 import Header from "../components/layout/Header.astro";
 import Footer from "../components/layout/Footer.astro";
 
+// Import JSON data
+import navigationData from "@/data/navigation.json";
+
+// Import CSS variables
+import "@/styles/variables.css";
+
 interface Props {
   title: string;
   description: string;
   showHeader?: boolean;
   showFooter?: boolean;
+  hasHero?: boolean;
 }
 
-const { title, description, showHeader = true, showFooter = true } = Astro.props;
+const { title, description, showHeader = true, showFooter = true, hasHero = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -47,14 +54,12 @@ const { title, description, showHeader = true, showFooter = true } = Astro.props
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
   </head>
-  <body
-    class="bg-background-light dark:bg-background-dark text-primary dark:text-white font-body transition-colors duration-300"
-  >
-    {showHeader && <Header />}
+  <body class="bg-primary-bg text-primary dark:text-white font-body transition-colors duration-300">
+    {showHeader && <Header links={navigationData.header} />}
 
-    <main class:list={["min-h-screen", { "pt-20": showHeader }]}>
+    <main class:list={["min-h-screen", { "pt-8": hasHero }]}>
       <slot />
-      <section class="py-24 px-6 lg:px-12 bg-white dark:bg-background-dark" id="about">
+      <section class="bg-secondary-bg py-24 px-6 lg:px-12" id="about">
         <div class="max-w-7xl mx-auto">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
             <div class="lg:col-span-5 space-y-8">
@@ -255,6 +260,6 @@ const { title, description, showHeader = true, showFooter = true } = Astro.props
       </section>
     </main>
 
-    {showFooter && <Footer />}
+    {showFooter && <Footer links={navigationData.footer} />}
   </body>
 </html>

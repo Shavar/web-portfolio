@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  darkMode: "media",
   theme: {
     extend: {
       // colors: {
@@ -52,16 +53,48 @@ export default {
       //   },
       // },
       colors: {
-        primary: "#1a1a1a",
-        "background-light": "#ffffff",
-        "background-dark": "#121212",
-        "card-light": "#f4f4f5",
-        "card-dark": "#1e1e1e",
-        "border-light": "#e4e4e7",
-        "border-dark": "#27272a",
-        "secondary-text": "#71717a",
-        "secondary-text-dark": "#a1a1aa",
-        accent: "#000000",
+        primary: "var(--color-primary)",
+        "primary-bg": "var(--color-bg-primary)",
+        "secondary-bg": "var(--color-bg-secondary)",
+        "navigation-bg": "var(--color-bg-navigation)",
+        "background-light": "var(--color-background-light)",
+        "background-dark": "var(--color-background-dark)",
+        "card-light": "var(--color-card-light)",
+        "card-dark": "var(--color-card-dark)",
+        "border-light": "var(--color-border-light)",
+        "border-dark": "var(--color-border-dark)",
+        "secondary-text": "var(--color-secondary-text)",
+        "secondary-text-dark": "var(--color-secondary-text-dark)",
+        accent: "var(--color-accent)",
+      },
+      spacing: {
+        xs: "var(--spacing-xs)",
+        sm: "var(--spacing-sm)",
+        md: "var(--spacing-md)",
+        lg: "var(--spacing-lg)",
+        xl: "var(--spacing-xl)",
+        "2xl": "var(--spacing-2xl)",
+        18: "4.5rem",
+        88: "22rem",
+      },
+      borderRadius: {
+        sm: "var(--radius-sm)",
+        md: "var(--radius-md)",
+        lg: "var(--radius-lg)",
+        xl: "var(--radius-xl)",
+        DEFAULT: "var(--radius-lg)",
+        "2xl": "3rem",
+      },
+      fontSize: {
+        xs: "var(--font-size-xs)",
+        sm: "var(--font-size-sm)",
+        md: "var(--font-size-md)",
+        lg: "var(--font-size-lg)",
+        xl: "var(--font-size-xl)",
+        "2xl": "var(--font-size-2xl)",
+        "3xl": "var(--font-size-3xl)",
+        "4xl": "var(--font-size-4xl)",
+        "5xl": "var(--font-size-5xl)",
       },
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
@@ -70,11 +103,6 @@ export default {
         body: ["Poppins", "sans-serif"],
         icons: ["Material Symbols Outlined", "sans-serif"],
         fa: ["Font Awesome 6 Free", "Font Awesome 6 Brands", "sans-serif"],
-      },
-      borderRadius: {
-        DEFAULT: "2rem",
-        xl: "2.5rem",
-        "2xl": "3rem",
       },
       animation: {
         "fade-in": "fadeIn 0.5s ease-in-out",
@@ -90,10 +118,6 @@ export default {
           "0%": { transform: "translateY(20px)", opacity: "0" },
           "100%": { transform: "translateY(0)", opacity: "1" },
         },
-      },
-      spacing: {
-        18: "4.5rem",
-        88: "22rem",
       },
       screens: {
         xs: "475px",

@@ -3,12 +3,13 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "@/components/Hero.astro";
 
 // Import JSON data
-import profileData from "../../data/profile.json";
+import profileData from "@/data/profile.json";
 ---
 
 <Layout
   title={`${profileData.profileBio.name} - ${profileData.profileBio.title}`}
   description={profileData.profileBio.summary}
+  hasHero={false}
 >
   <Hero />
 </Layout>

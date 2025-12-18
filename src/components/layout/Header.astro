@@ -1,10 +1,18 @@
 ---
 // Header component - responsive with burger menu using Tailwind CSS
+import type { NavigationLink } from "@/types";
+
+interface Props {
+  links: NavigationLink[];
+}
+
+const { links } = Astro.props;
+const currentPath = Astro.url.pathname;
 ---
 
 <header class="fixed top-4 left-4 right-4 z-50">
   <div
-    class="flex max-w-4xl m-auto items-center justify-between rounded-full bg-white/70 p-2 backdrop-blur-xl shadow-xl border border-black/5 dark:bg-gray-900/70"
+    class="bg-navigation-bg flex max-w-4xl m-auto items-center justify-between rounded-full p-2 backdrop-blur-xl shadow-xl border border-black/5"
   >
     <!-- Logo/Brand -->
     <a href="/" class="flex items-center gap-2 pl-3">
@@ -19,27 +27,21 @@
     </a>
 
     <!-- Desktop Navigation -->
-    <nav class="hidden md:flex items-center gap-2 bg-gray-100 p-1 rounded-full dark:bg-gray-800">
-      <a
-        href="/#profile"
-        class="text-sm font-medium px-4 py-1.5 rounded-full transition-colors hover:bg-white dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300"
-        >About</a
-      >
-      <a
-        href="/#experience"
-        class="text-sm font-medium px-4 py-1.5 rounded-full transition-colors hover:bg-white dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300"
-        >Experience</a
-      >
-      <a
-        href="/#projects"
-        class="text-sm font-medium px-4 py-1.5 rounded-full transition-colors hover:bg-white dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300"
-        >Projects</a
-      >
-      <a
-        href="/#websites"
-        class="text-sm font-medium px-4 py-1.5 rounded-full transition-colors hover:bg-white dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300"
-        >Websites</a
-      >
+    <nav class="hidden md:flex items-center gap-2 p-1 rounded-full">
+      {
+        links.map((link: NavigationLink) => {
+          const isActive = currentPath === link.href;
+          return (
+            <a
+              href={link.href}
+              class={`text-sm font-medium px-4 py-1.5 rounded-full transition-colors hover:bg-white dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 ${isActive ? " bg-gray-100 dark:bg-gray-800" : "bg-transparent"}`}
+              target={link.target}
+            >
+              {link.label}
+            </a>
+          );
+        })
+      }
     </nav>
 
     <!-- Action Buttons -->
