@@ -1,0 +1,74 @@
+---
+import Button from '@/components/Button.astro';
+
+import classes from '@/data/commonClasses.json';
+---
+
+<section class="bg-secondary-bg py-24 px-6 lg:px-12" id="about">
+  <div class={classes.container}>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
+      <div class="lg:col-span-5 space-y-8">
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tight">
+          Obsessed with <br /><span class="text-gray-400">every detail.</span>
+        </h2>
+        <p class="text-lg text-secondary-text dark:text-gray-400 leading-relaxed">
+          I believe that the difference between good and great lies in the nuances. From the
+          fluidity of an animation to the semantic structure of the DOM, I pour attention into every
+          aspect of the frontend experience.
+        </p>
+        <div class="pt-4">
+          <Button style="tertiary" href="#about-detail"> More about my process </Button>
+        </div>
+      </div>
+      <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div
+          class="p-8 rounded-3xl bg-card-light dark:bg-card-dark border border-transparent hover:border-border-light dark:hover:border-border-dark transition-colors"
+        >
+          <span class="material-symbols-outlined text-3xl mb-4 text-primary dark:text-white"
+            >bolt</span
+          >
+          <h3 class="text-lg font-bold mb-2">Performance First</h3>
+          <p class="text-sm text-secondary-text dark:text-gray-400 leading-relaxed">
+            Optimizing Core Web Vitals, code-splitting, and asset delivery to ensure instantaneous
+            load times.
+          </p>
+        </div>
+        <div
+          class="p-8 rounded-3xl bg-card-light dark:bg-card-dark border border-transparent hover:border-border-light dark:hover:border-border-dark transition-colors md:mt-12"
+        >
+          <span class="material-symbols-outlined text-3xl mb-4 text-primary dark:text-white"
+            >accessibility_new</span
+          >
+          <h3 class="text-lg font-bold mb-2">Inclusive Design</h3>
+          <p class="text-sm text-secondary-text dark:text-gray-400 leading-relaxed">
+            Strict adherence to WCAG 2.1 guidelines ensuring the web is accessible to everyone,
+            everywhere.
+          </p>
+        </div>
+        <div
+          class="p-8 rounded-3xl bg-card-light dark:bg-card-dark border border-transparent hover:border-border-light dark:hover:border-border-dark transition-colors"
+        >
+          <span class="material-symbols-outlined text-3xl mb-4 text-primary dark:text-white"
+            >grid_view</span
+          >
+          <h3 class="text-lg font-bold mb-2">Pixel Perfect</h3>
+          <p class="text-sm text-secondary-text dark:text-gray-400 leading-relaxed">
+            Translating Figma designs into responsive code with exact precision and fluid
+            responsiveness.
+          </p>
+        </div>
+        <div
+          class="p-8 rounded-3xl bg-card-light dark:bg-card-dark border border-transparent hover:border-border-light dark:hover:border-border-dark transition-colors md:mt-12"
+        >
+          <span class="material-symbols-outlined text-3xl mb-4 text-primary dark:text-white"
+            >integration_instructions</span
+          >
+          <h3 class="text-lg font-bold mb-2">Type Safety</h3>
+          <p class="text-sm text-secondary-text dark:text-gray-400 leading-relaxed">
+            Leveraging TypeScript to build robust, scalable applications with fewer runtime errors.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

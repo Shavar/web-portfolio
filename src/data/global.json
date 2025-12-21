@@ -1,0 +1,36 @@
+{
+  "header": [
+    {
+      "label": "Profile",
+      "href": "/profile",
+      "target": "_self"
+    },
+    {
+      "label": "Experience",
+      "href": "/experience",
+      "target": "_self"
+    },
+    {
+      "label": "Projects",
+      "href": "/projects",
+      "target": "_self"
+    }
+  ],
+  "footer": {
+    "copyright": "Copyright © 2025 Shavar Cox. All Rights Reserved."
+  },
+  "socials": [
+    {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/shavarsean",
+      "target": "_blank",
+      "faIcon": "fab fa-linkedin"
+    },
+    {
+      "label": "Github",
+      "href": "https://www.github.com/shavarsean",
+      "target": "_blank",
+      "faIcon": "fab fa-github"
+    }
+  ]
+}

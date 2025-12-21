@@ -1,0 +1,4 @@
+{
+  "container": "max-w-7xl mx-auto relative z-10",
+  "preHeading": "inline-block text-sm font-semibold uppercase tracking-wider text-secondary-text dark:text-gray-400 mb-2"
+}

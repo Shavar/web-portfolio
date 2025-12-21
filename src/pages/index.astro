@@ -1,15 +1,19 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Hero from "@/components/Hero.astro";
+import Layout from '../layouts/Layout.astro';
+import Hero from '@/components/Hero.astro';
+import RecentProjects from '@/components/RecentProjects.astro';
+import SidebySide from '@/components/SidebySide.astro';
 
 // Import JSON data
-import profileData from "@/data/profile.json";
+import profileData from '@/data/profile.json';
 ---
 
 <Layout
   title={`${profileData.profileBio.name} - ${profileData.profileBio.title}`}
   description={profileData.profileBio.summary}
-  hasHero={false}
+  hasHero={true}
 >
   <Hero />
+  <SidebySide />
+  <RecentProjects />
 </Layout>

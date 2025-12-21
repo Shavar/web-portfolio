@@ -2,7 +2,19 @@
   "workExperience": [
     {
       "title": "Senior Frontend Developer",
-      "company": "Intuit Canada",
+      "company": "HelloFresh",
+      "startDate": "2025-09-15",
+      "endDate": "present",
+      "details": [
+        "Led automation of build, test, and deployment pipelines, replacing manual processes with CI/CD tools to significantly improve release reliability, reduce engineering effort, and enable faster, consistent deployments.",
+        "Led accessibility compliance for TurboTax Canada by auditing and remediating issues, reducing critical and serious accessibility violations by over 70%, and elevating the product to industry-leading accessibility standards.",
+        "Led the migration of core platforms to support modern architecture and experimentation frameworks, which enabled continuous delivery, rapid testing, and significantly increased team agility and time-to-insight.",
+        "Mentored junior developers and interns via guidance, technical support, and pair programming, while contributing to code reviews to ensure quality, promote best practices, and accelerate team development."
+      ]
+    },
+    {
+      "title": "Senior Frontend Developer",
+      "company": "Intuit Canada, GenAI",
       "startDate": "2024-04-03",
       "endDate": "2025-07-02",
       "details": [
@@ -16,7 +28,7 @@
     },
     {
       "title": "Senior Software Engineer",
-      "company": "Intuit Canada",
+      "company": "Intuit Canada, TurboTax",
       "startDate": "2021-08-03",
       "endDate": "2024-04-02",
       "details": [

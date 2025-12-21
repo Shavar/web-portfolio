@@ -1,0 +1,67 @@
+---
+import type { JobExperience } from '@/types';
+import experience from '@/data/experience.json';
+
+interface Props {
+  // No props needed for this component
+}
+
+const formatDateRange = (startDate: string, endDate: string): string => {
+  const formatDate = (dateString: string): string => {
+    if (dateString.toLowerCase() === 'present') {
+      return 'Present';
+    }
+
+    // Parse date in format "2024-04-03"
+    const date = new Date(dateString);
+    const monthNames = [
+      'Jan.',
+      'Feb.',
+      'Mar.',
+      'Apr.',
+      'May',
+      'Jun.',
+      'Jul.',
+      'Aug.',
+      'Sep.',
+      'Oct.',
+      'Nov.',
+      'Dec.',
+    ];
+
+    return `${monthNames[date.getMonth()]} ${date.getFullYear()}`;
+  };
+
+  return `${formatDate(startDate)} — ${formatDate(endDate)}`;
+};
+
+const workExperiences = experience.workExperience;
+---
+
+<div class="relative space-y-12">
+  <div class="absolute left-4 top-2 bottom-2 w-0.5 bg-gray-200 dark:bg-gray-800"></div>
+
+  {
+    workExperiences.map((job: JobExperience) => (
+      <div class="relative pl-12 group">
+        <div class="absolute left-[9px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-primary bg-white dark:bg-zinc-900 dark:border-white group-hover:bg-primary dark:group-hover:bg-white transition-colors" />
+        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-primary dark:group-hover:text-white transition-colors">
+            {job.title}
+          </h3>
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-gray-100 dark:bg-zinc-800 text-gray-800 dark:text-gray-300">
+            {formatDateRange(job.startDate, job.endDate)}
+          </span>
+        </div>
+        <h4 class="text-lg font-medium text-gray-600 dark:text-gray-400 mb-4">{job.company}</h4>
+        <ul class="pl-8">
+          {job.details.map((detail: string) => (
+            <li class="text-gray-500 dark:text-gray-400 leading-relaxed text-sm list-disc mb-2">
+              {detail}
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))
+  }
+</div>
