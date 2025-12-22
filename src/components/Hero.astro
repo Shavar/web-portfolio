@@ -2,7 +2,6 @@
 import { Image } from 'astro:assets';
 import Photo from '@/assets/images/me.png';
 import Button from '@/components/Button.astro';
-
 import classes from '@/data/commonClasses.json';
 ---
 
@@ -12,10 +11,7 @@ import classes from '@/data/commonClasses.json';
   >
     <div class="space-y-8 order-2 lg:order-1">
       <div class="space-y-2">
-        <span
-          class="inline-block text-sm font-semibold uppercase tracking-wider text-secondary-text dark:text-gray-400"
-          >Senior Frontend Developer</span
-        >
+        <span class={classes.preHeading}>Senior Frontend Developer</span>
         <h1 class={classes.sectionHeading}>
           Building <span class="text-gray-400 dark:text-gray-600">digital products</span> that matter.
         </h1>
@@ -44,10 +40,6 @@ import classes from '@/data/commonClasses.json';
           loading="eager"
           densities={[1, 2]}
         />
-        <div
-          class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/50 to-transparent"
-        >
-        </div>
       </div>
     </div>
   </div>
