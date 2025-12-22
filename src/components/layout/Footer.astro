@@ -1,7 +1,8 @@
 ---
 // Footer component
 import type { SocialLink } from '@/types';
-import commonClasses from '@/data/commonClasses.json';
+import Button from '@/components/Button.astro';
+import classes from '@/data/commonClasses.json';
 
 interface Props {
   socials: SocialLink[];
@@ -16,33 +17,23 @@ const { socials, copyright } = Astro.props;
     class="py-24 px-6 bg-white dark:bg-background-dark border-t border-gray-100 dark:border-gray-800 relative overflow-hidden"
     id="contact"
   >
-    <div class={commonClasses.container}>
+    <div class={classes.container}>
       <div class="flex flex-col items-center text-center mb-12">
-        <span class={commonClasses.preHeading}>Get in Touch</span>
-        <h2 class="text-5xl md:text-7xl font-bold leading-tight text-primary dark:text-white pb-8">
-          Let's work together
-        </h2>
+        <span class={classes.preHeading}>Get in Touch</span>
+        <h2 class={classes.subHeading}>Let's work together</h2>
         <p class="text-base text-secondary-text dark:text-gray-400 max-w-lg mx-auto">
           I'm currently available for freelance work and open to full-time opportunities.
         </p>
         <div class="pt-8 flex flex-col items-center gap-6">
-          <a
-            class="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-primary dark:bg-white dark:text-black rounded-full hover:bg-black dark:hover:bg-gray-200 transition-all shadow-xl shadow-gray-200 dark:shadow-none transform hover:-translate-y-1"
-            href="#"
-          >
+          <Button style="primary" href="#">
             <i class="fab fa-linkedin mr-3 text-2xl"></i>
             Connect on LinkedIn
-          </a>
-          <a
-            class="text-secondary-text dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors font-medium border-b border-transparent hover:border-gray-300 dark:hover:border-gray-600"
-            href="mailto:hello@johndoe.com"
-          >
-            Or just say hello via email
-          </a>
+          </Button>
+          <Button style="tertiary" href="#"> Or just say hello via email </Button>
         </div>
       </div>
       <div class="pt-16 flex flex-col md:flex-row justify-between items-center gap-6">
-        <p class="text-gray-400 text-sm order-2 md:order-1">
+        <p class="text-gray-400 text-xs order-2 md:order-1">
           {copyright}
         </p>
         <div class="flex gap-6 order-1 md:order-2">

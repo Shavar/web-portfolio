@@ -57,7 +57,7 @@ const { title, description, showHeader = true, showFooter = true, hasHero = fals
   <body class="bg-primary-bg text-primary dark:text-white font-body transition-colors duration-300">
     {showHeader && <Header links={globalData.header} socials={globalData.socials} />}
 
-    <main class:list={['min-h-screen', { 'mt-20': hasHero }]}>
+    <main class:list={['min-h-screen', { 'mt-28': !hasHero }]}>
       <slot />
     </main>
 

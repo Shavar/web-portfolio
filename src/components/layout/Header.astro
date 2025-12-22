@@ -34,7 +34,7 @@ const currentPath = Astro.url.pathname;
           return (
             <a
               href={link.href}
-              class={`text-sm font-medium px-4 py-1.5 rounded-full transition-colors hover:bg-white dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300${isActive ? ' bg-white dark:bg-gray-800' : ' bg-transparent'}`}
+              class={`text-sm font-medium px-4 py-1.5 rounded-full transition-colors hover:bg-white dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300${isActive ? ' bg-primary-bg' : ' bg-transparent'}`}
               target={link.target}
             >
               {link.label}

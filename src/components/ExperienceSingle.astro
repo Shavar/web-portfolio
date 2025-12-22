@@ -1,0 +1,32 @@
+---
+import type { Experience } from '@/types';
+
+interface Props extends Omit<Experience, 'startDate' | 'endDate'> {
+  date: string;
+}
+
+const { title, company, date, details } = Astro.props;
+---
+
+<div class="relative space-y-12">
+  <div class="group relative pl-8 border-l border-zinc-200 dark:border-zinc-800">
+    <div
+      class="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-zinc-400 dark:bg-zinc-600 group-hover:bg-zinc-900 dark:group-hover:bg-white transition-colors"
+    >
+    </div>
+    <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-2">
+      <h3 class="text-xl font-bold text-zinc-900 dark:text-white">{title}</h3>
+      <span class="text-sm text-zinc-500">{date}</span>
+    </div>
+    <div class="text-sm font-medium text-zinc-800 dark:text-zinc-200 mb-4">{company}</div>
+    <ul class="pl-8">
+      {
+        details.map((detail: string) => (
+          <li class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed list-disc mb-2">
+            {detail}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>

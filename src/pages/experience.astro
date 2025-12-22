@@ -1,60 +1,23 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import Hero from '@/components/Hero.astro';
-import WorkExperience from '@/components/WorkExperience.astro';
+import Intro from '@/components/layout/Intro.astro';
+import Experiences from '@/components/Experiences.astro';
 // Import JSON data
 import profileData from '@/data/profile.json';
+
+const preHeading = "Hi, I'm Sean";
+const title = 'Experience';
+const description =
+  "A chronological overview of my professional career, the roles I've held, and the technical expertise I've cultivated along the way.";
 ---
 
 <Layout
   title={`${profileData.profileBio.name} - ${profileData.profileBio.title}`}
   description={profileData.profileBio.summary}
+  hasHero
 >
-  <Hero />
-
-  <section class="py-24 px-6 lg:px-12 bg-white dark:bg-background-dark" id="about">
-    <div class="max-w-7xl mx-auto">
-      <div class="flex items-center justify-between">
-        <h2 class="text-3xl font-bold">Resume</h2>
-        <a
-          class="inline-flex items-center gap-2 text-sm font-semibold text-primary dark:text-white hover:opacity-70 transition-opacity"
-          href="#"
-        >
-          <span class="material-symbols-outlined text-lg">download</span> Download CV
-        </a>
-      </div>
-      <WorkExperience />
-
-      <div class="pt-8">
-        <h3 class="text-2xl font-bold mb-8">Education</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div
-            class="bg-surface-light dark:bg-surface-dark p-6 rounded-2xl border border-transparent hover:border-gray-200 dark:hover:border-gray-700 transition-colors"
-          >
-            <span class="material-symbols-outlined text-3xl mb-4 text-gray-400 dark:text-gray-500"
-              >school</span
-            >
-            <h4 class="text-lg font-bold text-gray-900 dark:text-white">M.Sc. Computer Science</h4>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Tech University</p>
-            <p class="text-xs text-gray-400 dark:text-gray-500 mt-4">2015 — 2017</p>
-          </div>
-          <div
-            class="bg-surface-light dark:bg-surface-dark p-6 rounded-2xl border border-transparent hover:border-gray-200 dark:hover:border-gray-700 transition-colors"
-          >
-            <span class="material-symbols-outlined text-3xl mb-4 text-gray-400 dark:text-gray-500"
-              >menu_book</span
-            >
-            <h4 class="text-lg font-bold text-gray-900 dark:text-white">
-              B.Sc. Information Technology
-            </h4>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">State College</p>
-            <p class="text-xs text-gray-400 dark:text-gray-500 mt-4">2011 — 2015</p>
-          </div>
-        </div>
-      </div>
-      <div class="border-t border-gray-100 dark:border-gray-800"></div>
-    </div>
-  </section>
+  <Intro preheading={preHeading} heading={title} description={description} />
+  <Experiences />
 
   <section class="max-w-7xl mx-auto px-6 mb-32">
     <div
