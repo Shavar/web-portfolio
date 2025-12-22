@@ -1,7 +1,9 @@
 ---
-import { Image } from "astro:assets";
-import Photo from "@/assets/images/me.png";
-import Button from "@/components/Button.astro";
+import { Image } from 'astro:assets';
+import Photo from '@/assets/images/me.png';
+import Button from '@/components/Button.astro';
+
+import classes from '@/data/commonClasses.json';
 ---
 
 <section class="flex items-center relative overflow-hidden py-16" id="hero">
@@ -14,9 +16,7 @@ import Button from "@/components/Button.astro";
           class="inline-block text-sm font-semibold uppercase tracking-wider text-secondary-text dark:text-gray-400"
           >Senior Frontend Developer</span
         >
-        <h1
-          class="text-5xl md:text-6xl font-bold leading-tight tracking-tight text-primary dark:text-white"
-        >
+        <h1 class={classes.sectionHeading}>
           Building <span class="text-gray-400 dark:text-gray-600">digital products</span> that matter.
         </h1>
       </div>

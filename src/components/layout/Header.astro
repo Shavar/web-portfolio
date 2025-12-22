@@ -1,7 +1,7 @@
 ---
 // Header component - responsive with burger menu using Tailwind CSS
-import type { NavigationLink, SocialLink } from "@/types";
-import Logo from "@/components/layout/Logo.astro";
+import type { NavigationLink, SocialLink } from '@/types';
+import Logo from '@/components/layout/Logo.astro';
 
 interface Props {
   links: NavigationLink[];
@@ -30,10 +30,11 @@ const currentPath = Astro.url.pathname;
       {
         links.map((link: NavigationLink) => {
           const isActive = currentPath === link.href;
+
           return (
             <a
               href={link.href}
-              class={`text-sm font-medium px-4 py-1.5 rounded-full transition-colors hover:bg-white dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 ${isActive ? " bg-gray-100 dark:bg-gray-800" : "bg-transparent"}`}
+              class={`text-sm font-medium px-4 py-1.5 rounded-full transition-colors hover:bg-white dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300${isActive ? ' bg-white dark:bg-gray-800' : ' bg-transparent'}`}
               target={link.target}
             >
               {link.label}
@@ -56,7 +57,7 @@ const currentPath = Astro.url.pathname;
                 href={social.href}
                 target={social.target}
               >
-                <i class={social.faIcon + " text-xl"} />
+                <i class={social.faIcon + ' text-xl'} />
               </a>
             );
           })
@@ -109,44 +110,44 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
-    const mobileNav = document.getElementById("mobile-nav");
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
 
-    mobileMenuBtn?.addEventListener("click", () => {
-      const isExpanded = mobileMenuBtn.getAttribute("aria-expanded") === "true";
+    mobileMenuBtn?.addEventListener('click', () => {
+      const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
       const newState = !isExpanded;
 
-      mobileMenuBtn.setAttribute("aria-expanded", newState.toString());
+      mobileMenuBtn.setAttribute('aria-expanded', newState.toString());
 
       if (newState) {
-        mobileNav?.classList.remove("hidden");
+        mobileNav?.classList.remove('hidden');
       } else {
-        mobileNav?.classList.add("hidden");
+        mobileNav?.classList.add('hidden');
       }
     });
 
     // Close menu when clicking nav links
-    mobileNav?.addEventListener("click", (e) => {
+    mobileNav?.addEventListener('click', (e) => {
       if (e.target instanceof HTMLAnchorElement) {
-        mobileNav.classList.add("hidden");
-        mobileMenuBtn?.setAttribute("aria-expanded", "false");
+        mobileNav.classList.add('hidden');
+        mobileMenuBtn?.setAttribute('aria-expanded', 'false');
       }
     });
 
     // Close menu on escape key
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        mobileNav?.classList.add("hidden");
-        mobileMenuBtn?.setAttribute("aria-expanded", "false");
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        mobileNav?.classList.add('hidden');
+        mobileMenuBtn?.setAttribute('aria-expanded', 'false');
       }
     });
 
     // Close menu when clicking outside
-    document.addEventListener("click", (e) => {
+    document.addEventListener('click', (e) => {
       if (!mobileMenuBtn?.contains(e.target as Node) && !mobileNav?.contains(e.target as Node)) {
-        mobileNav?.classList.add("hidden");
-        mobileMenuBtn?.setAttribute("aria-expanded", "false");
+        mobileNav?.classList.add('hidden');
+        mobileMenuBtn?.setAttribute('aria-expanded', 'false');
       }
     });
   });

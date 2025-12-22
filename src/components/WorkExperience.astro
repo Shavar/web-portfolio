@@ -1,6 +1,6 @@
 ---
 import type { JobExperience } from '@/types';
-import experience from '@/data/experience.json';
+import experiences from '@/data/experience.json';
 
 interface Props {
   // No props needed for this component
@@ -35,7 +35,7 @@ const formatDateRange = (startDate: string, endDate: string): string => {
   return `${formatDate(startDate)} — ${formatDate(endDate)}`;
 };
 
-const workExperiences = experience.workExperience;
+const workExperiences = experiences.workExperience;
 ---
 
 <div class="relative space-y-12">
