@@ -75,9 +75,13 @@
   ],
   "education": [
     {
-      "degree": "Bachelor of Science in Computer Science",
-      "institution": "State University",
-      "duration": "2014 - 2018"
+      "title": "Senior Web Developer",
+      "company": "Seneca College",
+      "startDate": "2017-04-02",
+      "endDate": "2017-10-02",
+      "details": [
+        "Coursework included object-oriented programming, databases, web development, and systems"
+      ]
     }
   ]
 }
