@@ -1,14 +1,130 @@
 {
   "projects": [
     {
-      "title": "Task Flow Manager",
+      "id": "task-flow-manager",
+      "title": "Aeroplanner",
       "description": "A robust Kanban board application built with React and Zustand for state management. Features real-time drag-and-drop functionality and local persistence.",
-      "tags": ["React", "Zustand", "TypeScript"]
+      "shortDescription": "A robust Kanban board application with drag-and-drop functionality.",
+      "tags": ["React", "Zustand", "TypeScript"],
+      "image": "/src/assets/images/developer-mug.jpg",
+      "gallery": ["/src/assets/images/developer-mug.jpg"],
+      "liveUrl": "https://taskflow.example.com",
+      "githubUrl": "https://github.com/yourusername/task-flow-manager",
+      "features": [
+        "Real-time drag-and-drop functionality",
+        "Local data persistence",
+        "Responsive design",
+        "Task categorization and filtering"
+      ],
+      "technologies": [
+        {
+          "name": "React",
+          "description": "Frontend framework for building user interfaces"
+        },
+        {
+          "name": "Zustand",
+          "description": "Lightweight state management solution"
+        },
+        {
+          "name": "TypeScript",
+          "description": "Type-safe JavaScript development"
+        }
+      ],
+      "challenges": [
+        {
+          "problem": "Complex drag-and-drop state management",
+          "solution": "Implemented a custom Zustand store with optimistic updates and rollback functionality"
+        }
+      ],
+      "results": [
+        "40% improvement in task organization efficiency",
+        "Zero data loss with local persistence",
+        "98% user satisfaction score"
+      ]
     },
     {
-      "title": "E-Commerce Headless Storefront",
+      "id": "ecommerce-headless-storefront",
+      "title": "Vacation Planner",
       "description": "A highly performant storefront using Next.js for SSR and integrating with a mock GraphQL API. Focus on speed and accessibility.",
-      "tags": ["Next.js", "GraphQL", "SSR"]
+      "shortDescription": "High-performance e-commerce storefront with SSR and GraphQL integration.",
+      "tags": ["Next.js", "GraphQL", "SSR"],
+      "image": "/src/assets/images/developer-mug.jpg",
+      "gallery": ["/src/assets/images/developer-mug.jpg"],
+      "liveUrl": "https://storefront.example.com",
+      "githubUrl": "https://github.com/yourusername/ecommerce-storefront",
+      "features": [
+        "Server-side rendering for optimal performance",
+        "GraphQL API integration",
+        "Accessibility-first design",
+        "Mobile-responsive layout"
+      ],
+      "technologies": [
+        {
+          "name": "Next.js",
+          "description": "React framework with SSR capabilities"
+        },
+        {
+          "name": "GraphQL",
+          "description": "Query language for APIs"
+        },
+        {
+          "name": "TypeScript",
+          "description": "Type-safe JavaScript development"
+        }
+      ],
+      "challenges": [
+        {
+          "problem": "Performance optimization for large product catalogs",
+          "solution": "Implemented incremental static regeneration and smart caching strategies"
+        }
+      ],
+      "results": [
+        "50% faster page load times",
+        "100% accessibility score",
+        "25% increase in conversion rates"
+      ]
+    },
+    {
+      "id": "weather-api-wrapper",
+      "title": "OpenWeather",
+      "description": "A lightweight TypeScript wrapper for accessing global weather data with comprehensive type safety and error handling.",
+      "shortDescription": "A lightweight TypeScript wrapper for accessing global weather data with type safety.",
+      "tags": ["TypeScript", "Node.js", "API"],
+      "image": "/src/assets/images/developer-mug.jpg",
+      "gallery": ["/src/assets/images/developer-mug.jpg"],
+      "liveUrl": "https://weather-wrapper.example.com",
+      "githubUrl": "https://github.com/yourusername/weather-api-wrapper",
+      "features": [
+        "Full TypeScript support",
+        "Comprehensive error handling",
+        "Rate limiting and caching",
+        "Multiple weather provider support"
+      ],
+      "technologies": [
+        {
+          "name": "TypeScript",
+          "description": "Type-safe JavaScript development"
+        },
+        {
+          "name": "Node.js",
+          "description": "JavaScript runtime for server-side development"
+        },
+        {
+          "name": "Axios",
+          "description": "HTTP client for API requests"
+        }
+      ],
+      "challenges": [
+        {
+          "problem": "Handling multiple weather API providers with different schemas",
+          "solution": "Created a unified interface with adapter pattern for seamless provider switching"
+        }
+      ],
+      "results": [
+        "500+ weekly downloads on npm",
+        "Zero breaking changes in 2+ years",
+        "Used by 50+ production applications"
+      ]
     }
   ],
   "skillsData": {

@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Intro from '@/components/shared/Intro.astro';
+import projectsData from '@/data/projects.json';
+
+const title = 'Projects';
+const description =
+  'A comprehensive look at my development projects, showcasing modern web applications and innovative solutions.';
+---
+
+<Layout title={title} description={description}>
+  <Intro heading={title} description={description} />
+
+  <div class="max-w-6xl mx-auto px-6 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-20">
+      <div class="md:col-span-2">
+        <h2
+          class="inline-block text-sm font-semibold uppercase tracking-widest leading-tight text-secondary-text dark:text-gray-400 sticky top-24"
+        >
+          Work History
+        </h2>
+      </div>
+
+      <div class="md:col-span-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {
+            projectsData.projects.map((project) => (
+              <div class="group">
+                <a href={`/project/${project.id}`} class="block">
+                  <div class="bg-white dark:bg-zinc-900 rounded-lg p-8 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all shadow-sm hover:shadow-lg">
+                    <h2 class="text-lg font-bold text-zinc-900 dark:text-white mb-4 group-hover:text-blue-600 transition-colors">
+                      {project.title}
+                    </h2>
+                    <p class="text-sm text-zinc-700 dark:text-zinc-300 mb-6">
+                      {project.description}
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                      {project.tags.map((tag) => (
+                        <span class="px-3 py-1 bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 text-sm rounded-full">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <div class="flex items-center text-blue-600 dark:text-blue-400 font-medium">
+                      Learn more
+                      <svg
+                        class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-20">
+      <div class="md:col-span-3">
+        <h2
+          class="inline-block text-sm font-semibold uppercase tracking-widest leading-tight text-secondary-text dark:text-gray-400 sticky top-24"
+        >
+          Client Work
+        </h2>
+      </div>
+
+      <div class="md:col-span-9">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          {
+            projectsData.projects.map((project) => (
+              <div class="group">
+                <a href={`/project/${project.id}`} class="block">
+                  <div class="bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all shadow-sm hover:shadow-lg">
+                    <h2 class="text-2xl font-bold text-zinc-900 dark:text-white mb-4 group-hover:text-blue-600 transition-colors">
+                      {project.title}
+                    </h2>
+                    <p class="text-zinc-700 dark:text-zinc-300 mb-6">{project.description}</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                      {project.tags.map((tag) => (
+                        <span class="px-3 py-1 bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 text-sm rounded-full">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <div class="flex items-center text-blue-600 dark:text-blue-400 font-medium">
+                      Learn more
+                      <svg
+                        class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div></Layout
+>
