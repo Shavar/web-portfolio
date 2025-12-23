@@ -1,10 +1,9 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import Intro from '@/components/shared/Intro.astro';
-import Experience from '@/components/Experience.astro';
+import ExperienceComponent from '@/components/Experience.astro';
 
 // Import JSON data
-import profileData from '@/data/profile.json';
 import experiences from '@/data/experience.json';
 import styles from '@/data/styles.json';
 
@@ -18,8 +17,8 @@ const description =
   <Intro preheading={preHeading} heading={title} description={description} />
 
   <section class={`${styles.container} py-16`}>
-    <Experience title="Work History" experiences={experiences.workExperience} />
-    <Experience title="Education" experiences={experiences.education} />
+    <ExperienceComponent title="Work History" experiences={experiences.workExperience} />
+    <ExperienceComponent title="Education" experiences={experiences.education} />
   </section>
 
   <section class={`${styles.container} py-16`}>
