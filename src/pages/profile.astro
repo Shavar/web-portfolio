@@ -1,8 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Hero from '@/components/Hero.astro';
+import Intro from '@/components/shared/Intro.astro';
 import RecentProjects from '@/components/RecentProjects.astro';
 import SidebySide from '@/components/SidebySide.astro';
+import BackgroundImage from '@/assets/images/developer-mug.jpg';
 
 const title = 'Profile';
 const description =
@@ -10,7 +11,7 @@ const description =
 ---
 
 <Layout title={title} description={description} hasHero>
-  <Hero />
+  <Intro heading={title} description={description} backgroundImage={BackgroundImage} />
   <SidebySide />
   <RecentProjects />
 </Layout>
