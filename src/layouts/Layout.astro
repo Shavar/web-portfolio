@@ -1,6 +1,6 @@
 ---
-import Header from '../components/layout/Header.astro';
-import Footer from '../components/layout/Footer.astro';
+import Header from '@/components/shared/Header.astro';
+import Footer from '@/components/shared/Footer.astro';
 
 // Import JSON data
 import globalData from '@/data/global.json';
@@ -26,7 +26,7 @@ const { title, description, showHeader = true, showFooter = true, hasHero = fals
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title}</title>
+    <title>{title === 'Shavar Cox' ? title : title + ' | Shavar Cox'}</title>
 
     <!-- Google Fonts preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

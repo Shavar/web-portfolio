@@ -1,4 +1,4 @@
-export interface Experience {
+export interface ExperienceDetails {
   title: string;
   company: string;
   startDate: string;

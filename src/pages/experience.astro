@@ -1,9 +1,12 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import Intro from '@/components/layout/Intro.astro';
-import Experiences from '@/components/Experiences.astro';
+import Intro from '@/components/shared/Intro.astro';
+import Experience from '@/components/Experience.astro';
+
 // Import JSON data
 import profileData from '@/data/profile.json';
+import experiences from '@/data/experience.json';
+import styles from '@/data/styles.json';
 
 const preHeading = "Hi, I'm Sean";
 const title = 'Experience';
@@ -11,15 +14,15 @@ const description =
   "A chronological overview of my professional career, the roles I've held, and the technical expertise I've cultivated along the way.";
 ---
 
-<Layout
-  title={`${profileData.profileBio.name} - ${profileData.profileBio.title}`}
-  description={profileData.profileBio.summary}
-  hasHero
->
+<Layout title={title} description={description} hasHero>
   <Intro preheading={preHeading} heading={title} description={description} />
-  <Experiences />
 
-  <section class="max-w-7xl mx-auto px-6 mb-32">
+  <section class={`${styles.container} py-16`}>
+    <Experience title="Work History" experiences={experiences.workExperience} />
+    <Experience title="Education" experiences={experiences.education} />
+  </section>
+
+  <section class={`${styles.container} py-16`}>
     <div
       class="bg-zinc-900 rounded-[2.5rem] p-8 md:p-16 text-white overflow-hidden relative shadow-2xl"
     >

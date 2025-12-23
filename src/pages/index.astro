@@ -4,14 +4,12 @@ import Hero from '@/components/Hero.astro';
 import RecentProjects from '@/components/RecentProjects.astro';
 import SidebySide from '@/components/SidebySide.astro';
 
-// Import JSON data
-import profileData from '@/data/profile.json';
+const title = 'Shavar Cox';
+const description =
+  'I help forward-thinking companies build performant, accessible, and beautiful web applications using the modern React ecosystem.';
 ---
 
-<Layout
-  title={`${profileData.profileBio.name} - ${profileData.profileBio.title}`}
-  description={profileData.profileBio.summary}
->
+<Layout title={title} description={description}>
   <Hero />
   <SidebySide />
   <RecentProjects />

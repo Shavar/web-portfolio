@@ -1,18 +1,16 @@
 ---
 import { Image } from 'astro:assets';
 import Photo from '@/assets/images/me.png';
-import Button from '@/components/Button.astro';
-import classes from '@/data/commonClasses.json';
+import Button from '@/components/shared/Button.astro';
+import styles from '@/data/styles.json';
 ---
 
-<section class="flex items-center relative overflow-hidden py-16" id="hero">
-  <div
-    class={`${classes.container} px-6 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center`}
-  >
+<section class="flex items-center relative overflow-hidden pt-6 pb-24" id="hero">
+  <div class={`${styles.container} w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center`}>
     <div class="space-y-8 order-2 lg:order-1">
       <div class="space-y-2">
-        <span class={classes.preHeading}>Senior Frontend Developer</span>
-        <h1 class={classes.sectionHeading}>
+        <span class={styles.preHeading}>Senior Frontend Developer</span>
+        <h1 class={styles.sectionHeading}>
           Building <span class="text-gray-400 dark:text-gray-600">digital products</span> that matter.
         </h1>
       </div>
@@ -27,20 +25,22 @@ import classes from '@/data/commonClasses.json';
     </div>
     <div class="order-1 lg:order-2 flex justify-center lg:justify-end relative">
       <div
-        class="relative w-80 h-[28rem] md:w-[28rem] md:h-[36rem] rounded-[2.5rem] overflow-hidden shadow-2xl bg-gray-100 dark:bg-gray-800 rotate-2 hover:rotate-0 transition-transform duration-500"
+        class="absolute inset-0 bg-gradient-to-tr from-zinc-200 to-transparent dark:from-zinc-800 rounded-[3rem] rotate-3 group-hover:rotate-6 transition-transform duration-500"
       >
-        <Image
-          src={Photo}
-          alt="Portrait of John Doe"
-          class="w-full h-full object-cover"
-          width={448}
-          height={576}
-          format="avif"
-          quality={85}
-          loading="eager"
-          densities={[1, 2]}
-        />
       </div>
+      <div
+        class="absolute inset-0 border-2 border-zinc-900 dark:border-white rounded-[3rem] -rotate-2 opacity-10 group-hover:opacity-20 transition-opacity duration-500"
+      >
+      </div>
+      <Image
+        src={Photo}
+        alt="Portrait of Shavar"
+        format="avif"
+        quality={85}
+        loading="eager"
+        densities={[1, 2]}
+        class="relative rounded-[2rem] w-full h-[600px] object-cover transition-all duration-700 shadow-2xl rotate-2 hover:rotate-0"
+      />
     </div>
   </div>
 </section>

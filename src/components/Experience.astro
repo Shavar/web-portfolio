@@ -1,0 +1,72 @@
+---
+import type { ExperienceDetails } from '@/types';
+import styles from '@/data/styles.json';
+
+interface Props {
+  title: string;
+  experiences: ExperienceDetails[];
+}
+
+const { experiences, title } = Astro.props;
+
+const formatDateRange = (startDate: string, endDate: string): string => {
+  const formatDate = (dateString: string): string => {
+    if (dateString.toLowerCase() === 'present') {
+      return 'Present';
+    }
+
+    const date = new Date(dateString);
+    const monthNames = [
+      'Jan.',
+      'Feb.',
+      'Mar.',
+      'Apr.',
+      'May',
+      'Jun.',
+      'Jul.',
+      'Aug.',
+      'Sep.',
+      'Oct.',
+      'Nov.',
+      'Dec.',
+    ];
+
+    return `${monthNames[date.getMonth()]} ${date.getFullYear()}`;
+  };
+
+  return `${formatDate(startDate)} — ${formatDate(endDate)}`;
+};
+---
+
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-20">
+  <div class="md:col-span-3">
+    <h2 class={`${styles.preHeading} sticky top-24`}>{title}</h2>
+  </div>
+  <div class="md:col-span-9 space-y-12">
+    {
+      experiences.map((experience: ExperienceDetails) => (
+        <div class="relative space-y-12">
+          <div class="group relative pl-8 border-l border-zinc-200 dark:border-zinc-800">
+            <div class="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-zinc-400 dark:bg-zinc-600 group-hover:bg-zinc-900 dark:group-hover:bg-white transition-colors" />
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-2">
+              <h3 class="text-xl font-bold text-zinc-900 dark:text-white">{experience.title}</h3>
+              <span class="text-sm text-zinc-500">
+                {formatDateRange(experience.startDate, experience.endDate)}
+              </span>
+            </div>
+            <div class="text-sm font-medium text-zinc-800 dark:text-zinc-200 mb-4">
+              {experience.company}
+            </div>
+            <ul class="pl-8">
+              {experience.details.map((detail: string) => (
+                <li class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed list-disc mb-2">
+                  {detail}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
