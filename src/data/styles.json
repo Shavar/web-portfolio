@@ -1,6 +1,6 @@
 {
   "container": "max-w-6xl mx-auto relative z-10 px-6",
-  "preHeading": "inline-block text-sm font-semibold uppercase tracking-widest leading-tight text-secondary-text dark:text-gray-400",
-  "sectionHeading": "text-5xl md:text-6xl font-bold leading-tight tracking-tight text-primary dark:text-white",
-  "subHeading": "text-4xl md:text-5xl font-bold mt-2 leading-tight tracking-tight text-primary dark:text-white"
+  "preHeading": "inline-block text-sm font-semibold uppercase tracking-widest leading-tight text-secondary-text dark:text-gray-400 pb-2",
+  "heading": "text-4xl md:text-5xl font-bold leading-extra-tight tracking-tight text-primary dark:text-white pb-4",
+  "secondaryText": "text-lg md:text-md text-secondary-text leading-relaxed pb-4"
 }

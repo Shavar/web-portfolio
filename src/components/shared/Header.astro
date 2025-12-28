@@ -2,7 +2,7 @@
 // Header component - responsive with burger menu using Tailwind CSS
 import type { NavigationLink, SocialLink } from '@/types';
 import Logo from '@/components/shared/Logo.astro';
-
+import styles from '@/data/styles.json';
 interface Props {
   links: NavigationLink[];
   socials: SocialLink[];
@@ -12,9 +12,9 @@ const { links, socials } = Astro.props;
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="fixed top-4 left-4 right-4 z-50">
+<header id="main-header" class="group fixed top-4 left-0 right-0 z-50 transition-all duration-300">
   <div
-    class="bg-navigation-bg flex max-w-4xl m-auto items-center justify-between rounded-full p-2 backdrop-blur-xl shadow-md border border-black/5"
+    class={`${styles.container} flex m-auto items-center justify-between rounded-full py-2 transition-all duration-300 group-[.scrolled]:max-w-4xl group-[.scrolled]:bg-navigation-bg group-[.scrolled]:backdrop-blur-xl group-[.scrolled]:shadow-md`}
   >
     <!-- Logo/Brand -->
     <a href="/" class="flex items-center gap-2 pl-2 w-[100px]">
@@ -113,7 +113,9 @@ const currentPath = Astro.url.pathname;
   document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileNav = document.getElementById('mobile-nav');
+    const header = document.getElementById('main-header');
 
+    // Mobile menu functionality (keep existing code)
     mobileMenuBtn?.addEventListener('click', () => {
       const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
       const newState = !isExpanded;
@@ -150,5 +152,41 @@ const currentPath = Astro.url.pathname;
         mobileMenuBtn?.setAttribute('aria-expanded', 'false');
       }
     });
+
+    // Scroll-based approach for intro section
+    const introSection =
+      document.querySelector('section#intro') || document.querySelector('section#hero');
+
+    const heightOffset = introSection?.id == 'hero' ? 500 : 200;
+
+    if (introSection && header) {
+      let ticking = false;
+
+      const checkScroll = () => {
+        const rect = introSection.getBoundingClientRect();
+        const remainingHeight = rect.bottom;
+
+        // If 100px or less of the intro section is visible
+        if (remainingHeight <= heightOffset) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+
+        ticking = false;
+      };
+
+      const onScroll = () => {
+        if (!ticking) {
+          requestAnimationFrame(checkScroll);
+          ticking = true;
+        }
+      };
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      // Initial check
+      checkScroll();
+    }
   });
 </script>

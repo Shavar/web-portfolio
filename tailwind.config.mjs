@@ -63,9 +63,8 @@ export default {
         'card-dark': 'var(--color-card-dark)',
         'border-light': 'var(--color-border-light)',
         'border-dark': 'var(--color-border-dark)',
+        'primary-text': 'var(--color-primary-text)',
         'secondary-text': 'var(--color-secondary-text)',
-        'secondary-text-dark': 'var(--color-secondary-text-dark)',
-        accent: 'var(--color-accent)',
       },
       spacing: {
         xs: 'var(--spacing-xs)',
@@ -82,8 +81,6 @@ export default {
         md: 'var(--radius-md)',
         lg: 'var(--radius-lg)',
         xl: 'var(--radius-xl)',
-        DEFAULT: 'var(--radius-lg)',
-        '2xl': '3rem',
       },
       fontSize: {
         xs: 'var(--font-size-xs)',
@@ -95,6 +92,9 @@ export default {
         '3xl': 'var(--font-size-3xl)',
         '4xl': 'var(--font-size-4xl)',
         '5xl': 'var(--font-size-5xl)',
+      },
+      lineHeight: {
+        'extra-tight': '1.15',
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],

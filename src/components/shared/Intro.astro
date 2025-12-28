@@ -12,7 +12,7 @@ interface Props {
 const { preheading, heading, description, backgroundImage } = Astro.props;
 ---
 
-<section class="relative">
+<section id="intro"class="relative">
   {
     backgroundImage && (
       <Image
@@ -25,12 +25,12 @@ const { preheading, heading, description, backgroundImage } = Astro.props;
   }
   
   <div class:list={[classes.container, { 'pt-64': backgroundImage }, 'pb-8',]}>
-    <div class="flex flex-col items-start text-left space-y-2">
+    <div class="flex flex-col items-start text-left">
       {preheading && <span class={classes.preHeading}>{preheading}</span>}
-      <h1 class={classes.sectionHeading}>
+      <h1 class={classes.heading}>
         {heading}
       </h1>
-      <p class="text-base text-secondary-text dark:text-gray-300 max-w-3xl leading-relaxed">
+      <p class={classes.secondaryText}>
         {description}
       </p>
     </div>

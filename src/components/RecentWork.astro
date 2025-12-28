@@ -1,0 +1,89 @@
+---
+import classes from '@/data/styles.json';
+import projectsData from '@/data/projects.json';
+import ThumbnailProject from '@/components/ThumbnailProject.astro';
+const projects = projectsData.projects.slice(0, 3); // Show only first 2 projects
+---
+
+<section class="py-24 px-6">
+  <div class={classes.container}>
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+      <div class="text-left flex-1">
+        <span class={classes.preHeading}>Portfolio</span>
+        <h2 class={classes.heading}>Recent Projects</h2>
+        <p class={`${classes.secondaryText} pb-0`}>
+          A showcase of my latest work, featuring modern web applications and innovative solutions.
+        </p>
+      </div>
+      <div class="flex justify-start md:justify-end w-[175px]">
+        <a
+          class="group inline-flex items-center gap-2 text-primary dark:text-white font-semibold border-b-2 border-primary dark:border-white pb-1 hover:text-secondary-text dark:hover:text-gray-300 hover:border-secondary-text dark:hover:border-gray-300 transition-all"
+          href="/projects"
+        >
+          View All Projects
+          <span
+            class="material-symbols-outlined group-hover:translate-x-1 transition-transform text-xl"
+            >arrow_right_alt</span
+          >
+        </a>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+      {
+        projects.map((project) => (
+          // <ThumbnailProject
+          //   id={project.id}
+          //   title={project.title}
+          //   shortDescription={project.shortDescription}
+          //   tags={project.tags}
+          //   githubUrl={project.githubUrl}
+          //   liveUrl={project.liveUrl}
+          // />
+          <article class="group cursor-pointer md:row-span-2">
+            <div class="rounded-md overflow-hidden bg-red dark:bg-card-dark shadow-lg h-full relative border border-gray-100 dark:border-gray-800">
+              <div class="h-64 overflow-hidden relative">
+                <img
+                  alt="Project One Dashboard Screenshot"
+                  class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                  src="https://plus.unsplash.com/premium_photo-1766341850481-5bb38d040ab0?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                />
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <button class="px-8 py-3 bg-white text-black rounded-full font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                    View Case Study
+                  </button>
+                </div>
+              </div>
+              <div class="p-8">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="text-lg font-bold text-primary dark:text-white mb-3 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                      Fintech Dashboard
+                    </h3>
+                    <p class="text-secondary-text dark:text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3">
+                      A comprehensive financial data visualization tool built for high-frequency
+                      traders. Features real-time websocket updates and complex charting libraries.
+                    </p>
+                  </div>
+                  <span class="h-12 w-12 rounded-full border border-border-light flex-shrink-0 flex items-center justify-center hover:bg-primary hover:text-white transition-colors dark:border-border-dark dark:hover:bg-white dark:hover:text-black">
+                    <span class="material-symbols-outlined">north_east</span>
+                  </span>
+                </div>
+                <div class="mt-6 flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-xs font-medium rounded-full">
+                    React
+                  </span>
+                  <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-xs font-medium rounded-full">
+                    D3.js
+                  </span>
+                  <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-xs font-medium rounded-full">
+                    WebSockets
+                  </span>
+                </div>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
