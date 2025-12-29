@@ -14,17 +14,17 @@ const { socials, copyright } = Astro.props;
 
 <footer>
   <section
-    class="py-24 px-6 bg-white dark:bg-background-dark border-t border-gray-100 dark:border-gray-800 relative overflow-hidden"
+    class="relative overflow-hidden border-t border-gray-100 bg-white px-6 py-24 dark:border-gray-800 dark:bg-background-dark"
     id="contact"
   >
     <div class={classes.container}>
-      <div class="flex flex-col items-center text-center mb-12">
+      <div class="mb-12 flex flex-col items-center text-center">
         <span class={classes.preHeading}>Get in Touch</span>
         <h2 class={classes.heading}>Let's work together</h2>
         <p class={classes.secondaryText}>
           I'm currently available for freelance work and open to full-time opportunities.
         </p>
-        <div class="pt-8 flex flex-col items-center gap-6">
+        <div class="flex flex-col items-center gap-6 pt-8">
           <Button style="primary" href="#">
             <i class="fab fa-linkedin mr-3 text-2xl"></i>
             Connect on LinkedIn
@@ -32,11 +32,11 @@ const { socials, copyright } = Astro.props;
           <Button style="tertiary" href="#"> Or just say hello via email </Button>
         </div>
       </div>
-      <div class="pt-16 flex flex-col md:flex-row justify-between items-center gap-6">
-        <p class="text-gray-400 text-xs order-2 md:order-1">
+      <div class="flex flex-col items-center justify-between gap-6 pt-16 md:flex-row">
+        <p class="order-2 text-xs text-gray-400 md:order-1">
           {copyright}
         </p>
-        <div class="flex gap-6 order-1 md:order-2">
+        <div class="order-1 flex gap-6 md:order-2">
           {
             socials.map((social: SocialLink) => {
               return (

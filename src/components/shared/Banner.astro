@@ -17,9 +17,9 @@ const { preheading, heading, description, heroImage, heroLayout = 'standard' } =
 
 {
   heroLayout === 'hero' && heroImage ? (
-    <section class="flex items-center relative overflow-hidden pt-6 pb-24" id="hero">
+    <section class="relative flex items-center overflow-hidden pb-24 pt-6" id="hero">
       <div
-        class={`${styles.container} w-full flex flex-row-reverse lg:flex-row gap-8 items-center`}
+        class={`${styles.container} flex w-full flex-row-reverse items-center gap-8 lg:flex-row`}
       >
         <div class="w-2/3">
           <div class="max-w-xl">
@@ -44,9 +44,9 @@ const { preheading, heading, description, heroImage, heroLayout = 'standard' } =
             </Button>
           </div>
         </div>
-        <div class="flex justify-center lg:justify-end relative w-1/3">
-          <div class="absolute inset-0 bg-gradient-to-tr from-zinc-200 to-transparent dark:from-zinc-800 rounded-lg rotate-3 group-hover:rotate-6 transition-transform duration-500" />
-          <div class="absolute inset-0 border-2 border-zinc-900 dark:border-white rounded-lg -rotate-2 opacity-10 group-hover:opacity-20 transition-opacity duration-500" />
+        <div class="relative flex w-1/3 justify-center lg:justify-end">
+          <div class="absolute inset-0 rotate-3 rounded-lg bg-gradient-to-tr from-zinc-200 to-transparent transition-transform duration-500 group-hover:rotate-6 dark:from-zinc-800" />
+          <div class="absolute inset-0 -rotate-2 rounded-lg border-2 border-zinc-900 opacity-10 transition-opacity duration-500 group-hover:opacity-20 dark:border-white" />
           <Image
             src={heroImage}
             alt="Portrait of Shavar"
@@ -54,7 +54,7 @@ const { preheading, heading, description, heroImage, heroLayout = 'standard' } =
             quality={85}
             loading="eager"
             densities={[1, 2]}
-            class="relative rounded-lg w-full h-[500px] object-cover transition-all duration-700 shadow-2xl rotate-2 hover:rotate-0"
+            class="relative h-[500px] w-full rotate-2 rounded-lg object-cover shadow-2xl transition-all duration-700 hover:rotate-0"
           />
         </div>
       </div>
@@ -66,7 +66,7 @@ const { preheading, heading, description, heroImage, heroLayout = 'standard' } =
           <Image
             src={heroImage}
             alt="Background"
-            class="absolute inset-0 w-full h-full object-cover -z-10"
+            class="absolute inset-0 -z-10 h-full w-full object-cover"
           />
           <div class="absolute inset-0 bg-primary-bg opacity-50" />
         </>

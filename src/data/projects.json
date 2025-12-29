@@ -2,6 +2,7 @@
   "projects": [
     {
       "id": "task-flow-manager",
+      "icon": "travel",
       "title": "Aeroplanner",
       "description": "A robust Kanban board application built with React and Zustand for state management. Features real-time drag-and-drop functionality and local persistence.",
       "shortDescription": "A robust Kanban board application with drag-and-drop functionality.",
@@ -44,6 +45,7 @@
     },
     {
       "id": "ecommerce-headless-storefront",
+      "icon": "calendar_clock",
       "title": "Vacation Planner",
       "description": "A highly performant storefront using Next.js for SSR and integrating with a mock GraphQL API. Focus on speed and accessibility.",
       "shortDescription": "High-performance e-commerce storefront with SSR and GraphQL integration.",
@@ -86,6 +88,7 @@
     },
     {
       "id": "weather-api-wrapper",
+      "icon": "weather_mix",
       "title": "OpenWeather",
       "description": "A lightweight TypeScript wrapper for accessing global weather data with comprehensive type safety and error handling.",
       "shortDescription": "A lightweight TypeScript wrapper for accessing global weather data with type safety.",

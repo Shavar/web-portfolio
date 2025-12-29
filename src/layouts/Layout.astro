@@ -23,7 +23,7 @@ const {
   showFooter = true,
   hasHero = false,
   heroImage,
-  heroLayout,
+  heroLayout = 'standard',
 } = Astro.props;
 ---
 
@@ -62,7 +62,7 @@ const {
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
   </head>
-  <body class="bg-primary-bg text-primary dark:text-white font-body transition-colors duration-300">
+  <body class="bg-primary-bg font-body text-primary transition-colors duration-300 dark:text-white">
     {showHeader && <Header links={globalData.header} socials={globalData.socials} />}
 
     <main class:list={['min-h-screen', { 'mt-28': !hasHero }]}>

@@ -12,21 +12,21 @@ const { links, socials } = Astro.props;
 const currentPath = Astro.url.pathname;
 ---
 
-<header id="main-header" class="group fixed top-4 left-0 right-0 z-50 transition-all duration-300">
+<header id="main-header" class="group fixed left-0 right-0 top-4 z-50 transition-all duration-300">
   <div
     class={`${styles.container} flex m-auto items-center justify-between rounded-full py-2 transition-all duration-300 group-[.scrolled]:max-w-4xl group-[.scrolled]:bg-navigation-bg group-[.scrolled]:backdrop-blur-xl group-[.scrolled]:shadow-md`}
   >
     <!-- Logo/Brand -->
-    <a href="/" class="flex items-center gap-2 w-[100px]">
+    <a href="/" class="flex w-[100px] items-center gap-2">
       <div
-        class="w-8 h-8 text-gray-900 dark:text-white rounded-full flex items-center justify-center"
+        class="flex h-8 w-8 items-center justify-center rounded-full text-gray-900 dark:text-white"
       >
         <Logo />
       </div>
     </a>
 
     <!-- Desktop Navigation -->
-    <nav class="hidden md:flex items-center gap-2 p-1 rounded-full">
+    <nav class="hidden items-center gap-2 rounded-full p-1 md:flex">
       {
         links.map((link: NavigationLink) => {
           const isActive = currentPath === link.href;
@@ -34,7 +34,7 @@ const currentPath = Astro.url.pathname;
           return (
             <a
               href={link.href}
-              class={`text-sm font-medium px-4 py-1.5 rounded-full transition-colors hover:bg-white dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300${isActive ? ' bg-primary-bg' : ' bg-transparent'}`}
+              class={`rounded-full px-4 py-1.5 text-sm font-medium text-gray-700 transition-colors hover:bg-white dark:hover:bg-gray-700 dark:text-gray-300${isActive ? ' bg-primary-bg' : ' bg-transparent'}`}
               target={link.target}
             >
               {link.label}
@@ -45,9 +45,9 @@ const currentPath = Astro.url.pathname;
     </nav>
 
     <!-- Action Buttons -->
-    <div class="flex justify-end items-center gap-2 w-[100px]">
+    <div class="flex w-[100px] items-center justify-end gap-2">
       <!-- Desktop Action Icons -->
-      <div class="hidden sm:flex gap-4 pt-1 pr-2">
+      <div class="hidden gap-4 pr-2 pt-1 sm:flex">
         {
           socials.map((social: SocialLink) => {
             return (
@@ -67,11 +67,11 @@ const currentPath = Astro.url.pathname;
       <!-- Mobile Menu Button -->
       <button
         id="mobile-menu-btn"
-        class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-dark-800 md:hidden dark:bg-gray-800 dark:text-white"
+        class="text-dark-800 flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 md:hidden dark:bg-gray-800 dark:text-white"
         aria-label="Toggle navigation"
         aria-expanded="false"
       >
-        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
           <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
         </svg>
       </button>
@@ -79,29 +79,29 @@ const currentPath = Astro.url.pathname;
   </div>
 
   <!-- Mobile Navigation Menu -->
-  <nav id="mobile-nav" class="hidden mt-4 md:hidden">
+  <nav id="mobile-nav" class="mt-4 hidden md:hidden">
     <div
-      class="bg-white/80 backdrop-blur-xl rounded-2xl p-4 shadow-xl border border-black/5 dark:bg-gray-900/80"
+      class="rounded-2xl border border-black/5 bg-white/80 p-4 shadow-xl backdrop-blur-xl dark:bg-gray-900/80"
     >
       <div class="space-y-2">
         <a
           href="/#profile"
-          class="block px-4 py-3 text-sm font-medium text-gray-700 rounded-xl hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 transition-colors"
+          class="block rounded-xl px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
           >About</a
         >
         <a
           href="/#experience"
-          class="block px-4 py-3 text-sm font-medium text-gray-700 rounded-xl hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 transition-colors"
+          class="block rounded-xl px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
           >Experience</a
         >
         <a
           href="/#projects"
-          class="block px-4 py-3 text-sm font-medium text-gray-700 rounded-xl hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 transition-colors"
+          class="block rounded-xl px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
           >Projects</a
         >
         <a
           href="/#websites"
-          class="block px-4 py-3 text-sm font-medium text-gray-700 rounded-xl hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 transition-colors"
+          class="block rounded-xl px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
           >Websites</a
         >
       </div>
