@@ -1,11 +1,22 @@
 ---
 import { Image } from 'astro:assets';
-import Photo from '@/assets/images/me.png';
+import type { ImageMetadata } from 'astro';
 import Button from '@/components/shared/Button.astro';
 import styles from '@/data/styles.json';
+
+interface Props {
+  preheading?: string;
+  heading: string;
+  description: string;
+  heroImage?: ImageMetadata;
+  heroLayout: 'standard' | 'hero';
+}
+
+const { preheading, heading, description, heroImage, heroLayout = 'standard' } = Astro.props;
 ---
 
-<section class="flex items-center relative overflow-hidden pt-6 pb-24" id="hero">
+{heroLayout === 'hero' && heroImage ? (
+  <section class="flex items-center relative overflow-hidden pt-6 pb-24" id="hero">
   <div class={`${styles.container} w-full flex flex-row-reverse lg:flex-row gap-8 items-center`}>
     <div class="w-2/3">
       <div class="max-w-xl">
@@ -35,7 +46,7 @@ import styles from '@/data/styles.json';
       >
       </div>
       <Image
-        src={Photo}
+        src={heroImage}
         alt="Portrait of Shavar"
         format="avif"
         quality={85}
@@ -45,4 +56,30 @@ import styles from '@/data/styles.json';
       />
     </div>
   </div>
-</section>
+</section> ) : (
+    <section id="intro"class="relative">
+    {
+      heroImage && (
+        <Image
+          src={heroImage}
+          alt="Background"
+          class="absolute inset-0 w-full h-full object-cover -z-10"
+        />
+        <div class="absolute inset-0 bg-primary-bg opacity-50"></div>
+      )
+    }
+    
+    <div class:list={[styles.container, { 'pt-64': heroImage }, 'pb-8',]}>
+      <div class="flex flex-col items-start text-left">
+        {preheading && <span class={styles.preHeading}>{preheading}</span>}
+        <h1 class={styles.heading}>
+          {heading}
+        </h1>
+        <p class={styles.secondaryText}>
+          {description}
+        </p>
+      </div>
+    </div>
+  </section>
+  )
+}

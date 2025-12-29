@@ -1,20 +1,20 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import Intro from '@/components/shared/Intro.astro';
 import ExperienceComponent from '@/components/Experience.astro';
 
 // Import JSON data
 import experiences from '@/data/experience.json';
 import styles from '@/data/styles.json';
 
-const preHeading = "Hi, I'm Sean";
-const title = 'Experience';
-const description =
-  "A chronological overview of my professional career, the roles I've held, and the technical expertise I've cultivated along the way.";
+const pagePayload = {
+  preHeading: "Hi, I'm Sean",
+  title: 'Experience',
+  description:
+    "A chronological overview of my professional career, the roles I've held, and the technical expertise I've cultivated along the way.",
+};
 ---
 
-<Layout title={title} description={description}>
-  <Intro preheading={preHeading} heading={title} description={description} />
+<Layout {...pagePayload}>
   <section class={`${styles.container} py-16`}>
     <ExperienceComponent title="Work History" experiences={experiences.workExperience} />
     <ExperienceComponent title="Education" experiences={experiences.education} />

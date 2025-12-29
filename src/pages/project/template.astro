@@ -1,0 +1,387 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import projectsData from '@/data/projects.json';
+import type { ImageMetadata } from 'astro';
+
+export async function getStaticPaths() {
+  return projectsData.projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+interface Props {
+  project: (typeof projectsData.projects)[0];
+}
+
+const { project } = Astro.props;
+---
+
+<Layout title="Templte" description="description">
+  <section class="min-h-screen pt-32 pb-12 px-6 flex flex-col justify-start relative">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-10">
+        <!-- <ack to Projects -->
+        <a
+          class="inline-flex items-center text-sm font-semibold uppercase tracking-wider text-secondary-text hover:text-primary dark:hover:text-white transition-colors"
+          href="#"
+        >
+          <span class="material-symbols-outlined mr-2 text-lg">arrow_back</span>
+          Back to Projects
+        </a>
+      </div>
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-24 mb-16 items-start">
+        <div class="w-2/3 lg:w-2/5 sticky top-32 self-start">
+          <div class="flex items-center gap-4 mb-6">
+            <span
+              class="inline-block py-2 px-4 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300 text-sm font-semibold tracking-wide uppercase"
+            >
+              Fintech
+            </span>
+            <span class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-600"></span>
+            <span
+              class="text-sm font-medium text-secondary-text dark:text-gray-400 uppercase tracking-widest"
+              >Web Application</span
+            >
+          </div>
+          <h1
+            class="text-5xl md:text-6xl font-bold tracking-tight text-primary dark:text-white leading-[1.1] mb-6"
+          >
+            Fintech Dashboard
+          </h1>
+          <p class="text-lg text-secondary-text dark:text-gray-300 leading-relaxed font-light mb-8">
+            A comprehensive financial analytics platform designed to visualize complex data streams
+            in real-time, empowering users to make smarter investment decisions.
+          </p>
+          <div class="space-y-8 border-t border-gray-100 dark:border-gray-800 pt-8">
+            <div class="grid grid-cols-2 gap-6">
+              <div class="space-y-1">
+                <h3
+                  class="text-xs uppercase tracking-widest font-semibold text-secondary-text dark:text-gray-500"
+                >
+                  Client
+                </h3>
+                <p class="font-medium text-base">Nova Finance</p>
+              </div>
+              <div class="space-y-1">
+                <h3
+                  class="text-xs uppercase tracking-widest font-semibold text-secondary-text dark:text-gray-500"
+                >
+                  Timeline
+                </h3>
+                <p class="font-medium text-base">Feb - May 2023</p>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-6">
+              <div class="space-y-1">
+                <h3
+                  class="text-xs uppercase tracking-widest font-semibold text-secondary-text dark:text-gray-500"
+                >
+                  Role
+                </h3>
+                <p class="font-medium text-base">Frontend Lead</p>
+              </div>
+              <div class="space-y-1">
+                <h3
+                  class="text-xs uppercase tracking-widest font-semibold text-secondary-text dark:text-gray-500"
+                >
+                  Tech Stack
+                </h3>
+                <div class="flex flex-wrap gap-2">
+                  <span class="text-sm font-medium text-primary dark:text-white"
+                    >React, TS, D3, Tailwind</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="pt-6">
+              <a
+                class="inline-flex items-center justify-center bg-primary text-white dark:bg-white dark:text-black rounded-full px-8 py-3 text-sm font-semibold hover:opacity-90 transition-opacity w-full sm:w-auto"
+                href="#"
+              >
+                Visit Live Site <span class="material-symbols-outlined ml-2 text-lg"
+                  >north_east</span
+                >
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="flex-1 space-y-8">
+          <div
+            class="rounded-[2.5rem] overflow-hidden shadow-2xl bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800 group relative"
+          >
+            <div class="absolute top-4 left-4 z-10">
+              <span
+                class="bg-white/80 dark:bg-black/50 backdrop-blur text-secondary-text dark:text-white px-3 py-1 rounded-full text-xs font-medium border border-white/20"
+                >Dashboard Overview</span
+              >
+            </div>
+            <img
+              alt="Fintech Dashboard Desktop View"
+              class="w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-[1.01]"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXuP53Ulpc7hX0im2eezSCvlT-7ycJhG-T9V0BrUqv-FmcbQsaftja_H8nchYzS7D_EleorxXH9_s7pxYLYvzKd68-GjekdgtPUFiFVSOmhNzooIcnyTqb01yDGr4EGIdvDcJS7yXQXhpRsMWnxjrKBxFKwZsUIUWFeZNTXSHDAoFhTcU49tcGXV1Tvc0zvt8hps2AfahBJ-V7RhQ4TM--qzFzabVl3x8yGzB38yYLqreJsYrhM72XnaOsjCpMTRlAURSSyFknaTs"
+            />
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div
+              class="rounded-[2rem] overflow-hidden shadow-lg bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800 relative group h-full"
+            >
+              <div class="absolute top-4 left-4 z-10">
+                <span
+                  class="bg-white/80 dark:bg-black/50 backdrop-blur text-secondary-text dark:text-white px-3 py-1 rounded-full text-xs font-medium border border-white/20"
+                  >Mobile View</span
+                >
+              </div>
+              <div class="bg-gray-200 dark:bg-gray-800 h-full p-8 flex items-center justify-center">
+                <div
+                  class="relative w-[180px] bg-gray-900 rounded-[2rem] border-4 border-gray-900 overflow-hidden shadow-xl"
+                >
+                  <img
+                    alt="Mobile UI"
+                    class="w-full h-full object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXuP53Ulpc7hX0im2eezSCvlT-7ycJhG-T9V0BrUqv-FmcbQsaftja_H8nchYzS7D_EleorxXH9_s7pxYLYvzKd68-GjekdgtPUFiFVSOmhNzooIcnyTqb01yDGr4EGIdvDcJS7yXQXhpRsMWnxjrKBxFKwZsUIUWFeZNTXSHDAoFhTcU49tcGXV1Tvc0zvt8hps2AfahBJ-V7RhQ4TM--qzFzabVl3x8yGzB38yYLqreJsYrhM72XnaOsjCpMTRlAURSSyFknaTs"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounded-[2rem] overflow-hidden shadow-lg bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800 relative group"
+            >
+              <div class="absolute top-4 left-4 z-10">
+                <span
+                  class="bg-white/80 dark:bg-black/50 backdrop-blur text-secondary-text dark:text-white px-3 py-1 rounded-full text-xs font-medium border border-white/20"
+                  >Dark Mode</span
+                >
+              </div>
+              <img
+                alt="Dark Mode"
+                class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXuP53Ulpc7hX0im2eezSCvlT-7ycJhG-T9V0BrUqv-FmcbQsaftja_H8nchYzS7D_EleorxXH9_s7pxYLYvzKd68-GjekdgtPUFiFVSOmhNzooIcnyTqb01yDGr4EGIdvDcJS7yXQXhpRsMWnxjrKBxFKwZsUIUWFeZNTXSHDAoFhTcU49tcGXV1Tvc0zvt8hps2AfahBJ-V7RhQ4TM--qzFzabVl3x8yGzB38yYLqreJsYrhM72XnaOsjCpMTRlAURSSyFknaTs"
+              />
+            </div>
+          </div>
+          <div
+            class="rounded-[2.5rem] overflow-hidden shadow-xl bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800 relative group"
+          >
+            <div class="absolute top-4 left-4 z-10">
+              <span
+                class="bg-white/80 dark:bg-black/50 backdrop-blur text-secondary-text dark:text-white px-3 py-1 rounded-full text-xs font-medium border border-white/20"
+                >Component System</span
+              >
+            </div>
+            <img
+              alt="Components"
+              class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-[1.01]"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXuP53Ulpc7hX0im2eezSCvlT-7ycJhG-T9V0BrUqv-FmcbQsaftja_H8nchYzS7D_EleorxXH9_s7pxYLYvzKd68-GjekdgtPUFiFVSOmhNzooIcnyTqb01yDGr4EGIdvDcJS7yXQXhpRsMWnxjrKBxFKwZsUIUWFeZNTXSHDAoFhTcU49tcGXV1Tvc0zvt8hps2AfahBJ-V7RhQ4TM--qzFzabVl3x8yGzB38yYLqreJsYrhM72XnaOsjCpMTRlAURSSyFknaTs"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-24 px-6 bg-white dark:bg-background-dark">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+        <div class="lg:col-span-4">
+          <span
+            class="text-secondary-text dark:text-gray-400 uppercase tracking-widest text-sm font-semibold"
+            >Context</span
+          >
+          <h2 class="text-3xl font-bold mt-2 mb-6">The Challenge</h2>
+        </div>
+        <div class="lg:col-span-8">
+          <div
+            class="prose prose-lg dark:prose-invert max-w-none text-secondary-text dark:text-gray-300 mb-12"
+          >
+            <p class="text-xl font-light text-primary dark:text-white mb-6">
+              Legacy financial tools often suffer from information overload. The primary goal was to
+              declutter the experience without removing functionality, prioritizing data hierarchy
+              and readability.
+            </p>
+            <p>
+              We approached the problem by conducting user interviews with 20 active traders. The
+              feedback was consistent: they needed speed and clarity. The existing solution took 4.5
+              seconds to load initial data, and the mobile experience was non-existent.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div
+              class="bg-gray-50 dark:bg-card-dark p-8 rounded-[2rem] border border-gray-100 dark:border-border-dark"
+            >
+              <div
+                class="h-10 w-10 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 flex items-center justify-center mb-4"
+              >
+                <span class="material-symbols-outlined text-xl">speed</span>
+              </div>
+              <h3 class="text-lg font-bold mb-2">Performance First</h3>
+              <p class="text-sm text-secondary-text dark:text-gray-400">
+                Optimized bundle size by 40% and implemented virtualized lists for large datasets.
+              </p>
+            </div>
+            <div
+              class="bg-gray-50 dark:bg-card-dark p-8 rounded-[2rem] border border-gray-100 dark:border-border-dark"
+            >
+              <div
+                class="h-10 w-10 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-300 flex items-center justify-center mb-4"
+              >
+                <span class="material-symbols-outlined text-xl">contrast</span>
+              </div>
+              <h3 class="text-lg font-bold mb-2">Accessibility</h3>
+              <p class="text-sm text-secondary-text dark:text-gray-400">
+                Achieved WCAG 2.1 AA compliance with high contrast modes and keyboard navigation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-24 px-6 bg-gray-50 dark:bg-[#181818]">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <span
+            class="text-secondary-text dark:text-gray-400 uppercase tracking-widest text-sm font-semibold"
+            >Impact</span
+          >
+          <h2 class="text-4xl font-bold mt-2">Results &amp; Outcomes</h2>
+        </div>
+        <p class="text-lg text-secondary-text dark:text-gray-400 max-w-lg text-right md:text-left">
+          The redesign significantly improved user satisfaction and system performance, setting a
+          new standard for internal tools.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div
+          class="bg-white dark:bg-card-dark p-10 rounded-[2.5rem] shadow-sm border border-gray-100 dark:border-border-dark flex flex-col justify-between h-full"
+        >
+          <div class="mb-4">
+            <span class="material-symbols-outlined text-4xl text-green-500 mb-4 block">timer</span>
+            <h3 class="text-lg font-medium text-secondary-text dark:text-gray-400">
+              Load Time Reduced
+            </h3>
+          </div>
+          <div class="text-6xl font-bold text-primary dark:text-white tracking-tight">40%</div>
+        </div>
+        <div
+          class="bg-white dark:bg-card-dark p-10 rounded-[2.5rem] shadow-sm border border-gray-100 dark:border-border-dark flex flex-col justify-between h-full"
+        >
+          <div class="mb-4">
+            <span class="material-symbols-outlined text-4xl text-blue-500 mb-4 block"
+              >trending_up</span
+            >
+            <h3 class="text-lg font-medium text-secondary-text dark:text-gray-400">
+              User Engagement
+            </h3>
+          </div>
+          <div class="text-6xl font-bold text-primary dark:text-white tracking-tight">25%</div>
+        </div>
+        <div
+          class="bg-white dark:bg-card-dark p-10 rounded-[2.5rem] shadow-sm border border-gray-100 dark:border-border-dark flex flex-col justify-between h-full"
+        >
+          <div class="mb-4">
+            <span class="material-symbols-outlined text-4xl text-purple-500 mb-4 block"
+              >verified_user</span
+            >
+            <h3 class="text-lg font-medium text-secondary-text dark:text-gray-400">
+              Uptime Reliability
+            </h3>
+          </div>
+          <div class="text-6xl font-bold text-primary dark:text-white tracking-tight">99%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-24 px-6 bg-background-light dark:bg-background-dark">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex justify-between items-end mb-8">
+        <div>
+          <span
+            class="text-secondary-text dark:text-gray-400 uppercase tracking-widest text-sm font-semibold"
+            >Next Case Study</span
+          >
+          <h2 class="text-3xl md:text-4xl font-bold mt-2">HealthTrack App</h2>
+        </div>
+        <a
+          class="hidden md:flex h-12 w-12 rounded-full border border-border-light flex items-center justify-center hover:bg-primary hover:text-white transition-colors dark:border-border-dark dark:hover:bg-white dark:hover:text-black"
+          href="#"
+        >
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+      </div>
+      <a class="block group relative rounded-[2.5rem] overflow-hidden aspect-[21/9]" href="#">
+        <img
+          alt="Next Project"
+          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfJfGEJh8T1lsR-QOw0eRGdiYH-oYOyTUEymRN3UWbekDuONO8z_4cNeHt1w5rM8NWmCYH_bjNeRdb5TxcpP9d94tgCqHB8LKYGlc7nCDnEPavdrR5VUW9JcW5ytWBSo5niQkhbYHYvXauI-o9hzf7vsW59uwgV_0R-0rKoL15JJmdC4CeK5UtQoKda4r7vYEf9niMl6deE-RvO-3VCWD1V3A0ZxwiHa1TSwvxGCzSKUd80EBMu2PPc3zJXd-0NQPDOHD8KIHUaG8"
+        />
+        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+        <div class="absolute bottom-8 left-8 md:bottom-12 md:left-12">
+          <span
+            class="inline-block py-2 px-4 rounded-full bg-white/20 backdrop-blur-md text-white text-sm font-semibold tracking-wide border border-white/30 mb-4"
+            >Mobile Web • Healthcare</span
+          >
+        </div>
+      </a>
+    </div>
+  </section>
+  <section class="py-24 px-6 bg-gray-50 dark:bg-[#151515]" id="contact">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-left mb-12">
+        <span
+          class="text-secondary-text dark:text-gray-400 uppercase tracking-widest text-sm font-semibold"
+          >Get in Touch</span
+        >
+        <h2 class="text-4xl md:text-5xl font-bold mt-2">Interested in results like this?</h2>
+        <p class="mt-4 text-secondary-text dark:text-gray-400">
+          Let's discuss how we can improve your digital product.
+        </p>
+      </div>
+      <div class="flex flex-col md:flex-row justify-start gap-6">
+        <a
+          class="flex items-center justify-center gap-3 px-8 py-6 bg-white dark:bg-card-dark rounded-3xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all border border-border-light dark:border-border-dark min-w-[200px]"
+          href="mailto:Example@gmail.com"
+        >
+          <span class="material-symbols-outlined text-2xl">email</span>
+          <span class="text-lg font-medium">Email Me</span>
+        </a>
+        <a
+          class="flex items-center justify-center gap-3 px-8 py-6 bg-white dark:bg-card-dark rounded-3xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all border border-border-light dark:border-border-dark min-w-[200px]"
+          href="#"
+        >
+          <i class="fab fa-linkedin text-2xl"></i>
+          <span class="text-lg font-medium">LinkedIn</span>
+        </a>
+      </div>
+      <nav class="mt-20 border-t border-gray-200 dark:border-gray-800 pt-10">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+          <ul
+            class="flex flex-wrap gap-8 text-lg font-medium text-secondary-text dark:text-gray-400"
+          >
+            <li>
+              <a class="hover:text-primary dark:hover:text-white transition-colors" href="#">Home</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-primary dark:hover:text-white transition-colors" href="#">Work</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-primary dark:hover:text-white transition-colors" href="#"
+                >About</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-primary dark:hover:text-white transition-colors" href="#contact"
+                >Contact</a
+              >
+            </li>
+          </ul>
+          <p class="text-secondary-text dark:text-gray-500 text-sm">
+            Copyright © 2023 John Doe. All Rights Reserved.
+          </p>
+        </div>
+      </nav>
+    </div>
+  </section>
+</Layout>
