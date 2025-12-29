@@ -15,71 +15,70 @@ interface Props {
 const { preheading, heading, description, heroImage, heroLayout = 'standard' } = Astro.props;
 ---
 
-{heroLayout === 'hero' && heroImage ? (
-  <section class="flex items-center relative overflow-hidden pt-6 pb-24" id="hero">
-  <div class={`${styles.container} w-full flex flex-row-reverse lg:flex-row gap-8 items-center`}>
-    <div class="w-2/3">
-      <div class="max-w-xl">
-        <span class={styles.preHeading}>Senior Frontend Developer</span>
-        <h1 class={styles.heading}>
-          Building <span class="text-gray-400 dark:text-gray-600">digital products</span> that matter.
-        </h1>
-        <p class={styles.secondaryText}>
-          I am a Senior Front-End Engineer with over 7 years of experience specializing in the
-          development of intuitive, accessible, and high-performance web and mobile applications .
-          Currently based in Toronto, Ontario, I deliver scalable solutions that transform complex
-          problems into seamless user experiences.
-        </p>
-      </div>
-      <div class="flex flex-wrap gap-4 pt-4">
-        <Button style="primary" href="#work">View Recent Work</Button>
-        <Button style="secondary" href="#contact">Get in Touch</Button>
-      </div>
-    </div>
-    <div class="flex justify-center lg:justify-end relative w-1/3">
+{
+  heroLayout === 'hero' && heroImage ? (
+    <section class="flex items-center relative overflow-hidden pt-6 pb-24" id="hero">
       <div
-        class="absolute inset-0 bg-gradient-to-tr from-zinc-200 to-transparent dark:from-zinc-800 rounded-lg rotate-3 group-hover:rotate-6 transition-transform duration-500"
+        class={`${styles.container} w-full flex flex-row-reverse lg:flex-row gap-8 items-center`}
       >
+        <div class="w-2/3">
+          <div class="max-w-xl">
+            <span class={styles.preHeading}>Senior Frontend Developer</span>
+            <h1 class={styles.heading}>
+              Building <span class="text-gray-400 dark:text-gray-600">digital products</span> that
+              matter.
+            </h1>
+            <p class={styles.secondaryText}>
+              I am a Senior Front-End Engineer with over 7 years of experience specializing in the
+              development of intuitive, accessible, and high-performance web and mobile applications
+              . Currently based in Toronto, Ontario, I deliver scalable solutions that transform
+              complex problems into seamless user experiences.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-4 pt-4">
+            <Button style="primary" href="#work">
+              View Recent Work
+            </Button>
+            <Button style="secondary" href="#contact">
+              Get in Touch
+            </Button>
+          </div>
+        </div>
+        <div class="flex justify-center lg:justify-end relative w-1/3">
+          <div class="absolute inset-0 bg-gradient-to-tr from-zinc-200 to-transparent dark:from-zinc-800 rounded-lg rotate-3 group-hover:rotate-6 transition-transform duration-500" />
+          <div class="absolute inset-0 border-2 border-zinc-900 dark:border-white rounded-lg -rotate-2 opacity-10 group-hover:opacity-20 transition-opacity duration-500" />
+          <Image
+            src={heroImage}
+            alt="Portrait of Shavar"
+            format="avif"
+            quality={85}
+            loading="eager"
+            densities={[1, 2]}
+            class="relative rounded-lg w-full h-[500px] object-cover transition-all duration-700 shadow-2xl rotate-2 hover:rotate-0"
+          />
+        </div>
       </div>
-      <div
-        class="absolute inset-0 border-2 border-zinc-900 dark:border-white rounded-lg -rotate-2 opacity-10 group-hover:opacity-20 transition-opacity duration-500"
-      >
+    </section>
+  ) : (
+    <section id="intro" class="relative">
+      {heroImage && (
+        <>
+          <Image
+            src={heroImage}
+            alt="Background"
+            class="absolute inset-0 w-full h-full object-cover -z-10"
+          />
+          <div class="absolute inset-0 bg-primary-bg opacity-50" />
+        </>
+      )}
+
+      <div class:list={[styles.container, { 'pt-64': heroImage }, 'pb-8']}>
+        <div class="flex flex-col items-start text-left">
+          {preheading && <span class={styles.preHeading}>{preheading}</span>}
+          <h1 class={styles.heading}>{heading}</h1>
+          <p class={styles.secondaryText}>{description}</p>
+        </div>
       </div>
-      <Image
-        src={heroImage}
-        alt="Portrait of Shavar"
-        format="avif"
-        quality={85}
-        loading="eager"
-        densities={[1, 2]}
-        class="relative rounded-lg w-full h-[500px] object-cover transition-all duration-700 shadow-2xl rotate-2 hover:rotate-0"
-      />
-    </div>
-  </div>
-</section> ) : (
-    <section id="intro"class="relative">
-    {
-      heroImage && (
-        <Image
-          src={heroImage}
-          alt="Background"
-          class="absolute inset-0 w-full h-full object-cover -z-10"
-        />
-        <div class="absolute inset-0 bg-primary-bg opacity-50"></div>
-      )
-    }
-    
-    <div class:list={[styles.container, { 'pt-64': heroImage }, 'pb-8',]}>
-      <div class="flex flex-col items-start text-left">
-        {preheading && <span class={styles.preHeading}>{preheading}</span>}
-        <h1 class={styles.heading}>
-          {heading}
-        </h1>
-        <p class={styles.secondaryText}>
-          {description}
-        </p>
-      </div>
-    </div>
-  </section>
+    </section>
   )
 }
