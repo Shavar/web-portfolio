@@ -16,8 +16,8 @@
   --color-card-dark: #1e1e1e;
   --color-border-light: #e4e4e7;
   --color-border-dark: #27272a;
+  --color-primary-text: #1a1a1a;
   --color-secondary-text: #71717a;
-  --color-secondary-text-dark: #a1a1aa;
   --color-accent: #000000;
 
   /* Spacing Variables */
@@ -52,5 +52,7 @@
     --color-bg-primary: #121212;
     --color-bg-secondary: #181818;
     --color-bg-navigation: rgba(30, 30, 30, 0.7);
+    --color-primary-text: #ffffff;
+    --color-secondary-text: #9ca3af;
   }
 }
