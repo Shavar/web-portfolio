@@ -24,8 +24,11 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Build
-        run: yarn build
+      - name: Type Check
+        run: yarn astro check
+
+      - name: Format Check
+        run: yarn format:check
 
       - name: Configure Git
         run: |
