@@ -1,22 +1,30 @@
 ---
-import Header from '../components/layout/Header.astro';
-import Footer from '../components/layout/Footer.astro';
-
-// Import JSON data
+import Header from '@/components/shared/Header.astro';
+import Footer from '@/components/shared/Footer.astro';
+import Banner from '@/components/shared/Banner.astro';
+import type { ImageMetadata } from 'astro';
 import globalData from '@/data/global.json';
-
-// Import CSS variables
 import '@/styles/variables.css';
 
 interface Props {
   title: string;
   description: string;
+  heroImage?: ImageMetadata;
+  heroLayout?: 'standard' | 'hero';
   showHeader?: boolean;
   showFooter?: boolean;
   hasHero?: boolean;
 }
 
-const { title, description, showHeader = true, showFooter = true, hasHero = false } = Astro.props;
+const {
+  title,
+  description,
+  showHeader = true,
+  showFooter = true,
+  hasHero = false,
+  heroImage,
+  heroLayout = 'standard',
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -26,7 +34,7 @@ const { title, description, showHeader = true, showFooter = true, hasHero = fals
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title}</title>
+    <title>{title === 'Shavar Cox' ? title : title + ' | Shavar Cox'}</title>
 
     <!-- Google Fonts preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -54,10 +62,16 @@ const { title, description, showHeader = true, showFooter = true, hasHero = fals
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
   </head>
-  <body class="bg-primary-bg text-primary dark:text-white font-body transition-colors duration-300">
+  <body class="bg-primary-bg font-body text-primary transition-colors duration-300 dark:text-white">
     {showHeader && <Header links={globalData.header} socials={globalData.socials} />}
 
-    <main class:list={['min-h-screen', { 'mt-20': hasHero }]}>
+    <main class:list={['min-h-screen', { 'mt-28': !hasHero }]}>
+      <Banner
+        heading={title}
+        description={description}
+        heroLayout={heroLayout}
+        heroImage={heroImage}
+      />
       <slot />
     </main>
 

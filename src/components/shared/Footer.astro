@@ -1,0 +1,61 @@
+---
+// Footer component
+import type { SocialLink } from '@/types';
+import Button from '@/components/shared/Button.astro';
+import classes from '@/data/styles.json';
+
+interface Props {
+  socials: SocialLink[];
+  copyright: string;
+}
+
+const { socials, copyright } = Astro.props;
+---
+
+<footer>
+  <section
+    class="relative overflow-hidden border-t border-gray-100 bg-white px-6 py-24 dark:border-gray-800 dark:bg-background-dark"
+    id="contact"
+  >
+    <div class={classes.container}>
+      <div class="mb-12 flex flex-col items-center text-center">
+        <span class={classes.preHeading}>Get in Touch</span>
+        <h2 class={classes.heading}>Let's work together</h2>
+        <p class={classes.secondaryText}>
+          I'm currently available for freelance work and open to full-time opportunities. I consider
+          feedback to be a valuable tool for constant improvement and is always welcomed. If you
+          have any questions or just want to say Hello, feel free to drop me a line via
+          shavarsean(at)gmail.com or by using the form .
+        </p>
+        <div class="flex flex-col items-center gap-6 pt-8">
+          <Button style="primary" href="#">
+            <i class="fab fa-linkedin mr-3 text-2xl"></i>
+            Connect on LinkedIn
+          </Button>
+          <Button style="tertiary" href="#"> Or just say hello via email </Button>
+        </div>
+      </div>
+      <div class="flex flex-col items-center justify-between gap-6 pt-16 md:flex-row">
+        <p class="order-2 text-xs text-gray-400 md:order-1">
+          {copyright}
+        </p>
+        <div class="order-1 flex gap-6 md:order-2">
+          {
+            socials.map((social: SocialLink) => {
+              return (
+                <a
+                  aria-label={social.label}
+                  class="transition-colors"
+                  href={social.href}
+                  target={social.target}
+                >
+                  <i class={social.faIcon + ' text-xl'} />
+                </a>
+              );
+            })
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+</footer>
