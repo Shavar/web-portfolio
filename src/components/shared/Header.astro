@@ -74,33 +74,33 @@ const currentPath = Astro.url.pathname;
     aria-expanded="false"
   >
     <div
-      class="relative flex h-[50px] w-[50px] transform items-center justify-center overflow-hidden rounded-full bg-slate-700 shadow-md ring-0 ring-gray-300 ring-opacity-30 transition-all duration-200 hover:ring-8 group-focus:ring-4"
+      class="relative flex h-[50px] w-[50px] transform items-center justify-center overflow-hidden rounded-2xl bg-primary-bg shadow-md ring-0 ring-primary-bg ring-opacity-30 transition-all duration-200 hover:ring-8"
     >
       <div
         class="flex h-[20px] w-[20px] origin-center transform flex-col justify-between overflow-hidden transition-all duration-300"
       >
         <div
-          class="h-[2px] w-7 origin-left transform bg-white transition-all duration-300 group-focus:translate-x-10"
+          class="burger-line-1 h-[2px] w-7 origin-left transform bg-white transition-all duration-300"
         >
         </div>
         <div
-          class="h-[2px] w-7 transform rounded bg-white transition-all delay-75 duration-300 group-focus:translate-x-10"
+          class="burger-line-2 h-[2px] w-7 transform rounded bg-white transition-all delay-75 duration-300"
         >
         </div>
         <div
-          class="h-[2px] w-7 origin-left transform bg-white transition-all delay-150 duration-300 group-focus:translate-x-10"
+          class="burger-line-3 h-[2px] w-7 origin-left transform bg-white transition-all delay-150 duration-300"
         >
         </div>
 
         <div
-          class="absolute top-2.5 flex w-0 -translate-x-10 transform items-center justify-between transition-all duration-500 group-focus:w-12 group-focus:translate-x-0"
+          class="burger-x absolute top-2.5 flex w-0 -translate-x-10 transform items-center justify-between transition-all duration-500"
         >
           <div
-            class="absolute h-[2px] w-5 rotate-0 transform bg-white transition-all delay-300 duration-500 group-focus:rotate-45"
+            class="absolute h-[2px] w-5 rotate-0 transform bg-white transition-all delay-300 duration-500"
           >
           </div>
           <div
-            class="absolute h-[2px] w-5 -rotate-0 transform bg-white transition-all delay-300 duration-500 group-focus:-rotate-45"
+            class="absolute h-[2px] w-5 -rotate-0 transform bg-white transition-all delay-300 duration-500"
           >
           </div>
         </div>
@@ -152,9 +152,22 @@ const currentPath = Astro.url.pathname;
 
       mobileMenuBtn.setAttribute('aria-expanded', newState.toString());
 
+      // Toggle button animation classes
+      const burgerLines = mobileMenuBtn.querySelectorAll(
+        '.burger-line-1, .burger-line-2, .burger-line-3'
+      );
+      const burgerX = mobileMenuBtn.querySelector('.burger-x');
+
       if (newState) {
         // Show menu with animation
         mobileNav?.classList.remove('hidden');
+
+        // Transform burger to X
+        burgerLines.forEach((line) => line.classList.add('translate-x-10'));
+        burgerX?.classList.remove('w-0', '-translate-x-10');
+        burgerX?.classList.add('w-12', 'translate-x-0');
+        burgerX?.querySelector('div:first-child')?.classList.add('rotate-45');
+        burgerX?.querySelector('div:last-child')?.classList.add('-rotate-45');
 
         // Trigger animations after a brief delay to ensure visibility
         requestAnimationFrame(() => {
@@ -172,6 +185,13 @@ const currentPath = Astro.url.pathname;
           });
         });
       } else {
+        // Transform X back to burger
+        burgerLines.forEach((line) => line.classList.remove('translate-x-10'));
+        burgerX?.classList.remove('w-12', 'translate-x-0');
+        burgerX?.classList.add('w-0', '-translate-x-10');
+        burgerX?.querySelector('div:first-child')?.classList.remove('rotate-45');
+        burgerX?.querySelector('div:last-child')?.classList.remove('-rotate-45');
+
         // Hide menu with animation
         const menuContainer = mobileNav?.querySelector('div');
         const menuLinks = mobileNav?.querySelectorAll('a');
@@ -194,6 +214,18 @@ const currentPath = Astro.url.pathname;
 
     // Helper function to close menu with animation
     const closeMenuWithAnimation = () => {
+      const burgerLines = mobileMenuBtn?.querySelectorAll(
+        '.burger-line-1, .burger-line-2, .burger-line-3'
+      );
+      const burgerX = mobileMenuBtn?.querySelector('.burger-x');
+
+      // Transform X back to burger
+      burgerLines?.forEach((line) => line.classList.remove('translate-x-10'));
+      burgerX?.classList.remove('w-12', 'translate-x-0');
+      burgerX?.classList.add('w-0', '-translate-x-10');
+      burgerX?.querySelector('div:first-child')?.classList.remove('rotate-45');
+      burgerX?.querySelector('div:last-child')?.classList.remove('-rotate-45');
+
       const menuContainer = mobileNav?.querySelector('div');
       const menuLinks = mobileNav?.querySelectorAll('a');
 
