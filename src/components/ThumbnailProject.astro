@@ -13,7 +13,7 @@ const { id, icon, title, shortDescription, tags, githubUrl, liveUrl } = Astro.pr
 ---
 
 <article
-  class="group relative flex h-full flex-col overflow-hidden rounded-md border border-gray-200 bg-white px-4 py-6 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl md:flex-row dark:border-gray-800 dark:bg-card-dark"
+  class="border-border-secondary bg-card-secondary group relative flex h-full flex-col overflow-hidden rounded-md border px-4 py-6 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl md:flex-row"
 >
   <div class="flex flex-1 flex-col justify-start">
     <div class="mb-4">
@@ -28,7 +28,7 @@ const { id, icon, title, shortDescription, tags, githubUrl, liveUrl } = Astro.pr
       </div>
       <a href={`/project/${id}`} class="block">
         <h3
-          class="mb-3 text-lg font-bold text-primary transition-colors group-hover:text-purple-600 dark:text-white dark:group-hover:text-purple-400"
+          class="mb-3 text-md font-bold text-primary transition-colors group-hover:text-purple-600 dark:text-white dark:group-hover:text-purple-400"
         >
           {title}
         </h3>
@@ -37,7 +37,7 @@ const { id, icon, title, shortDescription, tags, githubUrl, liveUrl } = Astro.pr
         </p>
       </a>
 
-      <div class="my-4 h-px w-full bg-gray-200 dark:bg-gray-700"></div>
+      <div class="bg-border-secondary my-4 h-px w-full"></div>
 
       <div class="mt-auto flex items-center justify-between">
         <div class="flex flex-wrap gap-2">

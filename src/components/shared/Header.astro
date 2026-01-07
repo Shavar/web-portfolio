@@ -14,7 +14,7 @@ const currentPath = Astro.url.pathname;
 
 <header id="main-header" class="group fixed left-0 right-0 top-4 z-50 transition-all duration-300">
   <div
-    class={`${styles.container} hidden md:flex m-auto items-center justify-between rounded-full py-2 transition-all duration-300 group-[.scrolled]:max-w-4xl group-[.scrolled]:bg-navigation-bg group-[.scrolled]:backdrop-blur-xl group-[.scrolled]:shadow-md`}
+    class={`${styles.container} hidden md:flex m-auto items-center justify-between rounded-full py-2 transition-all duration-300 group-[.scrolled]:max-w-4xl group-[.scrolled]:bg-background-navigation group-[.scrolled]:backdrop-blur-xl group-[.scrolled]:shadow-md group-[.scrolled]:border border-border-primary`}
   >
     <!-- Logo/Brand -->
     <a href="/" class="flex w-[100px] items-center gap-2">
@@ -34,7 +34,7 @@ const currentPath = Astro.url.pathname;
           return (
             <a
               href={link.href}
-              class={`rounded-full px-4 py-1.5 text-sm font-medium text-gray-700 transition-colors hover:bg-white dark:hover:bg-gray-700 dark:text-gray-300${isActive ? ' bg-primary-bg' : ' bg-transparent'}`}
+              class={`rounded-full px-4 py-1.5 text-sm font-medium text-gray-700 transition-colors hover:bg-white dark:hover:bg-gray-700 dark:text-gray-300${isActive ? ' bg-background-primary' : ' bg-transparent'}`}
               target={link.target}
             >
               {link.label}
@@ -74,7 +74,7 @@ const currentPath = Astro.url.pathname;
     aria-expanded="false"
   >
     <div
-      class="relative flex h-[50px] w-[50px] transform items-center justify-center overflow-hidden rounded-2xl bg-primary-bg shadow-md ring-0 ring-primary-bg ring-opacity-30 transition-all duration-200 hover:ring-8"
+      class="bg-background-primary ring-background-primary relative flex h-[50px] w-[50px] transform items-center justify-center overflow-hidden rounded-2xl shadow-md ring-0 ring-opacity-30 transition-all duration-200 hover:ring-8"
     >
       <div
         class="flex h-[20px] w-[20px] origin-center transform flex-col justify-between overflow-hidden transition-all duration-300"

@@ -14,42 +14,33 @@ const { id, title, shortDescription, tags, githubUrl, liveUrl } = Astro.props;
 
 <article class="group h-full cursor-pointer md:row-span-2">
   <div
-    class="bg-red relative h-full overflow-hidden rounded-md border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl md:flex-row dark:border-gray-800 dark:bg-card-dark"
+    class="border-border-secondary bg-card-secondary relative h-full overflow-hidden rounded-md border shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl md:flex-row"
   >
     <div class="relative h-64 overflow-hidden">
+      <div class="absolute right-4 top-4 z-10 flex flex-row gap-2">
+        {githubUrl && <ProjectIcon icon="fab fa-github" link={githubUrl} />}
+        {liveUrl && <ProjectIcon icon="fa-solid fa-arrow-up-right-from-square" link={liveUrl} />}
+      </div>
       <img
         alt="Project One Dashboard Screenshot"
         class="h-full w-full transform object-cover transition-transform duration-700 group-hover:scale-105"
         src="https://plus.unsplash.com/premium_photo-1766341850481-5bb38d040ab0?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       />
-      <div
-        class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-      >
-        <button
-          class="translate-y-4 transform rounded-full bg-white px-8 py-3 font-bold text-black transition-transform duration-300 group-hover:translate-y-0"
-        >
-          View Case Study
-        </button>
-      </div>
     </div>
     <div class="px-4 py-6">
       <div class="flex items-start justify-between">
         <div>
           <h3
-            class="mb-3 text-lg font-bold text-primary transition-colors group-hover:text-purple-600 dark:text-white dark:group-hover:text-purple-400"
+            class="mb-3 text-md font-bold text-primary transition-colors group-hover:text-purple-600 dark:text-white dark:group-hover:text-purple-400"
           >
             {title}
           </h3>
-        </div>
-        <div class="ml-auto flex flex-row justify-end gap-2">
-          {githubUrl && <ProjectIcon icon="fab fa-github" link={githubUrl} />}
-          {liveUrl && <ProjectIcon icon="fa-solid fa-arrow-up-right-from-square" link={liveUrl} />}
         </div>
       </div>
       <p class="mb-6 line-clamp-3 text-sm leading-relaxed text-secondary-text dark:text-gray-400">
         {shortDescription}
       </p>
-      <div class="my-4 h-px w-full bg-gray-200 dark:bg-gray-700"></div>
+      <div class="bg-border-secondary my-4 h-px w-full"></div>
       <div class="mt-auto flex items-center justify-between">
         <div class="flex flex-wrap gap-2">
           {
