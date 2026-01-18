@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* CSS Variables optimized for performance and accessibility */
 :root {
@@ -14,7 +14,7 @@
   --color-border-primary: rgba(255, 255, 255, 0.05);
   --color-border-secondary: rgba(229, 231, 235, 0.75);
   --color-border-tertiary: #e4e4e7;
-  
+
   /* Performance hints */
   color-scheme: light;
 }
@@ -32,7 +32,7 @@
     --color-border-tertiary: #2a2a2a;
     --color-card-primary: #171717;
     --color-card-secondary: #1a1a1a;
-    
+
     color-scheme: dark;
   }
 }
@@ -50,21 +50,21 @@
   --color-border-tertiary: var(--color-border-tertiary);
   --color-primary-text: var(--color-text-primary);
   --color-secondary-text: var(--color-text-secondary);
-  
+
   /* Custom spacing */
   --spacing-18: 4.5rem;
   --spacing-88: 22rem;
-  
+
   /* Custom font families */
-  --font-family-mono: "JetBrains Mono", ui-monospace, "Menlo", "Monaco", monospace;
-  --font-family-body: "Poppins", ui-sans-serif, system-ui, sans-serif;
-  
+  --font-family-mono: 'JetBrains Mono', ui-monospace, 'Menlo', 'Monaco', monospace;
+  --font-family-body: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+
   /* Custom line heights */
   --line-height-extra-tight: 1.15;
-  
+
   /* Custom breakpoints */
   --breakpoint-xs: 475px;
-  
+
   /* Custom transition durations */
   --transition-duration-fast: 150ms;
   --transition-duration-normal: 200ms;

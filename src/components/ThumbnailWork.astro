@@ -30,13 +30,13 @@ const { title, shortDescription, tags, githubUrl, liveUrl } = Astro.props;
       <div class="flex items-start justify-between">
         <div>
           <h3
-            class="mb-3 text-md font-bold text-primary transition-colors group-hover:text-purple-600 dark:text-white dark:group-hover:text-purple-400"
+            class="text-md text-primary mb-3 font-bold transition-colors group-hover:text-purple-600 dark:text-white dark:group-hover:text-purple-400"
           >
             {title}
           </h3>
         </div>
       </div>
-      <p class="mb-6 line-clamp-3 text-sm leading-relaxed text-secondary-text dark:text-gray-400">
+      <p class="text-secondary-text mb-6 line-clamp-3 text-sm leading-relaxed dark:text-gray-400">
         {shortDescription}
       </p>
       <div class="bg-border-secondary my-4 h-px w-full"></div>
