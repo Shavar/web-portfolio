@@ -1,62 +1,72 @@
-/* CSS Variables for Tailwind */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-/* CSS Variables - defined at root level for Tailwind */
+/* CSS Variables optimized for performance and accessibility */
 :root {
-  /* Color Variables */
+  /* Core brand colors optimized for contrast */
   --color-primary: #1a1a1a;
   --color-background-primary: #ffffff;
   --color-background-secondary: #f9fafb;
-  --color-background-navigation: rgba(244, 244, 245, 0.7);
+  --color-background-navigation: rgba(244, 244, 245, 0.85);
   --color-card-primary: #f4f4f5;
   --color-card-secondary: #ffffff;
   --color-text-primary: #1a1a1a;
   --color-text-secondary: #71717a;
-  --color-accent: #000000;
   --color-border-primary: rgba(255, 255, 255, 0.05);
   --color-border-secondary: rgba(229, 231, 235, 0.75);
   --color-border-tertiary: #e4e4e7;
-
-  /* Spacing Variables */
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
-  --spacing-2xl: 3rem;
-
-  /* Border Radius Variables */
-  --radius-sm: 0.5rem;
-  --radius-md: 1rem;
-  --radius-lg: 2rem;
-  --radius-xl: 2.5rem;
-
-  /* Font Size Variables */
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-md: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-3xl: 1.875rem;
-  --font-size-4xl: 2.25rem;
-  --font-size-5xl: 3rem;
+  
+  /* Performance hints */
+  color-scheme: light;
 }
 
-/* System dark mode support */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-background-primary: #121212;
-    --color-background-secondary: #181818;
-    --color-background-navigation: rgba(30, 30, 30, 0.7);
+    /* Dark mode colors optimized for OLED displays */
+    --color-background-primary: #0f0f0f;
+    --color-background-secondary: #161616;
+    --color-background-navigation: rgba(20, 20, 20, 0.85);
     --color-text-primary: #ffffff;
-    --color-text-secondary: #9ca3af;
-    --color-border-primary: rgba(255, 255, 255, 0.05);
-    --color-border-secondary: rgba(229, 231, 235, 0.1);
-    --color-border-tertiary: #27272a;
-    --color-card-primary: #1e1e1e;
-    --color-card-secondary: #1e1e1e;
+    --color-text-secondary: #a3a3a3;
+    --color-border-primary: rgba(255, 255, 255, 0.08);
+    --color-border-secondary: rgba(229, 231, 235, 0.12);
+    --color-border-tertiary: #2a2a2a;
+    --color-card-primary: #171717;
+    --color-card-secondary: #1a1a1a;
+    
+    color-scheme: dark;
   }
+}
+
+@theme {
+  /* Custom colors mapped to CSS variables */
+  --color-primary: var(--color-primary);
+  --color-background-primary: var(--color-background-primary);
+  --color-background-secondary: var(--color-background-secondary);
+  --color-background-navigation: var(--color-background-navigation);
+  --color-card-primary: var(--color-card-primary);
+  --color-card-secondary: var(--color-card-secondary);
+  --color-border-primary: var(--color-border-primary);
+  --color-border-secondary: var(--color-border-secondary);
+  --color-border-tertiary: var(--color-border-tertiary);
+  --color-primary-text: var(--color-text-primary);
+  --color-secondary-text: var(--color-text-secondary);
+  
+  /* Custom spacing */
+  --spacing-18: 4.5rem;
+  --spacing-88: 22rem;
+  
+  /* Custom font families */
+  --font-family-mono: "JetBrains Mono", ui-monospace, "Menlo", "Monaco", monospace;
+  --font-family-body: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  
+  /* Custom line heights */
+  --line-height-extra-tight: 1.15;
+  
+  /* Custom breakpoints */
+  --breakpoint-xs: 475px;
+  
+  /* Custom transition durations */
+  --transition-duration-fast: 150ms;
+  --transition-duration-normal: 200ms;
+  --transition-duration-slow: 300ms;
 }

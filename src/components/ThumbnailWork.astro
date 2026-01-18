@@ -7,9 +7,8 @@ interface Props {
   tags: string[];
   githubUrl?: string;
   liveUrl?: string;
-  id: string;
 }
-const { id, title, shortDescription, tags, githubUrl, liveUrl } = Astro.props;
+const { title, shortDescription, tags, githubUrl, liveUrl } = Astro.props;
 ---
 
 <article class="group h-full cursor-pointer md:row-span-2">
