@@ -9,11 +9,6 @@
       "label": "Experience",
       "href": "/experience",
       "target": "_self"
-    },
-    {
-      "label": "Projects",
-      "href": "/projects",
-      "target": "_self"
     }
   ],
   "footer": {

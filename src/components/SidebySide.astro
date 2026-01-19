@@ -3,7 +3,7 @@ import Button from '@/components/shared/Button.astro';
 import classes from '@/data/styles.json';
 ---
 
-<section class="bg-secondary-bg py-24" id="about">
+<section class="bg-background-secondary py-24" id="about">
   <div class={classes.container}>
     <div class="flex flex-row gap-8">
       <div class="w-1/3">
@@ -21,49 +21,49 @@ import classes from '@/data/styles.json';
       </div>
       <div class="grid w-2/3 grid-cols-1 gap-6 md:grid-cols-2">
         <div
-          class="rounded-3xl border border-transparent bg-card-light p-8 transition-colors hover:border-border-light dark:bg-card-dark dark:hover:border-border-dark"
+          class="border-border-tertiary bg-card-primary transform rounded-3xl border p-8 transition-all hover:-translate-y-1"
         >
-          <span class="mb-4 text-3xl text-primary material-symbols-outlined dark:text-white"
+          <span class="text-primary material-symbols-outlined mb-4 text-3xl dark:text-white"
             >bolt</span
           >
           <h3 class="mb-2 text-lg font-bold">Performance First</h3>
-          <p class="text-sm leading-relaxed text-secondary-text dark:text-gray-400">
+          <p class="text-secondary-text text-sm leading-relaxed dark:text-gray-400">
             Optimizing Core Web Vitals, code-splitting, and asset delivery to ensure instantaneous
             load times.
           </p>
         </div>
         <div
-          class="rounded-3xl border border-transparent bg-card-light p-8 transition-colors hover:border-border-light md:mt-12 dark:bg-card-dark dark:hover:border-border-dark"
+          class="border-border-tertiary bg-card-primary rounded-3xl border p-8 transition-all hover:-translate-y-1 md:mt-12"
         >
-          <span class="mb-4 text-3xl text-primary material-symbols-outlined dark:text-white"
+          <span class="text-primary material-symbols-outlined mb-4 text-3xl dark:text-white"
             >accessibility_new</span
           >
           <h3 class="mb-2 text-lg font-bold">Inclusive Design</h3>
-          <p class="text-sm leading-relaxed text-secondary-text dark:text-gray-400">
+          <p class="text-secondary-text text-sm leading-relaxed dark:text-gray-400">
             Strict adherence to WCAG 2.1 guidelines ensuring the web is accessible to everyone,
             everywhere.
           </p>
         </div>
         <div
-          class="rounded-3xl border border-transparent bg-card-light p-8 transition-colors hover:border-border-light dark:bg-card-dark dark:hover:border-border-dark"
+          class="border-border-tertiary bg-card-primary rounded-3xl border p-8 transition-all hover:-translate-y-1"
         >
-          <span class="mb-4 text-3xl text-primary material-symbols-outlined dark:text-white"
+          <span class="text-primary material-symbols-outlined mb-4 text-3xl dark:text-white"
             >grid_view</span
           >
           <h3 class="mb-2 text-lg font-bold">Pixel Perfect</h3>
-          <p class="text-sm leading-relaxed text-secondary-text dark:text-gray-400">
+          <p class="text-secondary-text text-sm leading-relaxed dark:text-gray-400">
             Translating Figma designs into responsive code with exact precision and fluid
             responsiveness.
           </p>
         </div>
         <div
-          class="rounded-3xl border border-transparent bg-card-light p-8 transition-colors hover:border-border-light md:mt-12 dark:bg-card-dark dark:hover:border-border-dark"
+          class="border-border-tertiary bg-card-primary rounded-3xl border p-8 transition-all hover:-translate-y-1 md:mt-12"
         >
-          <span class="mb-4 text-3xl text-primary material-symbols-outlined dark:text-white"
+          <span class="text-primary material-symbols-outlined mb-4 text-3xl dark:text-white"
             >integration_instructions</span
           >
           <h3 class="mb-2 text-lg font-bold">Type Safety</h3>
-          <p class="text-sm leading-relaxed text-secondary-text dark:text-gray-400">
+          <p class="text-secondary-text text-sm leading-relaxed dark:text-gray-400">
             Leveraging TypeScript to build robust, scalable applications with fewer runtime errors.
           </p>
         </div>
