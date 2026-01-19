@@ -2,6 +2,8 @@
   "name": "web-portfolio",
   "type": "module",
   "version": "1.0.2",
+  "private": true,
+  "license": "MIT",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
