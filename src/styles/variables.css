@@ -51,10 +51,6 @@
   --color-primary-text: var(--color-text-primary);
   --color-secondary-text: var(--color-text-secondary);
 
-  /* Custom spacing */
-  --spacing-18: 4.5rem;
-  --spacing-88: 22rem;
-
   /* Custom font families */
   --font-family-mono: 'JetBrains Mono', ui-monospace, 'Menlo', 'Monaco', monospace;
   --font-family-body: 'Poppins', ui-sans-serif, system-ui, sans-serif;

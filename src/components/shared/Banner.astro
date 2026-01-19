@@ -46,8 +46,8 @@ const { preheading, heading, description, heroImage, heroLayout = 'standard' } =
           </div>
         </div>
         <div class="relative flex w-1/3 justify-center lg:justify-end">
-          <div class="absolute inset-0 rotate-3 rounded-lg bg-gradient-to-tr from-zinc-200 to-transparent transition-transform duration-500 group-hover:rotate-6 dark:from-zinc-800" />
-          <div class="absolute inset-0 -rotate-2 rounded-lg border-2 border-zinc-900 opacity-10 transition-opacity duration-500 group-hover:opacity-20 dark:border-white" />
+          <div class="absolute inset-0 rotate-3 rounded-2xl bg-gradient-to-tr from-zinc-200 to-transparent transition-transform duration-500 group-hover:rotate-6 dark:from-zinc-800" />
+          <div class="absolute inset-0 -rotate-2 rounded-2xl border-2 border-zinc-900 opacity-10 transition-opacity duration-500 group-hover:opacity-20 dark:border-white" />
           <Image
             src={heroImage}
             alt="Portrait of Shavar"
@@ -55,7 +55,7 @@ const { preheading, heading, description, heroImage, heroLayout = 'standard' } =
             quality={85}
             loading="eager"
             densities={[1, 2]}
-            class="relative h-[500px] w-full rotate-2 rounded-lg object-cover shadow-2xl transition-all duration-700 hover:rotate-0"
+            class="relative h-[500px] w-full rotate-2 rounded-2xl object-cover shadow-2xl transition-all duration-700 hover:rotate-0"
           />
         </div>
       </div>
@@ -74,10 +74,10 @@ const { preheading, heading, description, heroImage, heroLayout = 'standard' } =
       )}
 
       <div class:list={[styles.container, { 'pt-64': heroImage }, 'pb-8']}>
-        <div class="flex flex-col items-start text-left">
+        <div class="flex flex-col items-start border-b border-zinc-200 pb-6 text-left dark:border-zinc-800">
           {preheading && <span class={styles.preHeading}>{preheading}</span>}
           <h1 class={styles.heading}>{heading}</h1>
-          <p class={styles.secondaryText}>{description}</p>
+          <p class={styles.subHeading}>{description}</p>
         </div>
       </div>
     </section>

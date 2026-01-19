@@ -59,10 +59,10 @@ const {
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Poppins:wght@300;400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
     />
     <link
+      id="fonts-link"
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Poppins:wght@300;400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
       rel="stylesheet"
       media="print"
-      onload="this.onload=null;this.media='all'"
     />
     <noscript>
       <link
@@ -78,10 +78,10 @@ const {
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link
+      id="fontawesome-link"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       rel="stylesheet"
       media="print"
-      onload="this.onload=null;this.media='all'"
     />
     <noscript>
       <link
@@ -89,6 +89,24 @@ const {
         rel="stylesheet"
       />
     </noscript>
+
+    <script is:inline>
+      // Async CSS loading without TypeScript warnings
+      const fontsLink = document.getElementById('fonts-link');
+      const fontAwesomeLink = document.getElementById('fontawesome-link');
+      if (fontsLink) {
+        fontsLink.onload = function () {
+          this.onload = null;
+          this.media = 'all';
+        };
+      }
+      if (fontAwesomeLink) {
+        fontAwesomeLink.onload = function () {
+          this.onload = null;
+          this.media = 'all';
+        };
+      }
+    </script>
 
     <!-- Open Graph tags for social sharing -->
     <meta property="og:title" content={title} />

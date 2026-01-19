@@ -4,17 +4,16 @@ import Layout from '../layouts/Layout.astro';
 import AvengersPoster from '@/assets/images/endgame_poster.webp';
 import PlayEdSheeran from '@/assets/images/play-ed-sheeran.jpg';
 import classes from '@/data/styles.json';
+import GridElement from '@/components/GridElement.astro';
 
 const title = 'Profile';
 const description =
-  'I help forward-thinking companies build performant, accessible, and beautiful web applications using the modern React ecosystem.';
+  'Senior Front-End Engineer with 8+ years specializing in accessible, high-performance web architectures. A proven collaborator and mentor dedicated to driving innovation, scalable solutions, and clean code practices.';
 ---
 
 <Layout title={title} description={description}>
   <section class="mx-auto mb-32 max-w-6xl px-6">
-    <div
-      class="grid grid-cols-1 gap-12 border-t border-zinc-200 pt-12 lg:grid-cols-12 lg:gap-24 dark:border-zinc-800"
-    >
+    <div class="grid grid-cols-1 gap-12 pt-12 lg:grid-cols-12 lg:gap-24">
       <div class="order-2 lg:order-1 lg:col-span-5">
         <div class="relative aspect-[4/5] w-full overflow-hidden rounded-2xl shadow-sm">
           <img
@@ -27,15 +26,15 @@ const description =
       <div class="order-1 flex flex-col justify-center lg:order-2 lg:col-span-7">
         <h2 class={classes.preHeading}>The Philosophy</h2>
         <h3 class={classes.heading}>
-          Customer Obsessed. <br class="hidden md:block" />Solution Driven.
+          Customer<br class="hidden md:block" />Obsessed.
         </h3>
         <div
           class="prose dark:prose-invert text-md max-w-none leading-relaxed text-zinc-600 dark:text-zinc-400"
         >
           <p class="mb-6">
-            Great software isn't just about clean code; it's about solving real problems for real
-            people. My philosophy centers on empathy—understanding the user's journey and crafting
-            interfaces that feel intuitive and effortless.
+            Technology is the tool; human impact is the goal. My process centers on
+            empathy—understanding the user's journey to craft interfaces that feel effortless. I
+            believe technical precision should be invisible, leaving only a seamless experience.
           </p>
           <p>
             Every pixel serves a purpose, and every interaction is an opportunity to delight. I
@@ -55,50 +54,27 @@ const description =
         <h3 class={classes.heading}>Precision Meets Purpose.</h3>
         <p class={classes.secondaryText}>Secondard</p>
       </div>
-      <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
-        <div
-          class="group rounded-2xl border border-zinc-100 bg-white p-8 transition-all duration-300 hover:shadow-xl dark:border-zinc-700 dark:bg-zinc-800"
-        >
-          <div
-            class="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-zinc-100 transition-transform group-hover:scale-110 dark:bg-zinc-700"
-          >
-            <span class="material-symbols-outlined text-zinc-900 dark:text-white">architecture</span
-            >
-          </div>
-          <h4 class="mb-3 text-xl font-bold text-zinc-900 dark:text-white">Structure</h4>
-          <p class="leading-relaxed text-zinc-500 dark:text-zinc-400">
-            Building scalable architectures that grow with the product. I focus on modular,
-            maintainable codebases that allow teams to move fast without breaking things.
-          </p>
-        </div>
-        <div
-          class="group rounded-2xl border border-zinc-100 bg-white p-8 transition-all duration-300 hover:shadow-xl dark:border-zinc-700 dark:bg-zinc-800"
-        >
-          <div
-            class="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-zinc-100 transition-transform group-hover:scale-110 dark:bg-zinc-700"
-          >
-            <span class="material-symbols-outlined text-zinc-900 dark:text-white">speed</span>
-          </div>
-          <h4 class="mb-3 text-xl font-bold text-zinc-900 dark:text-white">Performance</h4>
-          <p class="leading-relaxed text-zinc-500 dark:text-zinc-400">
-            Optimizing for speed because every millisecond counts. From efficient rendering to
-            bundle analysis, I ensure the experience is snappy for every user.
-          </p>
-        </div>
-        <div
-          class="group rounded-2xl border border-zinc-100 bg-white p-8 transition-all duration-300 hover:shadow-xl dark:border-zinc-700 dark:bg-zinc-800"
-        >
-          <div
-            class="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-zinc-100 transition-transform group-hover:scale-110 dark:bg-zinc-700"
-          >
-            <span class="material-symbols-outlined text-zinc-900 dark:text-white">devices</span>
-          </div>
-          <h4 class="mb-3 text-xl font-bold text-zinc-900 dark:text-white">Adaptability</h4>
-          <p class="leading-relaxed text-zinc-500 dark:text-zinc-400">
-            Creating fluid designs that work seamlessly on any device. Accessibility and
-            responsiveness aren't afterthoughts; they are core to my development process.
-          </p>
-        </div>
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+        <GridElement
+          icon="accessibility_new "
+          title="Inclusive Design"
+          description="Built for everyone, everywhere. Accessibility isn't a compliance checklist—it's a fundamental requirement of the modern web. I build with semantic HTML foundations and strict adherence to WCAG 2.1 and AODA standards. Whether a user relies on a screen reader, keyboard navigation, or assistive tech, I ensure the digital experience is seamless, equivalent, and empowering."
+        />
+        <GridElement
+          icon="bolt"
+          title="Performance"
+          description="Speed is a feature. I don't just optimize for better Lighthouse scores; I optimize for the user's time. By prioritizing the Critical Rendering Path and utilizing strategies like intelligent code-splitting, lazy loading, and asset optimization, I ensure that applications aren't just functional—they are instantaneous. A fast experience builds trust; a slow one breaks it."
+        />
+        <GridElement
+          icon="grid_view"
+          title="Design Fidelity"
+          description="Engineering the creative vision. I act as the bridge between design and engineering. I don't just 'implement' screens; I protect the integrity of the user interface. From fluid responsive layouts to the nuance of a micro-interaction, I ensure the final product matches the Figma concepts with pixel-perfect precision. The details aren't just details; they make the product."
+        />
+        <GridElement
+          icon="integration_instructions "
+          title="Scalable Architecture "
+          description="Code that grows with the business. Features change, but the foundation must hold. I leverage TypeScript and modular, component-driven patterns to build systems that are robust and maintainable. By prioritizing type safety and reducing technical debt upfront, I create environments where teams can ship new features rapidly without fear of breaking the system."
+        />
       </div>
     </div>
   </section>
@@ -110,7 +86,8 @@ const description =
       </h2>
       <h3 class="mb-6 text-4xl font-bold text-zinc-900 dark:text-white">Life Offline.</h3>
       <p class="mb-8 leading-relaxed text-zinc-500 dark:text-zinc-400">
-        My work is fueled by the experiences I gather when I step away from the desk.
+        My best ideas rarely happen at a desk. Stepping away allows me to recharge and bring fresh
+        perspectives back to the code.
       </p>
       <div class="hidden h-1 w-20 rounded-full bg-zinc-200 lg:block dark:bg-zinc-800"></div>
     </div>
@@ -258,7 +235,7 @@ const description =
             <div class="group flex items-center gap-3">
               <img
                 alt="Book"
-                class="h-14 w-14 rounded-lg object-cover shadow-sm transition-transform duration-300 group-hover:scale-105"
+                class="h-14 w-14 rounded-2xl object-cover shadow-sm transition-transform duration-300 group-hover:scale-105"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNP1a4MzokfapYCPrJhi33Y_o8eDqIqKGs_jDq3XXrRgPIMaAKeQ45-DO8R2c-1m1euodZ7KP5aBvEohYbv2M1_9xO9gv30nkfHkslbbT0pr7kiD06MvN9ggh6qvjTg29Lx2BbAl6lnUsoT8aaY6nIcVh1R0G1a9Im1YwgvnVC1mBKHC113FAXPg1VogOxCzRdDIilhAGMXLS2UG6Yu9mRxupqPHQKhsEMH-zRBOfleDDqfGSrGdMD5oAt6sCoTSnpYv8eK3f9PfI"
               />
               <div class="min-w-0">
