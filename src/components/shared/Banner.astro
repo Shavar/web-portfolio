@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
+import SectionHeader from '@/components/shared/SectionHeader.astro';
 import Button from '@/components/shared/Button.astro';
 import styles from '@/data/styles.json';
 
@@ -23,16 +24,16 @@ const { preheading, heading, description, heroImage, heroLayout = 'standard' } =
       >
         <div class="w-2/3">
           <div class="max-w-xl">
-            <span class={styles.preHeading}>Senior Frontend Developer</span>
-            <h1 class={styles.heading}>
-              Building <span class="text-gray-400 dark:text-gray-600">digital products</span> that
-              matter.
-            </h1>
+            <SectionHeader
+              headingLevel="h1"
+              preHeading="Senior Frontend Developer"
+              heading={['Shavar Sean', 'Cox']}
+            />
             <p class={styles.secondaryText}>
-              I am a Senior Front-End Engineer with over 7 years of experience specializing in the
-              development of intuitive, accessible, and high-performance web and mobile applications
-              . Currently based in Toronto, Ontario, I deliver scalable solutions that transform
-              complex problems into seamless user experiences.
+              With over 8 years of experience, I specialize in building accessible, high-performance
+              web applications. Currently based in Toronto, I focus on delivering scalable
+              architectures and clean code that transform complex problems into effortless user
+              experiences.
             </p>
           </div>
           <div class="flex flex-wrap gap-4 pt-4">

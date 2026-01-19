@@ -1,5 +1,6 @@
 ---
 import Button from '@/components/shared/Button.astro';
+import SectionHeader from '@/components/shared/SectionHeader.astro';
 import classes from '@/data/styles.json';
 ---
 
@@ -7,16 +8,14 @@ import classes from '@/data/styles.json';
   <div class={classes.container}>
     <div class="flex flex-row gap-8">
       <div class="w-1/3">
-        <h2 class={classes.heading}>
-          Obsessed with <span class="text-gray-400">every detail.</span>
-        </h2>
+        <SectionHeader preHeading="Customer Obsession" heading={['Building for', 'real people.']} />
         <p class={classes.secondaryText}>
-          I believe that the difference between good and great lies in the nuances. From the
-          fluidity of an animation to the semantic structure of the DOM, I pour attention into every
-          aspect of the frontend experience.
+          It’s about the person on the other side of the screen, not just the browser. To me, code
+          is just a tool to make someone’s day a little easier. I sweat the technical details—like
+          speed and accessibility—so the user gets a smooth, frustration-free experience every time.
         </p>
         <div class="pt-4">
-          <Button style="tertiary" href="#about-detail"> More about my process </Button>
+          <Button style="tertiary" href="/profile"> More about my process </Button>
         </div>
       </div>
       <div class="grid w-2/3 grid-cols-1 gap-6 md:grid-cols-2">
@@ -26,10 +25,10 @@ import classes from '@/data/styles.json';
           <span class="text-primary material-symbols-outlined mb-4 text-3xl dark:text-white"
             >bolt</span
           >
-          <h3 class="mb-2 text-lg font-bold">Performance First</h3>
+          <h3 class="mb-2 text-lg font-bold">Inclusive Design</h3>
           <p class="text-secondary-text text-sm leading-relaxed dark:text-gray-400">
-            Optimizing Core Web Vitals, code-splitting, and asset delivery to ensure instantaneous
-            load times.
+            Building universally accessible interfaces with strict WCAG 2.1 compliance and semantic
+            HTML foundations.
           </p>
         </div>
         <div
@@ -38,10 +37,10 @@ import classes from '@/data/styles.json';
           <span class="text-primary material-symbols-outlined mb-4 text-3xl dark:text-white"
             >accessibility_new</span
           >
-          <h3 class="mb-2 text-lg font-bold">Inclusive Design</h3>
+          <h3 class="mb-2 text-lg font-bold">Performance</h3>
           <p class="text-secondary-text text-sm leading-relaxed dark:text-gray-400">
-            Strict adherence to WCAG 2.1 guidelines ensuring the web is accessible to everyone,
-            everywhere.
+            Architecting for speed via Core Web Vitals optimization, intelligent code-splitting, and
+            efficient asset delivery.
           </p>
         </div>
         <div
@@ -50,10 +49,10 @@ import classes from '@/data/styles.json';
           <span class="text-primary material-symbols-outlined mb-4 text-3xl dark:text-white"
             >grid_view</span
           >
-          <h3 class="mb-2 text-lg font-bold">Pixel Perfect</h3>
+          <h3 class="mb-2 text-lg font-bold">Design Fidelity</h3>
           <p class="text-secondary-text text-sm leading-relaxed dark:text-gray-400">
-            Translating Figma designs into responsive code with exact precision and fluid
-            responsiveness.
+            Bridging the gap between creative and engineering to deliver pixel-perfect, responsive
+            UI that matches the vision.
           </p>
         </div>
         <div
@@ -62,9 +61,10 @@ import classes from '@/data/styles.json';
           <span class="text-primary material-symbols-outlined mb-4 text-3xl dark:text-white"
             >integration_instructions</span
           >
-          <h3 class="mb-2 text-lg font-bold">Type Safety</h3>
+          <h3 class="mb-2 text-lg font-bold">Scalable Architecture</h3>
           <p class="text-secondary-text text-sm leading-relaxed dark:text-gray-400">
-            Leveraging TypeScript to build robust, scalable applications with fewer runtime errors.
+            Leveraging TypeScript and modular patterns to build robust, maintainable systems that
+            support rapid growth.
           </p>
         </div>
       </div>

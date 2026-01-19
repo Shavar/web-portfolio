@@ -2,5 +2,6 @@
   "container": "max-w-6xl mx-auto relative z-10 px-6",
   "preHeading": "inline-block text-sm font-semibold uppercase tracking-widest leading-tight text-secondary-text dark:text-gray-400 pb-2",
   "heading": "text-4xl md:text-5xl font-bold leading-extra-tight tracking-tight text-primary dark:text-white pb-4",
-  "secondaryText": "text-md text-secondary-text leading-relaxed"
+  "subHeading": "text-lg font-bold pb-4",
+  "secondaryText": "text-md text-secondary-text leading-relaxed pb-4"
 }
