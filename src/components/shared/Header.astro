@@ -112,29 +112,29 @@ const currentPath = Astro.url.pathname;
   </button>
 
   <!-- Mobile Navigation Menu -->
-  <nav id="mobile-nav" class="fixed left-0 top-0 hidden md:hidden">
+  <nav id="mobile-nav" class="fixed left-0 top-0 z-40 hidden h-screen w-full md:hidden">
     <div
-      class="h-screen w-screen scale-95 transform rounded-2xl border border-black/5 bg-white/80 p-4 opacity-0 shadow-xl backdrop-blur-xl transition-all duration-300 ease-out dark:bg-gray-900/80"
+      class="flex h-screen w-full flex-col items-center justify-center bg-white/0 backdrop-blur-none transition-all duration-500 dark:bg-gray-900/0"
     >
-      <div class="space-y-2">
+      <div class="flex flex-col items-center space-y-6">
         <a
           href="/#profile"
-          class="block translate-x-4 transform rounded-xl px-4 py-3 text-sm font-medium text-gray-700 opacity-0 transition-all duration-200 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+          class="translate-y-4 transform text-2xl font-medium text-gray-700 opacity-0 transition-all duration-300 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
           style="transition-delay: 100ms;">About</a
         >
         <a
           href="/#experience"
-          class="block translate-x-4 transform rounded-xl px-4 py-3 text-sm font-medium text-gray-700 opacity-0 transition-all duration-200 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+          class="translate-y-4 transform text-2xl font-medium text-gray-700 opacity-0 transition-all duration-300 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
           style="transition-delay: 150ms;">Experience</a
         >
         <a
           href="/#projects"
-          class="block translate-x-4 transform rounded-xl px-4 py-3 text-sm font-medium text-gray-700 opacity-0 transition-all duration-200 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+          class="translate-y-4 transform text-2xl font-medium text-gray-700 opacity-0 transition-all duration-300 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
           style="transition-delay: 200ms;">Projects</a
         >
         <a
           href="/#websites"
-          class="block translate-x-4 transform rounded-xl px-4 py-3 text-sm font-medium text-gray-700 opacity-0 transition-all duration-200 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+          class="translate-y-4 transform text-2xl font-medium text-gray-700 opacity-0 transition-all duration-300 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
           style="transition-delay: 250ms;">Websites</a
         >
       </div>
@@ -162,7 +162,7 @@ const currentPath = Astro.url.pathname;
       const burgerX = mobileMenuBtn.querySelector('.burger-x');
 
       if (newState) {
-        // Show menu with animation
+        // Show menu with blur animation
         mobileNav?.classList.remove('hidden');
 
         // Transform burger to X
@@ -172,21 +172,21 @@ const currentPath = Astro.url.pathname;
         burgerX?.querySelector('div:first-child')?.classList.add('rotate-45');
         burgerX?.querySelector('div:last-child')?.classList.add('-rotate-45');
 
-        // Trigger animations after a brief delay to ensure visibility
-        requestAnimationFrame(() => {
+        // Trigger animations after a brief delay
+        setTimeout(() => {
           const menuContainer = mobileNav?.querySelector('div');
           const menuLinks = mobileNav?.querySelectorAll('a');
 
-          // Animate menu container
-          menuContainer?.classList.remove('opacity-0', 'scale-95');
-          menuContainer?.classList.add('opacity-100', 'scale-100');
+          // Animate background blur
+          menuContainer?.classList.remove('bg-white/0', 'dark:bg-gray-900/0', 'backdrop-blur-none');
+          menuContainer?.classList.add('bg-white/95', 'dark:bg-gray-900/95', 'backdrop-blur-xl');
 
           // Animate menu links with staggered effect
           menuLinks?.forEach((link) => {
-            link.classList.remove('translate-x-4', 'opacity-0');
-            link.classList.add('translate-x-0', 'opacity-100');
+            link.classList.remove('translate-y-4', 'opacity-0');
+            link.classList.add('translate-y-0', 'opacity-100');
           });
-        });
+        }, 10);
       } else {
         // Transform X back to burger
         burgerLines.forEach((line) => line.classList.remove('translate-x-10'));
@@ -199,19 +199,20 @@ const currentPath = Astro.url.pathname;
         const menuContainer = mobileNav?.querySelector('div');
         const menuLinks = mobileNav?.querySelectorAll('a');
 
-        // Animate out menu container and links
-        menuContainer?.classList.remove('opacity-100', 'scale-100');
-        menuContainer?.classList.add('opacity-0', 'scale-95');
+        // Animate out background blur
+        menuContainer?.classList.remove('bg-white/95', 'dark:bg-gray-900/95', 'backdrop-blur-xl');
+        menuContainer?.classList.add('bg-white/0', 'dark:bg-gray-900/0', 'backdrop-blur-none');
 
+        // Animate out menu links
         menuLinks?.forEach((link) => {
-          link.classList.remove('translate-x-0', 'opacity-100');
-          link.classList.add('translate-x-4', 'opacity-0');
+          link.classList.remove('translate-y-0', 'opacity-100');
+          link.classList.add('translate-y-4', 'opacity-0');
         });
 
         // Hide after animation completes
         setTimeout(() => {
           mobileNav?.classList.add('hidden');
-        }, 300);
+        }, 500);
       }
     });
 
@@ -232,18 +233,19 @@ const currentPath = Astro.url.pathname;
       const menuContainer = mobileNav?.querySelector('div');
       const menuLinks = mobileNav?.querySelectorAll('a');
 
-      menuContainer?.classList.remove('opacity-100', 'scale-100');
-      menuContainer?.classList.add('opacity-0', 'scale-95');
+      // Animate out background blur
+      menuContainer?.classList.remove('bg-white/95', 'dark:bg-gray-900/95', 'backdrop-blur-xl');
+      menuContainer?.classList.add('bg-white/0', 'dark:bg-gray-900/0', 'backdrop-blur-none');
 
       menuLinks?.forEach((link) => {
-        link.classList.remove('translate-x-0', 'opacity-100');
-        link.classList.add('translate-x-4', 'opacity-0');
+        link.classList.remove('translate-y-0', 'opacity-100');
+        link.classList.add('translate-y-4', 'opacity-0');
       });
 
       setTimeout(() => {
         mobileNav?.classList.add('hidden');
         mobileMenuBtn?.setAttribute('aria-expanded', 'false');
-      }, 300);
+      }, 500);
     };
 
     // Close menu when clicking nav links
