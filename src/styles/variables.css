@@ -4,17 +4,20 @@
 :root {
   /* Core brand colors optimized for contrast */
   --color-primary: #1a1a1a;
-  --color-background-primary: #ffffff;
-  --color-background-secondary: #f9fafb;
+  --color-secondary: #f9fafb;
+  --color-tertiary: #ffffff;
+  --color-quaternary: #71717a;
+  --color-background-tertiary: #9f9fa9;
   --color-background-navigation: rgba(244, 244, 245, 0.85);
   --color-card-primary: #f4f4f5;
   --color-card-secondary: #ffffff;
-  --color-text-primary: #1a1a1a;
-  --color-text-secondary: #71717a;
+  --color-text-primary: #563737;
   --color-border-primary: rgba(255, 255, 255, 0.05);
   --color-border-secondary: rgba(229, 231, 235, 0.75);
   --color-border-tertiary: #e4e4e7;
-
+  --color-toolbox: #09090b;
+  --color-tool: #161616;
+  --color-tool-border: rgba(229, 231, 235, 0.12);
   /* Performance hints */
   color-scheme: light;
 }
@@ -22,11 +25,13 @@
 @media (prefers-color-scheme: dark) {
   :root {
     /* Dark mode colors optimized for OLED displays */
-    --color-background-primary: #0f0f0f;
-    --color-background-secondary: #161616;
+    --color-primary: #ffffff;
+    --color-secondary: #161616 /* 0f0f0f */;
+    --color-tertiary: #0f0f0f;
+    --color-quaternary: #a3a3a3;
+    --color-background-tertiary: #52525c;
     --color-background-navigation: rgba(20, 20, 20, 0.85);
     --color-text-primary: #ffffff;
-    --color-text-secondary: #a3a3a3;
     --color-border-primary: rgba(255, 255, 255, 0.08);
     --color-border-secondary: rgba(229, 231, 235, 0.12);
     --color-border-tertiary: #2a2a2a;
@@ -40,16 +45,20 @@
 @theme {
   /* Custom colors mapped to CSS variables */
   --color-primary: var(--color-primary);
-  --color-background-primary: var(--color-background-primary);
-  --color-background-secondary: var(--color-background-secondary);
+  --color-secondary: var(--color-secondary);
+  --color-tertiary: var(--color-tertiary);
+  --color-quaternary: var(--color-quaternary);
+  --color-background-tertiary: var(--color-background-tertiary);
   --color-background-navigation: var(--color-background-navigation);
+  --color-toolbox: var(--color-toolbox);
+  --color-tool: var(--color-tool);
+  --color-tool-border: var(--color-tool-border);
   --color-card-primary: var(--color-card-primary);
   --color-card-secondary: var(--color-card-secondary);
   --color-border-primary: var(--color-border-primary);
   --color-border-secondary: var(--color-border-secondary);
   --color-border-tertiary: var(--color-border-tertiary);
-  --color-primary-text: var(--color-text-primary);
-  --color-secondary-text: var(--color-text-secondary);
+  --color-text-primary: var(--color-text-primary);
 
   /* Custom font families */
   --font-family-mono: 'JetBrains Mono', ui-monospace, 'Menlo', 'Monaco', monospace;

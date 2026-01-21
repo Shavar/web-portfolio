@@ -1,18 +1,13 @@
 {
   "header": [
     {
-      "label": "Profile",
-      "href": "/profile",
-      "target": "_self"
-    },
-    {
       "label": "Experience",
       "href": "/experience",
       "target": "_self"
     }
   ],
   "footer": {
-    "copyright": "Copyright © 2025 Shavar Cox. All Rights Reserved."
+    "copyright": "Copyright © 2026 Shavar Cox. All Rights Reserved."
   },
   "socials": [
     {

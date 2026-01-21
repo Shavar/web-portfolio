@@ -1,0 +1,75 @@
+[
+  {
+    "title": "Senior Frontend Developer",
+    "company": "HelloFresh",
+    "startDate": "2025-09-15",
+    "endDate": "present",
+    "details": [
+      "Partnered with backend teams to launch AI-powered personalization features, including automated review summaries and recipe recommendations, driving measurable increases in engagement on recipe detail pages.",
+      "Evolved the core product architecture by creating scalable React components and abstracting shared business logic; this unified the UI system and enforced DRY principles, rapidly accelerating feature delivery.",
+      "Engineered a custom CSV batch-processing tool within Payload CMS to eliminate manual data entry bottlenecks; this automation enabled bulk recipe updates, drastically reducing the turnaround time for large-scale updates.",
+      "Resolved extensive \"prop drilling\" issues by architecting a scoped RecipeContext for page-level state management; this refactoring streamlined data flow, substantially improving developer velocity and reducing technical debt."
+    ]
+  },
+  {
+    "title": "Senior Frontend Developer",
+    "company": "Intuit Canada, GenAI",
+    "startDate": "2024-04-03",
+    "endDate": "2025-07-02",
+    "details": [
+      "Developed and deployed new AI-powered experiences for Intuit Assist, to demonstrably increase customer satisfaction and improve platform personalization across QuickBooks, TurboTax, and Intuit Expert Platforms.",
+      "Delivered numerous features for Intuit Assist, maintaining 80%+ code coverage and production-clean code that greatly enhanced system stability and drastically reduced critical bugs.",
+      "Led initiatives to streamline onboarding via standardized \"paved roads,\" significantly reducing time to deploy new offerings and accelerating team adoption.",
+      "Partnered with Product, Content, and Engineering stakeholders to define, scope, and deliver high-impact features, aligning development with business goals and significantly improving delivery confidence.",
+      "Spearheaded overhaul of support documentation, improving discoverability and standardizing guides, resulting in a 30% decrease in engineering team support requests.",
+      "Led critical dependency migration across multiple teams, providing guidance and support to ensure seamless integration and minimal disruption, safeguarding project continuity.",
+      "Delivered timely on-call support via Slack, troubleshooting critical issues and answering complex technical questions to ensure continuous development progress and maximize team efficiency."
+    ]
+  },
+  {
+    "title": "Senior Software Engineer",
+    "company": "Intuit Canada, TurboTax",
+    "startDate": "2021-08-03",
+    "endDate": "2024-04-02",
+    "details": [
+      "Led automation of build, test, and deployment pipelines, replacing manual processes with CI/CD tools to vastly improve release reliability, reduce engineering effort, and enable faster, consistent deployments.",
+      "Led accessibility compliance for TurboTax Canada by auditing and remediating issues, reducing critical and serious accessibility violations by over 70%, and elevating the product to industry-leading accessibility standards.",
+      "Led the migration of core platforms to support modern architecture and experimentation frameworks, which enabled continuous delivery, rapid testing, and significantly increased team agility and time-to-insight.",
+      "Mentored junior developers and interns via guidance, technical support, and pair programming, while contributing to code reviews to ensure quality, promote best practices, and accelerate team development."
+    ]
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Intuit Canada",
+    "startDate": "2018-09-18",
+    "endDate": "2021-08-02",
+    "details": [
+      "Designed and implemented a scalable front-end architecture with reusable components for TurboTax, standardizing practices, addressing inconsistencies, and accelerating delivery across cross-functional teams.",
+      "Partnered with Product, Content, and Engineering stakeholders to define, scope, and deliver high-impact features, aligning development with business goals and markedly improving delivery confidence.",
+      "Executed comprehensive A/B, Split URL, and Multivariate testing strategies to validate design hypotheses, improve user engagement metrics, and measurably increase conversion rates through data-driven experimentation.",
+      "Spearheaded frontend performance optimization using code splitting, lazy loading, asset optimization, and strategic caching, resulting in a 40% reduction in load time and a seamless user experience."
+    ]
+  },
+  {
+    "title": "Senior Software Engineer",
+    "company": "Skylar Media Group",
+    "startDate": "2017-10-03",
+    "endDate": "2028-09-17",
+    "details": [
+      "Proactively translated diverse creative concepts into high-fidelity mock-ups and robust, production-ready code, effectively bridging the gap between design and engineering teams.",
+      "Independently built and extensively customized WordPress themes and plugins, delivering tailored, functional solutions for a variety of client websites.",
+      "Collaborated closely with designers and strategists from concept to delivery, ensuring the successful production of compelling, highly user-friendly digital experiences."
+    ]
+  },
+  {
+    "title": "Senior Web Developer",
+    "company": "Montana Steele",
+    "startDate": "2017-04-02",
+    "endDate": "2017-10-02",
+    "details": [
+      "Efficiently developed and delivered a high volume of marketing microsites and landing pages, consistently meeting tight timelines and high-pressure conditions for real estate campaigns.",
+      "Methodically conducted comprehensive full-stack testing and rigorous QA, ensuring pixel-perfect deployment and optimal functionality for all web projects.",
+      "Collaborated directly with creative designers and marketing strategists to interpret design mock-ups and brand guidelines, ensuring faithful and optimized digital representation of client brands and a cohesive user experience."
+    ]
+  }
+]

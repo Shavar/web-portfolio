@@ -46,22 +46,19 @@ const formatDateRange = (startDate: string, endDate: string): string => {
     {
       experiences.map((experience: ExperienceDetails) => (
         <div class="relative space-y-12">
-          <div class="group relative border-l border-zinc-200 pl-8 dark:border-zinc-800">
-            <div class="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-zinc-400 transition-colors group-hover:bg-zinc-900 dark:bg-zinc-600 dark:group-hover:bg-white" />
-            <div class="mb-2 flex flex-col justify-between sm:flex-row sm:items-baseline">
-              <h3 class="text-xl font-bold text-zinc-900 dark:text-white">{experience.title}</h3>
-              <span class="text-sm text-zinc-500">
+          <div class="border-border-secondary group relative border-l pl-6 md:pl-8">
+            <div class="bg-background-tertiary absolute -left-[5px] top-0 h-2.5 w-2.5 rounded-full transition-colors group-hover:bg-zinc-900 dark:group-hover:bg-white" />
+            <div class="mb-4 flex flex-col justify-between sm:mb-0 sm:flex-row sm:items-baseline">
+              <h3 class="text-xl font-bold">{experience.title}</h3>
+              <div class="text-md block font-medium sm:hidden">{experience.company}</div>
+              <span class="text-md">
                 {formatDateRange(experience.startDate, experience.endDate)}
               </span>
             </div>
-            <div class="mb-4 text-sm font-medium text-zinc-800 dark:text-zinc-200">
-              {experience.company}
-            </div>
-            <ul class="pl-8">
+            <div class="text-md mb-4 hidden font-medium sm:block">{experience.company}</div>
+            <ul class="pl-2 md:pl-8">
               {experience.details.map((detail: string) => (
-                <li class="mb-2 list-disc text-sm leading-relaxed text-gray-500 dark:text-gray-400">
-                  {detail}
-                </li>
+                <li class={`list-disc ${styles.secondaryText}`}>{detail}</li>
               ))}
             </ul>
           </div>

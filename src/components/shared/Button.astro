@@ -12,10 +12,10 @@ const baseClass = 'group inline-flex items-center transition-all';
 
 const styleClass =
   style === 'primary'
-    ? 'justify-center px-8 py-3.5 rounded-full bg-primary text-white dark:bg-white dark:text-black font-medium hover:bg-black dark:hover:bg-gray-200 shadow-lg shadow-gray-200/50 dark:shadow-none transform hover:-translate-y-1'
+    ? 'justify-center px-8 py-3.5 rounded-full bg-primary text-white dark:bg-white dark:text-black font-medium transform hover:-translate-y-1'
     : style === 'secondary'
-      ? 'justify-center px-8 py-3.5 rounded-full bg-gray-100 text-primary dark:bg-gray-800 dark:text-white font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transform hover:-translate-y-1'
-      : 'gap-2 text-primary dark:text-white font-semibold border-b-2 border-primary dark:border-white pb-1 hover:text-secondary-text dark:hover:text-gray-300 hover:border-secondary-text dark:hover:border-gray-300';
+      ? 'justify-center px-8 py-3.5 rounded-full bg-secondary text-primary font-medium transform hover:-translate-y-1'
+      : 'gap-2 font-semibold border-b-2 border-primary dark:border-white pb-1 hover:text-quaternary dark:hover:text-gray-300 hover:border-quaternary dark:hover:border-gray-300';
 
 const buttonClass = `${baseClass} ${styleClass}`;
 ---

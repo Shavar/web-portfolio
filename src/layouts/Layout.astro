@@ -13,6 +13,7 @@ interface Props {
   heroLayout?: 'standard' | 'hero';
   showHeader?: boolean;
   showFooter?: boolean;
+  showIntro?: boolean;
   hasHero?: boolean;
 }
 
@@ -21,6 +22,7 @@ const {
   description,
   showHeader = true,
   showFooter = true,
+  showIntro = true,
   hasHero = false,
   heroImage,
   heroLayout = 'standard',
@@ -91,7 +93,6 @@ const {
     </noscript>
 
     <script is:inline>
-      // Async CSS loading without TypeScript warnings
       const fontsLink = document.getElementById('fonts-link');
       const fontAwesomeLink = document.getElementById('fontawesome-link');
       if (fontsLink) {
@@ -119,7 +120,7 @@ const {
     <meta name="twitter:description" content={description} />
   </head>
   <body
-    class="bg-background-primary font-body text-primary-text duration-normal reduced-motion focus-ring antialiased transition-colors"
+    class="bg-tertiary font-body text-primary duration-normal reduced-motion focus-ring leading-relaxed antialiased transition-colors"
   >
     <!-- Skip to main content for screen readers -->
     <a
@@ -130,13 +131,21 @@ const {
     </a>
     {showHeader && <Header links={globalData.header} socials={globalData.socials} />}
 
-    <main id="main-content" role="main" class:list={['min-h-screen', { 'mt-28': !hasHero }]}>
-      <Banner
-        heading={title}
-        description={description}
-        heroLayout={heroLayout}
-        heroImage={heroImage}
-      />
+    <main
+      id="main-content"
+      role="main"
+      class:list={showIntro ? ['min-h-screen', { 'mt-28': !hasHero }] : []}
+    >
+      {
+        showIntro && (
+          <Banner
+            heading={title}
+            description={description}
+            heroLayout={heroLayout}
+            heroImage={heroImage}
+          />
+        )
+      }
       <slot />
     </main>
 
