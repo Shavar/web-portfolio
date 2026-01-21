@@ -1,4 +1,6 @@
 ---
+import Icon from '@/components/atoms/Icon.astro';
+
 interface Props {
   name: string;
   icon: string;
@@ -8,8 +10,8 @@ const { icon, name } = Astro.props;
 ---
 
 <div
-  class="border-tool-border bg-tool rounded-xl border p-4 text-center transition-all duration-300 hover:-translate-y-1"
+  class="md:border-tool-border md:bg-tool rounded-xl p-4 text-center transition-all duration-300 hover:-translate-y-1 md:border"
 >
-  <span class="material-symbols-outlined mb-2 text-3xl">{icon}</span>
+  <Icon name={icon} class="mx-auto" />
   <div class="text-sm font-medium">{name}</div>
 </div>
