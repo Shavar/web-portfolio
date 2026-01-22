@@ -8,7 +8,7 @@
   --color-tertiary: #ffffff;
   --color-quaternary: #71717a;
   --color-background-tertiary: #9f9fa9;
-  --color-background-navigation: rgba(244, 244, 245, 0.85);
+  --color-navigation: rgba(244, 244, 245, 0.5);
   --color-card-primary: #f4f4f5;
   --color-card-secondary: #ffffff;
   --color-text-primary: #563737;
@@ -30,7 +30,7 @@
     --color-tertiary: #0f0f0f;
     --color-quaternary: #a3a3a3;
     --color-background-tertiary: #52525c;
-    --color-background-navigation: rgba(20, 20, 20, 0.85);
+    --color-navigation: rgba(20, 20, 20, 0.5);
     --color-text-primary: #ffffff;
     --color-border-primary: rgba(255, 255, 255, 0.08);
     --color-border-secondary: rgba(229, 231, 235, 0.12);
@@ -49,7 +49,7 @@
   --color-tertiary: var(--color-tertiary);
   --color-quaternary: var(--color-quaternary);
   --color-background-tertiary: var(--color-background-tertiary);
-  --color-background-navigation: var(--color-background-navigation);
+  --color-navigation: var(--color-navigation);
   --color-toolbox: var(--color-toolbox);
   --color-tool: var(--color-tool);
   --color-tool-border: var(--color-tool-border);

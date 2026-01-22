@@ -1,7 +1,7 @@
 ---
-import Header from '@/components/shared/Header.astro';
-import Footer from '@/components/shared/Footer.astro';
-import Banner from '@/components/shared/Banner.astro';
+import Header from '@/components/organisms/Header.astro';
+import Footer from '@/components/organisms/Footer.astro';
+import Hero from '@/components/organisms/Hero.astro';
 import type { ImageMetadata } from 'astro';
 import globalData from '@/data/global.json';
 import '@/styles/variables.css';
@@ -138,7 +138,7 @@ const {
     >
       {
         showIntro && (
-          <Banner
+          <Hero
             heading={title}
             description={description}
             heroLayout={heroLayout}
