@@ -7,7 +7,7 @@ export default defineConfig({
   output: 'static',
   build: {
     format: 'directory',
-    inlineStylesheets: 'auto',
+    inlineStylesheets: 'never', // Prevent CSS bundling across pages
   },
   compressHTML: true,
   vite: {
@@ -18,6 +18,7 @@ export default defineConfig({
     },
     build: {
       cssMinify: 'esbuild',
+      cssCodeSplit: true, // Enable per-page CSS splitting
       minify: 'esbuild',
       rollupOptions: {
         output: {

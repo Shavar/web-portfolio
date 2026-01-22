@@ -1,5 +1,6 @@
 ---
 // Button component
+import Icon from '@/components/atoms/Icon.astro';
 
 interface Props {
   style: 'primary' | 'secondary' | 'tertiary';
@@ -24,9 +25,12 @@ const buttonClass = `${baseClass} ${styleClass}`;
   <slot />
   {
     style === 'tertiary' && (
-      <span class="material-symbols-outlined text-xl transition-transform group-hover:translate-x-1">
-        arrow_right_alt
-      </span>
+      <Icon
+        name="arrow_right_alt"
+        class="text-xl transition-transform group-hover:translate-x-1"
+        width="24"
+        height="24"
+      />
     )
   }
 </a>

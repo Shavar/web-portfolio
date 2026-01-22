@@ -1,5 +1,6 @@
 ---
 import ProjectIcon from './shared/ProjectIcon.astro';
+import Icon from '@/components/atoms/Icon.astro';
 interface Props {
   title: string;
   shortDescription: string;
@@ -18,9 +19,7 @@ const { id, icon, title, shortDescription, tags, githubUrl, liveUrl } = Astro.pr
   <div class="flex flex-1 flex-col justify-start">
     <div class="mb-4">
       <div class="flex flex-row">
-        <span class="text-primary material-symbols-outlined mb-6 text-5xl dark:text-white"
-          >{icon}</span
-        >
+        <Icon name={icon} class="text-primary mb-6 dark:text-white" width="48" height="48" />
         <div class="ml-auto flex flex-row justify-end gap-2">
           {githubUrl && <ProjectIcon icon="fab fa-github" link={githubUrl} />}
           {liveUrl && <ProjectIcon icon="fa-solid fa-arrow-up-right-from-square" link={liveUrl} />}
