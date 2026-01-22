@@ -2,6 +2,7 @@
 import classes from '@/data/styles.json';
 import projectsData from '@/data/projects.json';
 import ThumbnailWork from '@/components/ThumbnailWork.astro';
+import Icon from '@/components/atoms/Icon.astro';
 const projects = projectsData.projects.slice(0, 3); // Show only first 2 projects
 ---
 
@@ -21,10 +22,12 @@ const projects = projectsData.projects.slice(0, 3); // Show only first 2 project
           href="/projects"
         >
           View All Projects
-          <span
-            class="material-symbols-outlined text-xl transition-transform group-hover:translate-x-1"
-            >arrow_right_alt</span
-          >
+          <Icon
+            name="arrow_right_alt"
+            class="text-xl transition-transform group-hover:translate-x-1"
+            width="24"
+            height="24"
+          />
         </a>
       </div>
     </div>

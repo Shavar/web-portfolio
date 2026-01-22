@@ -1,5 +1,6 @@
 ---
 import styles from '@/data/styles.json';
+import Icon from '@/components/atoms/Icon.astro';
 interface Props {
   icon: string;
   title: string;
@@ -15,7 +16,7 @@ const { icon, title, description, offset } = Astro.props;
   <div
     class="bg-secondary flex h-12 w-12 items-center justify-center rounded-xl transition-transform group-hover:scale-110"
   >
-    <span class="material-symbols-outlined">{icon}</span>
+    <Icon name={icon} width="24" height="24" />
   </div>
   <h3 class="text-xl font-bold">{title}</h3>
   <p class={styles.cardText}>
