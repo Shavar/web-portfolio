@@ -52,9 +52,11 @@ const { preheading, heading, description, heroImage, heroLayout = 'standard' } =
             src={heroImage}
             alt="Portrait of Shavar"
             format="webp"
-            quality={85}
+            quality={80}
             loading="eager"
-            densities={[1, 2]}
+            fetchpriority="high"
+            widths={[400, 600, 800]}
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 40vw, 633px"
             class="relative h-[500px] w-full rotate-2 rounded-2xl object-cover shadow-2xl transition-all duration-700 hover:rotate-0"
           />
         </div>

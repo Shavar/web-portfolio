@@ -32,21 +32,6 @@ const {
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google Tag Manager -->
-    <script is:inline>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, 'script', 'dataLayer', 'GTM-M2LNZR54');
-    </script>
-    <!-- End Google Tag Manager -->
-
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -60,7 +45,7 @@ const {
     <!-- Resource hints for better performance -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title === 'Shavar Cox' ? title : title + ' | Shavar Cox'}</title>
@@ -88,36 +73,10 @@ const {
       />
     </noscript>
 
-    <!-- Font Awesome with performance optimization -->
-    <link
-      rel="preload"
-      as="style"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      id="fontawesome-link"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      rel="stylesheet"
-      media="print"
-    />
-    <noscript>
-      <link
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        rel="stylesheet"
-      />
-    </noscript>
-
     <script is:inline>
       const fontsLink = document.getElementById('fonts-link');
-      const fontAwesomeLink = document.getElementById('fontawesome-link');
       if (fontsLink) {
         fontsLink.onload = function () {
-          this.onload = null;
-          this.media = 'all';
-        };
-      }
-      if (fontAwesomeLink) {
-        fontAwesomeLink.onload = function () {
           this.onload = null;
           this.media = 'all';
         };
@@ -176,6 +135,25 @@ const {
 
     {showFooter && <Footer copyright={globalData.footer.copyright} socials={globalData.socials} />}
 
+    <!-- Google Tag Manager - Deferred for Performance -->
+    <script is:inline>
+      // Defer GTM loading until after page load
+      window.addEventListener('load', function () {
+        setTimeout(function () {
+          (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0],
+              j = d.createElement(s),
+              dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+          })(window, document, 'script', 'dataLayer', 'GTM-M2LNZR54');
+        }, 1000); // 1 second delay after page load
+      });
+    </script>
+
     <!-- GTM Custom Event Tracking -->
     <script is:inline>
       // Helper function to push events to dataLayer
@@ -204,26 +182,12 @@ const {
           });
         });
 
-        // Track social media clicks (header, footer, mobile menu)
+        // Track social media clicks
         document
-          .querySelectorAll(
-            '[aria-label*="social"], a[href*="linkedin"], a[href*="github"], a[href*="twitter"], a[href*="facebook"], a[href*="instagram"], #mobile-social-icons a'
-          )
+          .querySelectorAll('a[aria-label*="LinkedIn"], a[aria-label*="GitHub"]')
           .forEach(function (link) {
             link.addEventListener('click', function (e) {
-              const platform =
-                this.getAttribute('aria-label') ||
-                (this.href.includes('linkedin')
-                  ? 'LinkedIn'
-                  : this.href.includes('github')
-                    ? 'GitHub'
-                    : this.href.includes('twitter')
-                      ? 'Twitter'
-                      : this.href.includes('facebook')
-                        ? 'Facebook'
-                        : this.href.includes('instagram')
-                          ? 'Instagram'
-                          : 'Unknown');
+              const platform = this.getAttribute('aria-label');
               const location = this.closest('header')
                 ? 'header'
                 : this.closest('footer')
@@ -240,89 +204,33 @@ const {
             });
           });
 
-        // Track button clicks (CTAs)
-        document
-          .querySelectorAll('a[class*="btn"], a[class*="button"], .group.inline-flex')
-          .forEach(function (button) {
-            button.addEventListener('click', function (e) {
-              const buttonText = this.textContent.trim();
-              const buttonUrl = this.getAttribute('href');
-              const buttonStyle = this.className.includes('primary')
-                ? 'primary'
-                : this.className.includes('secondary')
-                  ? 'secondary'
-                  : this.className.includes('tertiary')
-                    ? 'tertiary'
-                    : 'unknown';
+        // Track button clicks
+        document.querySelectorAll('a[class*="inline-flex"]').forEach(function (button) {
+          button.addEventListener('click', function (e) {
+            const buttonText = this.textContent.trim();
+            const buttonUrl = this.getAttribute('href');
 
-              pushGTMEvent('button_click', {
-                button_text: buttonText,
-                button_url: buttonUrl,
-                button_style: buttonStyle,
-              });
-            });
-          });
-
-        // Track project card clicks
-        document
-          .querySelectorAll('[class*="project"] a, [href*="project"]')
-          .forEach(function (link) {
-            link.addEventListener('click', function (e) {
-              const projectName =
-                this.querySelector('h3, h2, .project-title')?.textContent?.trim() ||
-                this.textContent.trim().substring(0, 50);
-
-              pushGTMEvent('project_click', {
-                project_name: projectName,
-                project_url: this.href,
-              });
-            });
-          });
-
-        // Track work/portfolio item clicks
-        document
-          .querySelectorAll('[class*="work"] a, [class*="portfolio"] a')
-          .forEach(function (link) {
-            link.addEventListener('click', function (e) {
-              const workName =
-                this.querySelector('h3, h2, .work-title')?.textContent?.trim() ||
-                this.textContent.trim().substring(0, 50);
-
-              pushGTMEvent('work_click', {
-                work_name: workName,
-                work_url: this.href,
-              });
-            });
-          });
-
-        // Track external link clicks
-        document
-          .querySelectorAll('a[target="_blank"], a[rel*="external"]')
-          .forEach(function (link) {
-            link.addEventListener('click', function (e) {
-              const linkText = this.textContent.trim();
-              const linkUrl = this.href;
-
-              pushGTMEvent('external_link_click', {
-                link_text: linkText,
-                link_url: linkUrl,
-                link_domain: new URL(linkUrl).hostname,
-              });
-            });
-          });
-
-        // Track email clicks
-        document.querySelectorAll('a[href^="mailto:"]').forEach(function (link) {
-          link.addEventListener('click', function (e) {
-            const email = this.href.replace('mailto:', '');
-
-            pushGTMEvent('email_click', {
-              email_address: email,
+            pushGTMEvent('button_click', {
+              button_text: buttonText,
+              button_url: buttonUrl,
             });
           });
         });
 
-        // Track mobile menu open/close
+        // Track external link clicks
+        document.querySelectorAll('a[target="_blank"]').forEach(function (link) {
+          link.addEventListener('click', function (e) {
+            const linkText = this.textContent.trim();
+            const linkUrl = this.href;
+
+            pushGTMEvent('external_link_click', {
+              link_text: linkText,
+              link_url: linkUrl,
+            });
+          });
+        });
+
+        // Track mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         if (mobileMenuBtn) {
           mobileMenuBtn.addEventListener('click', function () {
@@ -336,33 +244,29 @@ const {
 
         // Track scroll depth (25%, 50%, 75%, 100%)
         let scrollMarks = { 25: false, 50: false, 75: false, 100: false };
-        window.addEventListener('scroll', function () {
-          const scrollPercent = Math.round(
-            (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
-          );
+        let scrollTimeout;
+        window.addEventListener(
+          'scroll',
+          function () {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(function () {
+              const scrollPercent = Math.round(
+                (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) *
+                  100
+              );
 
-          [25, 50, 75, 100].forEach(function (mark) {
-            if (scrollPercent >= mark && !scrollMarks[mark]) {
-              scrollMarks[mark] = true;
-              pushGTMEvent('scroll_depth', {
-                scroll_percentage: mark,
+              [25, 50, 75, 100].forEach(function (mark) {
+                if (scrollPercent >= mark && !scrollMarks[mark]) {
+                  scrollMarks[mark] = true;
+                  pushGTMEvent('scroll_depth', {
+                    scroll_percentage: mark,
+                  });
+                }
               });
-            }
-          });
-        });
-
-        // Track time on page (send after 30 seconds, 60 seconds, 120 seconds)
-        let timeMarks = { 30: false, 60: false, 120: false };
-        [30, 60, 120].forEach(function (seconds) {
-          setTimeout(function () {
-            if (!timeMarks[seconds]) {
-              timeMarks[seconds] = true;
-              pushGTMEvent('time_on_page', {
-                duration_seconds: seconds,
-              });
-            }
-          }, seconds * 1000);
-        });
+            }, 100);
+          },
+          { passive: true }
+        );
       });
     </script>
   </body>

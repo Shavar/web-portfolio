@@ -1,6 +1,7 @@
 ---
 // Footer component
 import type { SocialLink } from '@/types';
+import Icon from '@/components/atoms/Icon.astro';
 import Button from '@/components/atoms/Button.astro';
 import classes from '@/data/styles.json';
 import SectionHeader from '@/components/molecules/SectionHeader.astro';
@@ -27,8 +28,8 @@ const { socials, copyright } = Astro.props;
           out via email or on LinkedIn — I'd love to hear from you.
         </p>
         <div class="flex flex-col items-center gap-6 pt-8">
-          <Button style="primary" href="#">
-            <i class="fab fa-linkedin mr-3 text-2xl"></i>
+          <Button style="primary" href="https://www.linkedin.com/in/shavarsean/ " target="_blank">
+            <Icon name="LinkedIn" class="mr-3 h-6 w-6" width="24" height="24" />
             Connect on LinkedIn
           </Button>
           <Button style="tertiary" href="mailto:shavarsean@gmail.com?subject=Hello%20Sean">
@@ -50,7 +51,7 @@ const { socials, copyright } = Astro.props;
                   href={social.href}
                   target={social.target}
                 >
-                  <i class={social.faIcon + ' text-xl'} />
+                  <Icon name={social.label} class="h-5 w-5" width="20" height="20" />
                 </a>
               );
             })
