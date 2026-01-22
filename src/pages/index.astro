@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import SidebySide from '@/components/SidebySide.astro';
+import SidebySide from '@/components/organisms/SidebySide.astro';
+import Toolbox from '@/components/organisms/Toolbox.astro';
 import Photo from '@/assets/images/me.png';
 
 const pagePayload = {
@@ -14,4 +15,5 @@ const pagePayload = {
 
 <Layout {...pagePayload}>
   <SidebySide />
+  <Toolbox />
 </Layout>

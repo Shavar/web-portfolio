@@ -1,0 +1,38 @@
+---
+interface Props {
+  name: string;
+  class?: string;
+  width?: string;
+  height?: string;
+}
+
+const { name, class: className = '', width = '24', height = '24' } = Astro.props;
+
+// Normalize the icon name to match the file name in /public/icons
+const normalizedName = name.toLowerCase().replace(/\s+/g, '');
+
+// Map common name variations to actual file names
+const iconMap: Record<string, string> = {
+  css: 'CSS3 Logo',
+  css3: 'CSS3 Logo',
+  html: 'html5',
+  next: 'nextjs',
+  node: 'nodejs',
+};
+
+// Get the actual file name
+const fileName = iconMap[normalizedName] || normalizedName;
+const iconPath = `/icons/${fileName}.svg`;
+---
+
+<div class="mx-auto flex h-12 w-12 justify-center">
+  <img
+    src={iconPath}
+    alt={`${name} icon`}
+    width={width}
+    height={height}
+    class={className}
+    loading="lazy"
+    decoding="async"
+  />
+</div>

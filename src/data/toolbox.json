@@ -1,0 +1,17 @@
+[
+  { "icon": "html", "name": "HTML5" },
+  { "icon": "css", "name": "CSS3/Sass" },
+  { "icon": "javascript", "name": "TypeScript" },
+  { "icon": "typescript", "name": "JavaScript" },
+  { "icon": "react", "name": "React" },
+  { "icon": "nextjs", "name": "Next.js" },
+  { "icon": "nodejs", "name": "Node.js" },
+  { "icon": "vite", "name": "Vite" },
+  { "icon": "webpack", "name": "Webpack" },
+  { "icon": "redux", "name": "Redux" },
+  { "icon": "tailwind", "name": "Tailwind" },
+  { "icon": "git", "name": "Git" },
+  { "icon": "cypress", "name": "Cypress" },
+  { "icon": "graphql", "name": "GraphQL" },
+  { "icon": "figma", "name": "Figma" }
+]

@@ -1,0 +1,32 @@
+---
+// Button component
+
+interface Props {
+  style: 'primary' | 'secondary' | 'tertiary';
+  href: string;
+}
+
+const { style, href } = Astro.props;
+
+const baseClass = 'group inline-flex items-center transition-all';
+
+const styleClass =
+  style === 'primary'
+    ? 'justify-center px-8 py-3.5 rounded-full bg-primary text-white dark:bg-white dark:text-black font-medium transform hover:-translate-y-1'
+    : style === 'secondary'
+      ? 'justify-center px-8 py-3.5 rounded-full bg-secondary text-primary font-medium transform hover:-translate-y-1'
+      : 'gap-2 font-semibold border-b-2 border-primary dark:border-white pb-1 hover:text-quaternary dark:hover:text-gray-300 hover:border-quaternary dark:hover:border-gray-300';
+
+const buttonClass = `${baseClass} ${styleClass}`;
+---
+
+<a class={buttonClass} href={href}>
+  <slot />
+  {
+    style === 'tertiary' && (
+      <span class="material-symbols-outlined text-xl transition-transform group-hover:translate-x-1">
+        arrow_right_alt
+      </span>
+    )
+  }
+</a>

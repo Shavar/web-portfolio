@@ -1,0 +1,85 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import SectionHeader from '@/components/molecules/SectionHeader.astro';
+import Button from '@/components/atoms/Button.astro';
+import styles from '@/data/styles.json';
+
+interface Props {
+  preheading?: string;
+  heading: string;
+  description: string;
+  heroImage?: ImageMetadata;
+  heroLayout: 'standard' | 'hero';
+}
+
+const { preheading, heading, description, heroImage, heroLayout = 'standard' } = Astro.props;
+---
+
+{
+  heroLayout === 'hero' && heroImage ? (
+    <section class="relative flex items-center overflow-hidden pb-24 pt-6" id="hero">
+      <div
+        class={`${styles.container} flex w-full flex-col-reverse items-center gap-8 md:flex-row-reverse lg:flex-row`}
+      >
+        <div class="w-full md:w-3/5">
+          <div class="max-w-xl">
+            <SectionHeader
+              headingLevel="h1"
+              preHeading="Senior Frontend Developer"
+              heading={['Shavar ', 'Sean Cox']}
+            />
+            <p class={styles.secondaryText}>
+              With over 8 years of experience, I specialize in building accessible, high-performance
+              web applications. Currently based in Toronto, I focus on delivering scalable
+              architectures and clean code that transform complex problems into effortless user
+              experiences.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-4 pt-4">
+            <Button style="primary" href="#work">
+              View Recent Work
+            </Button>
+            <Button style="secondary" href="#contact">
+              Get in Touch
+            </Button>
+          </div>
+        </div>
+        <div class="relative mb-12 flex w-2/3 justify-center md:mb-0 md:w-2/5 lg:justify-end">
+          <div class="absolute inset-0 translate-y-4 rotate-6 rounded-2xl bg-gradient-to-tr from-zinc-200 to-transparent transition-transform duration-500 group-hover:rotate-6 dark:from-zinc-800" />
+          <div class="absolute inset-0 translate-y-4 -rotate-2 rounded-2xl border-2 border-zinc-900 opacity-10 transition-opacity duration-500 group-hover:opacity-20 dark:border-white" />
+          <Image
+            src={heroImage}
+            alt="Portrait of Shavar"
+            format="webp"
+            quality={85}
+            loading="eager"
+            densities={[1, 2]}
+            class="relative h-[500px] w-full rotate-2 rounded-2xl object-cover shadow-2xl transition-all duration-700 hover:rotate-0"
+          />
+        </div>
+      </div>
+    </section>
+  ) : (
+    <section id="intro" class="relative">
+      {heroImage && (
+        <>
+          <Image
+            src={heroImage}
+            alt="Background"
+            class="absolute inset-0 -z-10 h-full w-full object-cover"
+          />
+          <div class="bg-tertiary absolute inset-0 opacity-15" />
+        </>
+      )}
+
+      <div class:list={[styles.container, { 'pt-64': heroImage }, 'pb-0']}>
+        <div class="border-border-secondary flex flex-col items-start border-b pb-12 text-left">
+          {preheading && <span class={styles.preHeading}>{preheading}</span>}
+          <h1 class={styles.heading}>{heading}</h1>
+          <p class={styles.subHeading}>{description}</p>
+        </div>
+      </div>
+    </section>
+  )
+}

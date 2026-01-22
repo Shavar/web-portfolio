@@ -1,24 +1,25 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import Button from '@/components/shared/Button.astro';
+import Button from '@/components/atoms/Button.astro';
 ---
 
 <Layout
   title="404 - Page Not Found"
   description="The page you're looking for could not be found."
   showHeader={true}
-  showFooter={true}
+  showIntro={false}
+  showFooter={false}
 >
-  <div class="flex min-h-screen items-center justify-center px-6">
+  <div class="flex min-h-[85vh] items-center justify-center px-6">
     <div class="text-center">
       <div class="mb-8">
-        <h1 class="text-primary-text text-6xl font-bold dark:text-white">404</h1>
+        <h1 class="text-6xl font-bold dark:text-white">404</h1>
         <div class="bg-primary mx-auto mt-4 h-1 w-16 rounded"></div>
       </div>
 
-      <h2 class="text-primary-text mb-4 text-2xl font-semibold dark:text-white">Page Not Found</h2>
+      <h2 class="mb-4 text-2xl font-semibold dark:text-white">Page Not Found</h2>
 
-      <p class="text-secondary-text mb-8 max-w-md text-lg dark:text-gray-300">
+      <p class="text-quaternary mb-8 max-w-md text-lg dark:text-gray-300">
         The page you're looking for doesn't exist or has been moved to a different location.
       </p>
 

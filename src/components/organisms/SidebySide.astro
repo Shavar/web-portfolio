@@ -1,0 +1,47 @@
+---
+import SectionHeader from '@/components/molecules/SectionHeader.astro';
+import classes from '@/data/styles.json';
+import Card from '@/components/atoms/Card.astro';
+---
+
+<section class="bg-secondary py-24" id="about">
+  <div class={classes.container}>
+    <div class="flex flex-col gap-8 lg:flex-row">
+      <div class="w-full lg:w-1/3">
+        <SectionHeader
+          preHeading="Customer Obsession"
+          heading={['Building for', ' real people.']}
+        />
+        <p class={classes.primaryText}>
+          It’s about the person on the other side of the screen, not just the browser. To me, code
+          is just a tool to make someone’s day a little easier. I sweat the technical details—like
+          speed and accessibility—so the user gets a smooth, frustration-free experience every time.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:w-2/3">
+        <Card
+          icon="accessibility_new"
+          title="Inclusive UI & Design"
+          description="Bridging creative vision and engineering, I translate Figma designs into pixel-perfect interfaces strictly adhering to WCAG 2.1/AODA. From semantic HTML to micro-interactions, I ensure a seamless, inclusive experience for every user on any device."
+        />
+        <Card
+          offset
+          icon="bolt"
+          title="Performance"
+          description="I optimize for the user's time by targeting Core Web Vitals to achieve high Lighthouse scores. By prioritizing the Critical Rendering Path and utilizing strategies like intelligent code-splitting and asset optimization, I engineer zero-latency experiences that build user trust."
+        />
+        <Card
+          icon="integration_instructions"
+          title="Scalable Architecture"
+          description="Features change, but the system must hold. I leverage TypeScript and modular, component-driven patterns to build robust architectures. By prioritizing type safety and preventing technical debt upfront, I create environments where teams can ship rapidly without fear of breaking production."
+        />
+        <Card
+          offset
+          icon="verified"
+          title="Engineering Excellence"
+          description="I elevate team velocity by combining mentorship with modern automation. Through rigorous code reviews, AI-enhanced workflows (GitHub Copilot), and robust CI/CD pipelines, I remove friction from the development cycle—ensuring we deliver stable, high-value software faster than ever."
+        />
+      </div>
+    </div>
+  </div>
+</section>
