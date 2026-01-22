@@ -1,3 +1,9 @@
+## [1.0.4](https://github.com/Shavar/web-portfolio/compare/v1.0.3...v1.0.4) (2026-01-22)
+
+### Bug Fixes
+
+- optimize ([545a9f6](https://github.com/Shavar/web-portfolio/commit/545a9f6a3480e075ce63e89e00c1ba9cbb18c91f))
+
 ## [1.0.3](https://github.com/Shavar/web-portfolio/compare/v1.0.2...v1.0.3) (2026-01-22)
 
 ### Bug Fixes
