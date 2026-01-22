@@ -2,6 +2,7 @@
 // Header component - responsive with burger menu using Tailwind CSS
 import type { NavigationLink, SocialLink } from '@/types';
 import Logo from '@/components/atoms/Logo.astro';
+import Icon from '@/components/atoms/Icon.astro';
 import styles from '@/data/styles.json';
 interface Props {
   links: NavigationLink[];
@@ -59,7 +60,7 @@ const currentPath = Astro.url.pathname;
                 href={social.href}
                 target={social.target}
               >
-                <i class={social.faIcon + ' text-xl'} />
+                <Icon name={social.label} class="h-5 w-5" width="20" height="20" />
               </a>
             );
           })
@@ -155,7 +156,7 @@ const currentPath = Astro.url.pathname;
                 href={social.href}
                 target={social.target}
               >
-                <i class={social.faIcon} />
+                <Icon name={social.label} class="h-8 w-8" width="32" height="32" />
               </a>
             );
           })

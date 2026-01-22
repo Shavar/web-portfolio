@@ -1,4 +1,6 @@
 ---
+import Icon from '@/components/atoms/Icon.astro';
+
 const { icon, link } = Astro.props;
 ---
 
@@ -8,5 +10,5 @@ const { icon, link } = Astro.props;
   target="_blank"
   rel="noopener noreferrer"
 >
-  <i class={`${icon} text-sm`}></i>
+  <Icon name="GitHub" class="h-4 w-4" width="16" height="16" />
 </a>
