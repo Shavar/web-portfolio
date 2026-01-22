@@ -1,3 +1,11 @@
+## [1.0.3](https://github.com/Shavar/web-portfolio/compare/v1.0.2...v1.0.3) (2026-01-22)
+
+### Bug Fixes
+
+- a11y ([b33d1c1](https://github.com/Shavar/web-portfolio/commit/b33d1c1aabaf0f88f1534272f79cb657f8d3f2a2))
+- revise content ([335cb41](https://github.com/Shavar/web-portfolio/commit/335cb410926c0703cfb58312cc7d6291a7692848))
+- safari logo ([8c77e87](https://github.com/Shavar/web-portfolio/commit/8c77e87225b08f1e94ec8cae42d5c9c1bbb7835e))
+
 ## [1.0.2](https://github.com/Shavar/web-portfolio/compare/v1.0.1...v1.0.2) (2026-01-19)
 
 ### Bug Fixes
