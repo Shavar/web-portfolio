@@ -3,21 +3,26 @@ import classes from '@/data/styles.json';
 
 interface Props {
   preHeading?: string;
-  heading: string[];
+  heading: string | string[];
   subHeading?: string;
   headingLevel?: 'h1' | 'h2' | 'h3' | 'h4';
 }
 
 const { heading, subHeading, preHeading, headingLevel = 'h2' } = Astro.props;
 const HeadingTag = headingLevel;
+const isArray = Array.isArray(heading);
 ---
 
 <>
   {preHeading && <span class={classes.preHeading}>{preHeading}</span>}
   <HeadingTag class={classes.heading}>
     {
-      heading.map((text, index) =>
-        index % 2 === 0 ? <span>{text}</span> : <span class="text-quaternary">{text}</span>
+      isArray ? (
+        heading.map((text, index) =>
+          index % 2 === 0 ? <span>{text}</span> : <span class="text-quaternary">{text}</span>
+        )
+      ) : (
+        <span>{heading}</span>
       )
     }
   </HeadingTag>
