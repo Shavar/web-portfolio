@@ -33,13 +33,12 @@ const iconMap: Record<string, string> = {
 
 // Get the actual file name
 const fileName = iconMap[normalizedName] || normalizedName;
-const iconPath = `/icons/${fileName}.svg`;
 
 // Read and inline the SVG content for styling support
 let svgContent = '';
 try {
-  const fs = await import('node:fs');
-  const path = await import('node:path');
+  const fs = await import('fs');
+  const path = await import('path');
   const filePath = path.join(process.cwd(), 'public', 'icons', `${fileName}.svg`);
   svgContent = fs.readFileSync(filePath, 'utf-8');
 
