@@ -20,14 +20,20 @@ const { socials, copyright } = Astro.props;
     id="contact"
   >
     <div class={classes.container}>
-      <div class="mx-auto mb-12 flex max-w-4xl flex-col items-center text-center">
-        <SectionHeader preHeading="Get in Touch" heading={["Let's work together"]} />
-        <p class={classes.secondaryText}>
-          Get in Touch Ready to start a project? I am available for freelance work and full-time
-          roles. If you have a project in mind or want to discuss a potential collaboration, reach
-          out via email or on LinkedIn — I'd love to hear from you.
-        </p>
-        <div class="flex flex-col items-center gap-6 pt-8">
+      <!-- Non-interactive content with content-visibility for performance -->
+      <div style="content-visibility: auto; contain-intrinsic-size: 300px;">
+        <div class="mx-auto mb-12 flex max-w-4xl flex-col items-center text-center">
+          <SectionHeader preHeading="Get in Touch" heading={["Let's work together"]} />
+          <p class={classes.secondaryText}>
+            Get in Touch Ready to start a project? I am available for freelance work and full-time
+            roles. If you have a project in mind or want to discuss a potential collaboration, reach
+            out via email or on LinkedIn — I'd love to hear from you.
+          </p>
+        </div>
+      </div>
+      <!-- Interactive elements always accessible -->
+      <div class="mx-auto flex max-w-4xl flex-col items-center">
+        <div class="flex flex-col items-center gap-6">
           <Button style="primary" href="https://www.linkedin.com/in/shavarsean/" target="_blank">
             <Icon name="LinkedIn" class="mr-3 h-6 w-6" width="24" height="24" />
             Connect on LinkedIn
