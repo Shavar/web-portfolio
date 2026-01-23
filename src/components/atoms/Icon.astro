@@ -34,24 +34,29 @@ const iconMap: Record<string, string> = {
 // Get the actual file name
 const fileName = iconMap[normalizedName] || normalizedName;
 
+// Import SVG files as raw strings using Vite
+const svgFiles = import.meta.glob('/public/icons/*.svg', { as: 'raw', eager: true });
+
 // Read and inline the SVG content for styling support
 let svgContent = '';
 try {
-  const fs = await import('fs');
-  const path = await import('path');
-  const filePath = path.join(process.cwd(), 'public', 'icons', `${fileName}.svg`);
-  svgContent = fs.readFileSync(filePath, 'utf-8');
+  const svgPath = `/public/icons/${fileName}.svg`;
+  const rawSvg = svgFiles[svgPath];
 
-  // Replace hardcoded fill colors with currentColor to support CSS text color inheritance
-  // unless preserveColors is true (for brand logos, etc.)
-  if (!preserveColors) {
-    svgContent = svgContent.replace(/fill="[^"]*"/g, 'fill="currentColor"');
+  if (rawSvg) {
+    svgContent = rawSvg;
+
+    // Replace hardcoded fill colors with currentColor to support CSS text color inheritance
+    // unless preserveColors is true (for brand logos, etc.)
+    if (!preserveColors) {
+      svgContent = svgContent.replace(/fill="[^"]*"/g, 'fill="currentColor"');
+    }
+
+    svgContent = svgContent
+      .replace(/width="[^"]*"/g, `width="${width}"`)
+      .replace(/height="[^"]*"/g, `height="${height}"`)
+      .replace(/<svg/, `<svg class="${className}"`);
   }
-
-  svgContent = svgContent
-    .replace(/width="[^"]*"/g, `width="${width}"`)
-    .replace(/height="[^"]*"/g, `height="${height}"`)
-    .replace(/<svg/, `<svg class="${className}"`);
 } catch (error) {
   console.error(`Failed to load icon: ${fileName}.svg`, error);
 }
@@ -59,7 +64,7 @@ try {
 
 {
   wrap ? (
-    <div class="mx-auto flex h-12 w-12 justify-center" set:html={svgContent} />
+    <div class="mx-auto flex h-12 w-12 items-center justify-center" set:html={svgContent} />
   ) : (
     <Fragment set:html={svgContent} />
   )
