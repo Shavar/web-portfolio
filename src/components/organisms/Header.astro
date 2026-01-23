@@ -59,6 +59,7 @@ const currentPath = Astro.url.pathname;
                 class="hover:text-quaternary transition-colors"
                 href={social.href}
                 target={social.target}
+                {...(social.target === '_blank' && { rel: 'noopener noreferrer' })}
               >
                 <Icon name={social.label} class="h-5 w-5" width="20" height="20" />
               </a>
@@ -155,6 +156,7 @@ const currentPath = Astro.url.pathname;
                 class="hover:text-quaternary text-2xl transition-colors"
                 href={social.href}
                 target={social.target}
+                {...(social.target === '_blank' && { rel: 'noopener noreferrer' })}
               >
                 <Icon name={social.label} class="h-8 w-8" width="32" height="32" />
               </a>

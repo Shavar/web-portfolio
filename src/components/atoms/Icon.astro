@@ -5,9 +5,17 @@ interface Props {
   width?: string;
   height?: string;
   wrap?: boolean;
+  preserveColors?: boolean;
 }
 
-const { name, class: className = '', width = '24', height = '24', wrap = false } = Astro.props;
+const {
+  name,
+  class: className = '',
+  width = '24',
+  height = '24',
+  wrap = false,
+  preserveColors = false,
+} = Astro.props;
 
 // Normalize the icon name to match the file name in /public/icons
 const normalizedName = name.toLowerCase().replace(/\s+/g, '');
@@ -25,31 +33,39 @@ const iconMap: Record<string, string> = {
 
 // Get the actual file name
 const fileName = iconMap[normalizedName] || normalizedName;
-const iconPath = `/icons/${fileName}.svg`;
+
+// Import SVG files as raw strings using Vite
+const svgFiles = import.meta.glob('/public/icons/*.svg', { as: 'raw', eager: true });
+
+// Read and inline the SVG content for styling support
+let svgContent = '';
+try {
+  const svgPath = `/public/icons/${fileName}.svg`;
+  const rawSvg = svgFiles[svgPath];
+
+  if (rawSvg) {
+    svgContent = rawSvg;
+
+    // Replace hardcoded fill colors with currentColor to support CSS text color inheritance
+    // unless preserveColors is true (for brand logos, etc.)
+    if (!preserveColors) {
+      svgContent = svgContent.replace(/fill="[^"]*"/g, 'fill="currentColor"');
+    }
+
+    svgContent = svgContent
+      .replace(/width="[^"]*"/g, `width="${width}"`)
+      .replace(/height="[^"]*"/g, `height="${height}"`)
+      .replace(/<svg/, `<svg class="${className}"`);
+  }
+} catch (error) {
+  console.error(`Failed to load icon: ${fileName}.svg`, error);
+}
 ---
 
 {
   wrap ? (
-    <div class="mx-auto flex h-12 w-12 justify-center">
-      <img
-        src={iconPath}
-        alt={`${name} icon`}
-        width={width}
-        height={height}
-        class={className}
-        loading="lazy"
-        decoding="async"
-      />
-    </div>
+    <div class="mx-auto flex h-12 w-12 items-center justify-center" set:html={svgContent} />
   ) : (
-    <img
-      src={iconPath}
-      alt={`${name} icon`}
-      width={width}
-      height={height}
-      class={className}
-      loading="lazy"
-      decoding="async"
-    />
+    <Fragment set:html={svgContent} />
   )
 }

@@ -37,10 +37,7 @@ const { preheading, heading, description, heroImage, heroLayout = 'standard' } =
             </p>
           </div>
           <div class="flex flex-wrap gap-4 pt-4">
-            <Button style="primary" href="#work">
-              View Recent Work
-            </Button>
-            <Button style="secondary" href="#contact">
+            <Button style="primary" anchor="contact">
               Get in Touch
             </Button>
           </div>
@@ -77,9 +74,12 @@ const { preheading, heading, description, heroImage, heroLayout = 'standard' } =
 
       <div class:list={[styles.container, { 'pt-64': heroImage }, 'pb-0']}>
         <div class="border-border-secondary flex flex-col items-start border-b pb-12 text-left">
-          {preheading && <span class={styles.preHeading}>{preheading}</span>}
-          <h1 class={styles.heading}>{heading}</h1>
-          <p class={styles.subHeading}>{description}</p>
+          <SectionHeader
+            preHeading={preheading}
+            heading={heading}
+            subHeading={description}
+            headingLevel="h1"
+          />
         </div>
       </div>
     </section>
