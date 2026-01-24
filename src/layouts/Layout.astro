@@ -78,7 +78,7 @@ const {
     <meta name="twitter:description" content={description} />
 
     <!-- Structured Data -->
-    <script type="application/ld+json">
+    <script type="application/ld+json" is:inline>
       {
         "@context": "https://schema.org",
         "@type": "Person",
@@ -196,7 +196,7 @@ const {
       document.addEventListener('DOMContentLoaded', function () {
         // Track navigation clicks (desktop and mobile)
         document.querySelectorAll('nav a, #mobile-nav a').forEach(function (link) {
-          link.addEventListener('click', function (e) {
+          link.addEventListener('click', function () {
             const linkText = this.textContent.trim();
             const linkUrl = this.getAttribute('href');
             const isMobile = this.closest('#mobile-nav') !== null;
@@ -213,7 +213,7 @@ const {
         document
           .querySelectorAll('a[aria-label*="LinkedIn"], a[aria-label*="GitHub"]')
           .forEach(function (link) {
-            link.addEventListener('click', function (e) {
+            link.addEventListener('click', function () {
               const platform = this.getAttribute('aria-label');
               const location = this.closest('header')
                 ? 'header'
@@ -233,7 +233,7 @@ const {
 
         // Track button clicks
         document.querySelectorAll('a[class*="inline-flex"]').forEach(function (button) {
-          button.addEventListener('click', function (e) {
+          button.addEventListener('click', function () {
             const buttonText = this.textContent.trim();
             const buttonUrl = this.getAttribute('href');
 
