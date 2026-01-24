@@ -1,3 +1,9 @@
+## [1.0.10](https://github.com/Shavar/web-portfolio/compare/v1.0.9...v1.0.10) (2026-01-24)
+
+### Bug Fixes
+
+- warnings ([8f80307](https://github.com/Shavar/web-portfolio/commit/8f80307ffc62ce014cb857c59283656ace6c185c))
+
 ## [1.0.9](https://github.com/Shavar/web-portfolio/compare/v1.0.8...v1.0.9) (2026-01-24)
 
 ### Bug Fixes
