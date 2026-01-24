@@ -1,3 +1,9 @@
+## [1.0.7](https://github.com/Shavar/web-portfolio/compare/v1.0.6...v1.0.7) (2026-01-24)
+
+### Bug Fixes
+
+- seo improvements ([b9363d4](https://github.com/Shavar/web-portfolio/commit/b9363d466372bd08a35cd43ac679b05329947599))
+
 ## [1.0.6](https://github.com/Shavar/web-portfolio/compare/v1.0.5...v1.0.6) (2026-01-23)
 
 ### Bug Fixes
