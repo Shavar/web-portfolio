@@ -35,7 +35,18 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="Frontend Developer Toronto, React Developer, TypeScript Developer, Senior Software Engineer, Next.js Developer, Web Development Toronto, JavaScript Developer, Frontend Engineer Canada"
+    />
+    <meta name="author" content="Shavar Cox" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Geographic targeting -->
+    <meta name="geo.region" content="CA-ON" />
+    <meta name="geo.placename" content="Toronto" />
+    <meta name="geo.position" content="43.65107;-79.347015" />
+    <meta name="ICBM" content="43.65107, -79.347015" />
 
     <!-- Performance optimizations -->
     <meta name="robots" content="index, follow" />
@@ -63,6 +74,33 @@ const {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Shavar Cox",
+        "jobTitle": "Senior Frontend Developer",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Toronto",
+          "addressRegion": "ON",
+          "addressCountry": "CA"
+        },
+        "url": "https://www.shavarcox.com",
+        "sameAs": ["https://github.com/shavar", "https://linkedin.com/in/shavarcox"],
+        "knowsAbout": [
+          "React",
+          "TypeScript",
+          "Next.js",
+          "JavaScript",
+          "Frontend Development",
+          "Web Accessibility",
+          "Web Performance"
+        ]
+      }
+    </script>
   </head>
   <body
     class="bg-tertiary font-body text-primary duration-normal reduced-motion focus-ring leading-relaxed antialiased transition-colors"
@@ -144,7 +182,6 @@ const {
 
     <!-- GTM Custom Event Tracking -->
     <script is:inline>
-      // Helper function to push events to dataLayer
       function pushGTMEvent(eventName, eventData = {}) {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({

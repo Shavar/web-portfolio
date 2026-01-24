@@ -45,17 +45,19 @@ const { preheading, heading, description, heroImage, heroLayout = 'standard' } =
         <div class="relative mb-12 flex w-2/3 justify-center md:mb-0 md:w-2/5 lg:justify-end">
           <div class="absolute inset-0 translate-y-4 rotate-6 rounded-2xl bg-gradient-to-tr from-zinc-200 to-transparent transition-transform duration-500 group-hover:rotate-6 dark:from-zinc-800" />
           <div class="absolute inset-0 translate-y-4 -rotate-2 rounded-2xl border-2 border-zinc-900 opacity-10 transition-opacity duration-500 group-hover:opacity-20 dark:border-white" />
-          <Image
-            src={heroImage}
-            alt="Portrait of Shavar"
-            format="webp"
-            quality={80}
-            loading="eager"
-            fetchpriority="high"
-            widths={[400, 600, 800]}
-            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 40vw, 633px"
-            class="relative h-[500px] w-full rotate-2 rounded-2xl object-cover shadow-2xl transition-all duration-700 hover:rotate-0"
-          />
+          <div class="relative aspect-[4/5] w-full">
+            <Image
+              src={heroImage}
+              alt="Portrait of Shavar"
+              format="webp"
+              quality={80}
+              loading="eager"
+              fetchpriority="high"
+              widths={[400, 600, 800]}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 40vw, 633px"
+              class="h-full w-full rotate-2 rounded-2xl object-cover shadow-2xl transition-all duration-700 hover:rotate-0"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -73,7 +75,7 @@ const { preheading, heading, description, heroImage, heroLayout = 'standard' } =
       )}
 
       <div class:list={[styles.container, { 'pt-64': heroImage }, 'pb-0']}>
-        <div class="border-border-secondary flex flex-col items-start border-b pb-12 text-left">
+        <div class="border-border-secondary flex flex-col items-start border-b pb-6 text-left md:pb-12">
           <SectionHeader
             preHeading={preheading}
             heading={heading}

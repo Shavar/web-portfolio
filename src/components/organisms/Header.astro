@@ -39,7 +39,7 @@ const currentPath = Astro.url.pathname;
           return (
             <a
               href={link.href}
-              class={`hover:bg-quaternary hover:text-tertiary rounded-full px-4 py-1.5 text-sm font-medium transition hover:-translate-y-1 ${isActive ? ' bg-primary text-tertiary' : ' bg-transparent'}`}
+              class={`hover:bg-quaternary hover:text-tertiary rounded-full px-4 py-1.5 text-sm font-medium transition ${isActive ? ' bg-primary text-tertiary' : ' bg-transparent'}`}
               target={link.target}
             >
               {link.label}
