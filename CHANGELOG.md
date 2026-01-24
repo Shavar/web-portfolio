@@ -1,3 +1,9 @@
+## [1.0.9](https://github.com/Shavar/web-portfolio/compare/v1.0.8...v1.0.9) (2026-01-24)
+
+### Bug Fixes
+
+- page titie ([47ac7d0](https://github.com/Shavar/web-portfolio/commit/47ac7d0df1129ced2fb441e578527c46fa055e50))
+
 ## [1.0.8](https://github.com/Shavar/web-portfolio/compare/v1.0.7...v1.0.8) (2026-01-24)
 
 ### Bug Fixes
