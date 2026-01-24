@@ -1,3 +1,9 @@
+## [1.0.8](https://github.com/Shavar/web-portfolio/compare/v1.0.7...v1.0.8) (2026-01-24)
+
+### Bug Fixes
+
+- react icon ([b07c508](https://github.com/Shavar/web-portfolio/commit/b07c50846a65041a79a6a07211dab825360f0bbb))
+
 ## [1.0.7](https://github.com/Shavar/web-portfolio/compare/v1.0.6...v1.0.7) (2026-01-24)
 
 ### Bug Fixes
