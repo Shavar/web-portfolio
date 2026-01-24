@@ -78,7 +78,7 @@ const {
     <meta name="twitter:description" content={description} />
 
     <!-- Structured Data -->
-    <script type="application/ld+json">
+    <script type="application/ld+json" is:inline>
       {
         "@context": "https://schema.org",
         "@type": "Person",
@@ -233,7 +233,7 @@ const {
 
         // Track button clicks
         document.querySelectorAll('a[class*="inline-flex"]').forEach(function (button) {
-          button.addEventListener('click', function (e) {
+          button.addEventListener('click', function () {
             const buttonText = this.textContent.trim();
             const buttonUrl = this.getAttribute('href');
 
