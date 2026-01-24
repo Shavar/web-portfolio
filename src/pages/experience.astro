@@ -7,14 +7,14 @@ import styles from '@/data/styles.json';
 
 const pagePayload = {
   preHeading: "Hi, I'm Sean",
-  title: 'Experience',
+  title: 'Professional Experience',
   description:
-    "A chronological overview of my professional career, the roles I've held, and the technical expertise I've cultivated along the way.",
+    '8+ years of frontend development experience at leading companies. View my career progression, technical skills, and education in React, TypeScript, and Next.js.',
 };
 ---
 
 <Layout {...pagePayload}>
-  <section class={`${styles.container} py-16`}>
+  <section class={`${styles.container} py-10 md:py-12`}>
     <ExperienceComponent title="Work History" experiences={experiences} />
     <ExperienceComponent title="Education" experiences={education} />
   </section>
