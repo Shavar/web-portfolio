@@ -56,25 +56,12 @@ const {
 
     <!-- Resource hints for better performance -->
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>
       {title === 'Shavar Cox | Senior Frontend Developer' ? title : title + ' | Shavar Cox'}
     </title>
-
-    <!-- Google Tag Manager -->
-    <script is:inline>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, 'script', 'dataLayer', 'GTM-M2LNZR54');
-    </script>
 
     <!-- Preload critical local fonts for optimal performance -->
     <link rel="preload" href="/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin />
@@ -159,6 +146,44 @@ const {
     </main>
 
     {showFooter && <Footer copyright={globalData.footer.copyright} socials={globalData.socials} />}
+
+    <!-- Google Tag Manager - Lazy loaded for optimal CWV -->
+    <script is:inline>
+      // Initialize dataLayer immediately
+      window.dataLayer = window.dataLayer || [];
+
+      let gtmLoaded = false;
+
+      function loadGTM() {
+        if (gtmLoaded) return;
+        gtmLoaded = true;
+
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || [];
+          w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+          j.async = true;
+          j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+          f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-M2LNZR54');
+      }
+
+      // Load on first user interaction for better CWV
+      const events = ['scroll', 'click', 'touchstart', 'mousemove', 'keydown'];
+      const loadOnInteraction = () => {
+        events.forEach((event) => document.removeEventListener(event, loadOnInteraction));
+        loadGTM();
+      };
+
+      events.forEach((event) =>
+        document.addEventListener(event, loadOnInteraction, { once: true, passive: true })
+      );
+
+      // Shorter timeout (1.5s) to ensure tracking works while maintaining good CWV
+      setTimeout(loadGTM, 1500);
+    </script>
 
     <!-- GTM Custom Event Tracking -->
     <script is:inline>
