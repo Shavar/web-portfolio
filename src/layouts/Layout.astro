@@ -159,5 +159,120 @@ const {
     </main>
 
     {showFooter && <Footer copyright={globalData.footer.copyright} socials={globalData.socials} />}
+
+    <!-- GTM Custom Event Tracking -->
+    <script is:inline>
+      function pushGTMEvent(eventName, eventData = {}) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: eventName,
+          ...eventData,
+        });
+      }
+
+      // Wait for DOM to be ready
+      document.addEventListener('DOMContentLoaded', function () {
+        // Track navigation clicks (desktop and mobile)
+        document.querySelectorAll('nav a, #mobile-nav a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            const linkText = this.textContent.trim();
+            const linkUrl = this.getAttribute('href');
+            const isMobile = this.closest('#mobile-nav') !== null;
+
+            pushGTMEvent('navigation_click', {
+              link_text: linkText,
+              link_url: linkUrl,
+              navigation_type: isMobile ? 'mobile' : 'desktop',
+            });
+          });
+        });
+
+        // Track social media clicks
+        document
+          .querySelectorAll('a[aria-label*="LinkedIn"], a[aria-label*="GitHub"]')
+          .forEach(function (link) {
+            link.addEventListener('click', function () {
+              const platform = this.getAttribute('aria-label');
+              const location = this.closest('header')
+                ? 'header'
+                : this.closest('footer')
+                  ? 'footer'
+                  : this.closest('#mobile-nav')
+                    ? 'mobile_menu'
+                    : 'unknown';
+
+              pushGTMEvent('social_click', {
+                social_platform: platform,
+                location: location,
+                link_url: this.href,
+              });
+            });
+          });
+
+        // Track button clicks
+        document.querySelectorAll('a[class*="inline-flex"]').forEach(function (button) {
+          button.addEventListener('click', function () {
+            const buttonText = this.textContent.trim();
+            const buttonUrl = this.getAttribute('href');
+
+            pushGTMEvent('button_click', {
+              button_text: buttonText,
+              button_url: buttonUrl,
+            });
+          });
+        });
+
+        // Track external link clicks
+        document.querySelectorAll('a[target="_blank"]').forEach(function (link) {
+          link.addEventListener('click', function () {
+            const linkText = this.textContent.trim();
+            const linkUrl = this.href;
+
+            pushGTMEvent('external_link_click', {
+              link_text: linkText,
+              link_url: linkUrl,
+            });
+          });
+        });
+
+        // Track mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        if (mobileMenuBtn) {
+          mobileMenuBtn.addEventListener('click', function () {
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+            pushGTMEvent('mobile_menu_toggle', {
+              action: isExpanded ? 'close' : 'open',
+            });
+          });
+        }
+
+        // Track scroll depth (25%, 50%, 75%, 100%)
+        let scrollMarks = { 25: false, 50: false, 75: false, 100: false };
+        let scrollTimeout;
+        window.addEventListener(
+          'scroll',
+          function () {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(function () {
+              const scrollPercent = Math.round(
+                (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) *
+                  100
+              );
+
+              [25, 50, 75, 100].forEach(function (mark) {
+                if (scrollPercent >= mark && !scrollMarks[mark]) {
+                  scrollMarks[mark] = true;
+                  pushGTMEvent('scroll_depth', {
+                    scroll_percentage: mark,
+                  });
+                }
+              });
+            }, 100);
+          },
+          { passive: true }
+        );
+      });
+    </script>
   </body>
 </html>
