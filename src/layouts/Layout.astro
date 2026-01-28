@@ -272,28 +272,34 @@ const {
           });
         }
 
-        // Track scroll depth (25%, 50%, 75%, 100%)
+        // Track scroll depth (25%, 50%, 75%, 100%) - Optimized to prevent forced reflow
         let scrollMarks = { 25: false, 50: false, 75: false, 100: false };
-        let scrollTimeout;
+        let ticking = false;
+
+        function checkScrollDepth() {
+          const scrollPercent = Math.round(
+            (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
+          );
+
+          [25, 50, 75, 100].forEach(function (mark) {
+            if (scrollPercent >= mark && !scrollMarks[mark]) {
+              scrollMarks[mark] = true;
+              pushGTMEvent('scroll_depth', {
+                scroll_percentage: mark,
+              });
+            }
+          });
+
+          ticking = false;
+        }
+
         window.addEventListener(
           'scroll',
           function () {
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(function () {
-              const scrollPercent = Math.round(
-                (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) *
-                  100
-              );
-
-              [25, 50, 75, 100].forEach(function (mark) {
-                if (scrollPercent >= mark && !scrollMarks[mark]) {
-                  scrollMarks[mark] = true;
-                  pushGTMEvent('scroll_depth', {
-                    scroll_percentage: mark,
-                  });
-                }
-              });
-            }, 100);
+            if (!ticking) {
+              requestAnimationFrame(checkScrollDepth);
+              ticking = true;
+            }
           },
           { passive: true }
         );
