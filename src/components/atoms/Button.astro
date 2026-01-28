@@ -11,7 +11,7 @@ interface Props {
 
 const { style, href, anchor, target = '_self' } = Astro.props;
 
-const baseClass = 'group inline-flex items-center transition-all';
+const baseClass = 'group inline-flex items-center transition-all hover:cursor-pointer';
 
 const styleClass =
   style === 'primary'

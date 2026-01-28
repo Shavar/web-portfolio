@@ -62,6 +62,20 @@ const {
       {title === 'Shavar Cox | Senior Frontend Developer' ? title : title + ' | Shavar Cox'}
     </title>
 
+    <!-- Google Tag Manager -->
+    <script is:inline>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-M2LNZR54');
+    </script>
+
     <!-- Preload critical local fonts for optimal performance -->
     <link rel="preload" href="/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin />
@@ -145,42 +159,6 @@ const {
     </main>
 
     {showFooter && <Footer copyright={globalData.footer.copyright} socials={globalData.socials} />}
-
-    <!-- Google Tag Manager - Deferred for Performance (loads on user interaction) -->
-    <script is:inline>
-      // Defer GTM loading until user interaction for optimal performance
-      let gtmLoaded = false;
-
-      function loadGTM() {
-        if (gtmLoaded) return;
-        gtmLoaded = true;
-
-        (function (w, d, s, l, i) {
-          w[l] = w[l] || [];
-          w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-          var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s),
-            dl = l != 'dataLayer' ? '&l=' + l : '';
-          j.async = true;
-          j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-          f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-M2LNZR54');
-      }
-
-      // Load GTM on first user interaction or after 3 seconds (whichever comes first)
-      const events = ['scroll', 'click', 'touchstart', 'mousemove', 'keydown'];
-      const loadOnInteraction = () => {
-        events.forEach((event) => document.removeEventListener(event, loadOnInteraction));
-        loadGTM();
-      };
-
-      events.forEach((event) =>
-        document.addEventListener(event, loadOnInteraction, { once: true, passive: true })
-      );
-
-      // Fallback: load after 3 seconds if no interaction
-      setTimeout(loadGTM, 3000);
-    </script>
 
     <!-- GTM Custom Event Tracking -->
     <script is:inline>
